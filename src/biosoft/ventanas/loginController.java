@@ -1,5 +1,6 @@
 package biosoft.ventanas;
 
+import biosoft.BaseDatos.ControladorBaseDatosFx;
 import biosoft.Biosoft;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -14,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -23,8 +25,12 @@ import javafx.stage.StageStyle;
  *
  * @author Wayne
  */
-public class loginController {
-
+public class loginController extends ControladorBaseDatosFx {
+    @FXML
+    private TextField usuario;
+    @FXML
+    private TextField contrasena;
+    
     private Biosoft app;
     @FXML
     private Button loginboton;
@@ -40,8 +46,13 @@ public class loginController {
 
     //Apretar boton Login
     @FXML
-    private void apretarLogin(ActionEvent event) throws IOException, Exception {
+    private void apretarLogin(javafx.event.ActionEvent event) throws IOException, Exception {
+        ControladorBaseDatosFx control = new ControladorBaseDatosFx();
         System.out.println("Login presionado!");
+        
+        if(control.login(usuario.getText(), contrasena.getText())==1){
+            System.out.println("Abrir Ventana de ROOT");
+        }else{
         try {
             //Cierro la ventana de login
             ((Node) (event.getSource())).getScene().getWindow().hide();
@@ -100,7 +111,7 @@ public class loginController {
         }
 
     }
-
+    }
     //Apretar boton salir
     @FXML
     private void apretarSalir(ActionEvent event) {

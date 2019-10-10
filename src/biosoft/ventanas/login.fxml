@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.loginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.loginController">
    <children>
       <AnchorPane prefHeight="35.0" prefWidth="750.0" style="-fx-background-color: #757575;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -58,8 +58,8 @@
                         <Font name="Arial Black" size="16.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="26.0" prefWidth="207.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                  <TextField prefHeight="26.0" prefWidth="207.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <TextField fx:id="usuario" prefHeight="26.0" prefWidth="207.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <TextField fx:id="contrasena" prefHeight="26.0" prefWidth="207.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                   <ImageView pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <image>
                         <Image url="@../images/user.png" />

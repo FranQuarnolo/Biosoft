@@ -52,7 +52,7 @@ public class ControladorBaseDatosFx {
             int resultado = 0;
             try {
                 Statement st = conexion.createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM persona WHERE dni='" + usuario + "' AND contrasena='" + contrasena + "'");
+                ResultSet rs = st.executeQuery("SELECT * FROM usuarios WHERE usuario='" + usuario + "' AND contrasena='" + contrasena + "'");
                 if (rs.next()) {
                     resultado = 1;
                 } else {
