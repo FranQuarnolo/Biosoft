@@ -81,7 +81,7 @@ public class loginController {
                         Stage stage2 = new Stage();
 
                         stage2.initModality(Modality.APPLICATION_MODAL);
-                        stage2.initStyle(StageStyle.UNDECORATED);
+
                         stage2.getIcons().add(new Image("file:biosoft/images/load.png"));
                         stage2.setTitle("Pricing");
                         stage2.setScene(new Scene(root2));
