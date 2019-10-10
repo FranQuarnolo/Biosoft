@@ -1,4 +1,4 @@
-package proyectobiosoft.BaseDatos;
+package biosoft.BaseDatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
