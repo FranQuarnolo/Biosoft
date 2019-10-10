@@ -16,7 +16,7 @@ import javafx.stage.StageStyle;
  * @author Wayne
  */
 public class Biosoft extends Application {
-    
+    /////
     private Stage ventana;
     public Biosoft(){
     }
