@@ -31,6 +31,7 @@ public class Biosoft extends Application {
         //ABRE LA APP
         mostrarLogin();
         System.out.println("Login abierto correctamente!");
+        System.out.println("Bienvenido");
     }
 
     public void mostrarLogin() {
@@ -54,6 +55,9 @@ public class Biosoft extends Application {
              e.printStackTrace();
         }
     }
+    
+    
+    
     
     public void esperar() throws InterruptedException{
         Thread.sleep(900);
