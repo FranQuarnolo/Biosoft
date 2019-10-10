@@ -21,6 +21,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -53,7 +54,12 @@ public class loginController extends ControladorBaseDatosFx {
         
         if(control.login(usuario.getText(), contrasena.getText())==1){
             System.out.println("Abrir Ventana de ROOT");
-        }else{
+        }
+         //Si el usuario no ingresa nada
+        if (usuario.getText().equals("") && contrasena.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese algun usuario o contraseña por favor");
+            System.out.println("Ingresar usuario y contraseña");}
+        else{
         try {
             //Cierro la ventana de login
             ((Node) (event.getSource())).getScene().getWindow().hide();
