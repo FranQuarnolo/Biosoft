@@ -65,9 +65,10 @@ public class loginController extends ControladorBaseDatosFx {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initStyle(StageStyle.UNDECORATED);
             stage.getIcons().add(new Image("file:images/load.png"));
-            
+
             stage.setTitle("Cargando...");
             stage.setScene(new Scene(root1));
+
             stage.show();
 
             Task<Void> sleeper = new Task<Void>() {
@@ -83,7 +84,7 @@ public class loginController extends ControladorBaseDatosFx {
             sleeper.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
                 @Override
                 public void handle(WorkerStateEvent event) {
-                   stage.hide();
+                    stage.hide();
                     try {
                         System.out.println("Ya espere");
                         //Cargo el fxml de la ventana de carga
@@ -97,8 +98,7 @@ public class loginController extends ControladorBaseDatosFx {
                         stage2.setTitle("Pricing");
                         stage2.setScene(new Scene(root2));
                         stage2.show();
-              
-                        
+
                     } catch (IOException ex) {
                         Logger.getLogger(loginController.class.getName()).log(Level.SEVERE, null, ex);
                     }
