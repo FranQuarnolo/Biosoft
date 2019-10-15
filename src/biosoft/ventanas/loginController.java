@@ -53,7 +53,7 @@ public class loginController extends ControladorBaseDatosFx {
         System.out.println("Login presionado!");
         
         if(control.login(usuario.getText(), contrasena.getText())==1){
-      
+            
         }
          //Si el usuario no ingresa nada
         if (usuario.getText().equals("") && contrasena.getText().equals("")) {
