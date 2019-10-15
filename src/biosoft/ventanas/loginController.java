@@ -53,12 +53,23 @@ public class loginController extends ControladorBaseDatosFx {
         System.out.println("Login presionado!");
         
         if(control.login(usuario.getText(), contrasena.getText())==1){
+            //Que es esto???
             System.out.println("Abrir Ventana de ROOT");
         }
          //Si el usuario no ingresa nada
         if (usuario.getText().equals("") && contrasena.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Ingrese algun usuario o contraseña por favor");
-            System.out.println("Ingresar usuario y contraseña");}
+            FXMLLoader FXMLLoader = new FXMLLoader(getClass().getResource("noIngresaNada.fxml"));
+            Parent root4 = (Parent) FXMLLoader.load();
+            Stage stage4 = new Stage();
+
+            stage4.initModality(Modality.APPLICATION_MODAL);
+            stage4.initStyle(StageStyle.UNDECORATED);
+
+            stage4.setTitle("Precaucion...");
+            stage4.setScene(new Scene(root4));
+
+            stage4.show();
+            System.out.println("Ingresar usuario y contraseña por favor");}
         else{
         try {
             //Cierro la ventana de login

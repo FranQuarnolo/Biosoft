@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="218.0" prefWidth="447.0" style="-fx-background-color: #757575;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.UserDenegadoController">
+<AnchorPane id="AnchorPane" prefHeight="218.0" prefWidth="447.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.userDenegadoController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="441.0" style="-fx-background-color: #404f70;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <AnchorPane prefHeight="200.0" prefWidth="441.0" style="-fx-background-color: #2F4F4F;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <children>
             <ImageView fitHeight="54.0" fitWidth="53.0" layoutX="15.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -22,7 +22,7 @@
                   <Font name="Arial Black" size="16.0" />
                </font>
             </Text>
-            <Button cancelButton="true" defaultButton="true" layoutX="159.0" layoutY="162.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #5c86a4;" />
+            <Button fx:id="btnaceptar" cancelButton="true" defaultButton="true" layoutX="159.0" layoutY="162.0" mnemonicParsing="false" onAction="#apretarAceptar" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #757575;" />
             <Label layoutX="185.0" layoutY="168.0" mouseTransparent="true" text="Aceptar" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
