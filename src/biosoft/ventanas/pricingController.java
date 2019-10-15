@@ -5,6 +5,7 @@
  */
 package biosoft.ventanas;
 
+import biosoft.Biosoft;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,9 +13,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -23,12 +26,11 @@ import javafx.stage.StageStyle;
  *
  * @author Wayne
  */
-public class pricingController  {
+public class pricingController {
 
     public pricingController() {
     }
 
-    
     //Declaro botones
     @FXML
     private Button btnstock;
@@ -47,7 +49,7 @@ public class pricingController  {
 
     //Metodo para mostrar la ventana de acceso denegado
     public void accesoDenegado(ActionEvent event) throws IOException {
-        
+
         System.out.println("Acceso Denegado!!");
         //Cargo el fxml de la ventana de carga
         FXMLLoader FXMLLoader = new FXMLLoader(getClass().getResource("userDenegado.fxml"));
@@ -66,44 +68,54 @@ public class pricingController  {
         pricingController cn = new pricingController();
         cn.accesoDenegado(event);
     }
-    
+
     @FXML
     private void apretarBookin(ActionEvent event) throws IOException {
         pricingController cn = new pricingController();
         cn.accesoDenegado(event);
     }
-    
+
     @FXML
     private void apretarFinance(ActionEvent event) throws IOException {
         pricingController cn = new pricingController();
         cn.accesoDenegado(event);
     }
-    
+
     @FXML
     private void apretarCobranza(ActionEvent event) throws IOException {
         pricingController cn = new pricingController();
         cn.accesoDenegado(event);
     }
-    
+
     @FXML
     private void apretarPagos(ActionEvent event) throws IOException {
         pricingController cn = new pricingController();
         cn.accesoDenegado(event);
     }
-    
+
     @FXML
     private void apretarContabilidad(ActionEvent event) throws IOException {
         pricingController cn = new pricingController();
         cn.accesoDenegado(event);
     }
-    
+
     @FXML
     private void apretarCrm(ActionEvent event) throws IOException {
         pricingController cn = new pricingController();
         cn.accesoDenegado(event);
     }
-    
 
-   
+    @FXML
+    private void apretarCancelar(ActionEvent event) throws IOException {
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+        Parent root5 = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene scene = new Scene(root5);
+        
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow(); 
+        appStage.setScene(scene);   
+//      appStage.toFront().;
+        appStage.show();
+         
+    }
 
 }

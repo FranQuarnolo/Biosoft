@@ -21,7 +21,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -82,7 +82,10 @@ public class loginController extends ControladorBaseDatosFx {
 
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initStyle(StageStyle.UNDECORATED);
+            stage.getIcons().add(new Image("file:load.png"));
             stage.getIcons().add(new Image("file:images/load.png"));
+
+            
 
             stage.setTitle("Cargando...");
             stage.setScene(new Scene(root1));

@@ -18,7 +18,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.pricingController">
    <children>
-      <AnchorPane prefHeight="35.0" prefWidth="750.0" style="-fx-background-color: #778899;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefHeight="35.0" prefWidth="750.0" style="-fx-background-color: #2F4F4F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="btnstock" layoutX="72.0" layoutY="1.0" mnemonicParsing="false" onAction="#apretarStock" prefHeight="35.0" prefWidth="69.0" style="-fx-background-color: #5c86a4;" AnchorPane.topAnchor="1.0">
                <padding>
@@ -246,7 +246,7 @@
                   </Label>
                </children>
             </GridPane>
-            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="350.0" layoutY="371.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="95.0" style="-fx-background-color: #757575; -fx-background-radius: 7;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="305.0">
+            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="350.0" layoutY="371.0" mnemonicParsing="false" onAction="#apretarCancelar" prefHeight="35.0" prefWidth="95.0" style="-fx-background-color: #757575; -fx-background-radius: 7;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="305.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>

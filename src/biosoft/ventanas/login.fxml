@@ -15,7 +15,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="650.0" style="-fx-border-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.loginController">
    <children>
-      <AnchorPane prefHeight="35.0" prefWidth="750.0" style="-fx-background-color: #778899;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane prefHeight="35.0" prefWidth="750.0" style="-fx-background-color: #2F4F4F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Button cancelButton="true" layoutX="539.0" layoutY="4.0" minWidth="39.0" mnemonicParsing="false" onAction="#apretarSalir" prefHeight="26.0" prefWidth="62.0" style="-fx-background-color: #757575; -fx-border-color: #ffffff; -fx-background-radius: 50; -fx-border-radius: 50;" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="4.0" />
             <Label layoutX="597.0" layoutY="10.0" mouseTransparent="true" prefHeight="15.0" prefWidth="30.0" text="Salir" textFill="WHITE" AnchorPane.leftAnchor="595.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="10.0">
@@ -69,7 +69,7 @@
                         <Image url="@../images/key.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="loginboton" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#apretarLogin" prefHeight="32.0" prefWidth="136.0" style="-fx-background-color: #008000; -fx-background-radius: 15;" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+                  <Button fx:id="loginboton" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#apretarLogin" prefHeight="32.0" prefWidth="136.0" style="-fx-background-color: #006400; -fx-background-radius: 15;" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
