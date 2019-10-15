@@ -54,17 +54,17 @@ public class loginController extends ControladorBaseDatosFx {
         
         if(control.login(usuario.getText(), contrasena.getText())==1){
             
-            FXMLLoader FXMLLoader = new FXMLLoader(getClass().getResource("adminPrincipal.fxml"));
-            Parent root6 = (Parent) FXMLLoader.load();
-            Stage stage6 = new Stage();
-
-            stage6.initModality(Modality.APPLICATION_MODAL);
-            stage6.initStyle(StageStyle.UNDECORATED);
-
-            stage6.setTitle("Precaucion...");
-            stage6.setScene(new Scene(root6));
-
-            stage6.show();
+//            FXMLLoader FXMLLoader = new FXMLLoader(getClass().getResource("adminPrincipal.fxml"));
+//            Parent root6 = (Parent) FXMLLoader.load();
+//            Stage stage6 = new Stage();
+//
+//            stage6.initModality(Modality.APPLICATION_MODAL);
+//            stage6.initStyle(StageStyle.UNDECORATED);
+//
+//            stage6.setTitle("Administrador");
+//            stage6.setScene(new Scene(root6));
+//
+//            stage6.show();
         }
          //Si el usuario no ingresa nada
         if (usuario.getText().equals("") && contrasena.getText().equals("")) {
