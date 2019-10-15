@@ -53,8 +53,7 @@ public class loginController extends ControladorBaseDatosFx {
         System.out.println("Login presionado!");
         
         if(control.login(usuario.getText(), contrasena.getText())==1){
-            //Que es esto???
-            System.out.println("Abrir Ventana de ROOT");
+      
         }
          //Si el usuario no ingresa nada
         if (usuario.getText().equals("") && contrasena.getText().equals("")) {
@@ -96,7 +95,7 @@ public class loginController extends ControladorBaseDatosFx {
                 @Override
                 protected Void call() throws Exception {
                     try {
-                        Thread.sleep(7000);
+                        Thread.sleep(2000);
                     } catch (InterruptedException e) {
                     }
                     return null;

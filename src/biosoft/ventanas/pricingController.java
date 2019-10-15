@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -55,11 +56,10 @@ public class pricingController {
         FXMLLoader FXMLLoader = new FXMLLoader(getClass().getResource("userDenegado.fxml"));
         Parent root3 = (Parent) FXMLLoader.load();
         Stage stage3 = new Stage();
-
         stage3.initStyle(StageStyle.UNDECORATED);
+        stage3.centerOnScreen();
         stage3.setTitle("Acceso Denegado!");
         stage3.setScene(new Scene(root3));
-
         stage3.show();
     }
 
@@ -110,7 +110,6 @@ public class pricingController {
         ((Node) (event.getSource())).getScene().getWindow().hide();
         Parent root5 = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene scene = new Scene(root5);
-        
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow(); 
         appStage.setScene(scene);   
 //      appStage.toFront().;

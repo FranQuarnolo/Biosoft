@@ -246,17 +246,17 @@
                   </Label>
                </children>
             </GridPane>
-            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="350.0" layoutY="371.0" mnemonicParsing="false" onAction="#apretarCancelar" prefHeight="35.0" prefWidth="95.0" style="-fx-background-color: #757575; -fx-background-radius: 7;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="305.0">
+            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="350.0" layoutY="371.0" mnemonicParsing="false" onAction="#apretarCancelar" prefHeight="35.0" prefWidth="95.0" style="-fx-background-color: #757575; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-color: #000000;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="305.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="464.0" layoutY="371.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #778899; -fx-background-radius: 7;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="140.0">
+            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="464.0" layoutY="371.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #778899; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-color: #000000;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="140.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="627.0" layoutY="371.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="107.0" style="-fx-background-color: #008000; -fx-background-radius: 7;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="15.0">
+            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="627.0" layoutY="371.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="107.0" style="-fx-background-color: #008000; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-color: #000000;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="15.0">
                <font>
                   <Font name="Arial Black" size="13.0" />
                </font>
