@@ -1,9 +1,13 @@
 package biosoft.ventanas;
 
+import biosoft.BaseDatos.ControladorBaseDatosFx;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,12 +19,19 @@ import javafx.stage.StageStyle;
  *
  * @author Wayne
  */
-public class pricingController {
+public class pricingController implements Initializable {
 
     public pricingController() {
     }
 
-
+     @Override
+    public void initialize(URL url, ResourceBundle rb) {
+       ControladorBaseDatosFx ct = new ControladorBaseDatosFx();
+       
+       
+       
+    }
+    
     //Metodo para mostrar la ventana de acceso denegado
     public void accesoDenegado(ActionEvent event) throws IOException {
 
@@ -35,7 +46,27 @@ public class pricingController {
         stage3.setScene(new Scene(root3));
         stage3.show();
     }
-
+    
+    //Metodo para limpiar registros
+     private void limpiar() {
+//        tOrigen.setText("");
+//        tDestino.setText("");
+//        tTipoNota.setText("");
+//        tNota.setText("");
+//        tCantidadKm.setText("");
+//        tIdVehiculo.setText("");
+//        tDniChofer.setText("");
+//        sHoraSalida.setText("");
+//        sHoraRegreso.setText("");
+//        sImporte.setText("");
+//        ControladorBaseDatosFx ct = new ControladorBaseDatosFx();
+//        int valor = ct.obtenerUltimoId();
+//        numero.setText(Integer.toString(valor));
+    }
+    
+     
+     
+     
     //Pestañas
     @FXML
     private void apretarStock(ActionEvent event) throws IOException {
@@ -86,20 +117,18 @@ public class pricingController {
         //CHARLARRR
         //!!!
     }
-    
-    
-    
-    
+    //Boton Cancelar
     @FXML
     private void apretarCancelar(ActionEvent event) throws IOException {
-        ((Node) (event.getSource())).getScene().getWindow().hide();
-        Parent root5 = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene scene = new Scene(root5);
-        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow(); 
-        appStage.setScene(scene);   
-//      appStage.toFront().;
-        appStage.show();
+//        ((Node) (event.getSource())).getScene().getWindow().hide();
+//        Parent root5 = FXMLLoader.load(getClass().getResource("login.fxml"));
+//        Scene scene = new Scene(root5);
+//        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow(); 
+//        appStage.setScene(scene);   
+//        appStage.toFront();
+//        appStage.show();
          
     }
+    
 
 }
