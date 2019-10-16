@@ -13,7 +13,7 @@
          <children>
             <ImageView fitHeight="36.0" fitWidth="60.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/Logo.jpg" />
+                  <Image url="@../images/Logo.png" />
                </image>
             </ImageView>
             <Label layoutX="755.0" layoutY="10.0" prefHeight="20.0" prefWidth="60.0" text="BIOSOFT" textFill="WHITE" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="10.0">
