@@ -11,11 +11,14 @@ public class DetalleVenta {
     private String origenMercaderia;
     private String lugarEntrega;
     private String plazoPago;
+    private float monto;
     private boolean clienteImportante;
     private boolean DEV_Bidones;
     private boolean contratoDeAprov;
 
-    public DetalleVenta(int idDetalleVenta, int idProducto, int idVenta, int cantidad, int tiempoEntrega, String origenMercaderia, String lugarEntrega, String plazoPago, boolean clienteImportante, boolean DEV_Bidones, boolean contratoDeAprov) {
+    public DetalleVenta(int idDetalleVenta, int idProducto, int idVenta, int cantidad,
+            int tiempoEntrega, String origenMercaderia, String lugarEntrega, String plazoPago, 
+            boolean clienteImportante, boolean DEV_Bidones, boolean contratoDeAprov, float monto) {
         this.idDetalleVenta = idDetalleVenta;
         this.idProducto = idProducto;
         this.idVenta = idVenta;
@@ -27,6 +30,7 @@ public class DetalleVenta {
         this.clienteImportante = clienteImportante;
         this.DEV_Bidones = DEV_Bidones;
         this.contratoDeAprov = contratoDeAprov;
+        this.monto = monto;
     }
 
     public int getIdDetalleVenta() {
@@ -115,6 +119,14 @@ public class DetalleVenta {
 
     public void setContratoDeAprov(boolean contratoDeAprov) {
         this.contratoDeAprov = contratoDeAprov;
+    }
+
+    public float getMonto() {
+        return monto;
+    }
+
+    public void setMonto(float monto) {
+        this.monto = monto;
     }
     
     
