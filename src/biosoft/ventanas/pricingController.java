@@ -11,6 +11,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -21,6 +24,42 @@ import javafx.stage.StageStyle;
  */
 public class pricingController implements Initializable {
 
+    @FXML
+    private CheckBox clienteImportante;
+
+    @FXML
+    private CheckBox DEV_Bidones;
+
+    @FXML
+    private CheckBox contratoDeAprov;
+
+    @FXML
+    private ComboBox<?> tipoProducto;
+
+    @FXML
+    private ComboBox<?> nombre;
+
+    @FXML
+    private ComboBox<?> origenMercaderia;
+
+    @FXML
+    private ComboBox<?> plazoPago;
+
+    @FXML
+    private ComboBox<?> cantidad;
+
+    @FXML
+    private ComboBox<?> tiempoEntrega;
+
+    @FXML
+    private ComboBox<?> lugarEntrega;
+
+    @FXML
+    private Label precioAnterior;
+
+    @FXML
+    private Label monto;
+    
     public pricingController() {
     }
 
@@ -49,19 +88,20 @@ public class pricingController implements Initializable {
     
     //Metodo para limpiar registros
      private void limpiar() {
-//        tOrigen.setText("");
-//        tDestino.setText("");
-//        tTipoNota.setText("");
-//        tNota.setText("");
-//        tCantidadKm.setText("");
-//        tIdVehiculo.setText("");
-//        tDniChofer.setText("");
-//        sHoraSalida.setText("");
-//        sHoraRegreso.setText("");
-//        sImporte.setText("");
-//        ControladorBaseDatosFx ct = new ControladorBaseDatosFx();
-//        int valor = ct.obtenerUltimoId();
-//        numero.setText(Integer.toString(valor));
+        clienteImportante.setSelected(false);
+        DEV_Bidones.setSelected(false);
+        contratoDeAprov.setSelected(false);
+         
+        tipoProducto.setValue(null);
+        nombre.setValue(null);
+        origenMercaderia.setValue(null);
+        plazoPago.setValue(null);
+        cantidad.setValue(null);
+        tiempoEntrega.setValue(null);
+        lugarEntrega.setValue(null);
+        
+        precioAnterior.setText("");
+        monto.setText("");
     }
     
      
