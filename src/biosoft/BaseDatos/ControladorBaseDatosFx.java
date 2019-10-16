@@ -66,6 +66,7 @@ public class ControladorBaseDatosFx {
         return resultado;
     }
     
+    //Metodo para llenar la table view de productos
     public void llenarProd(Connection connection, ObservableList<Producto> listaProducto) {
         try {
             Statement ps = connection.createStatement();

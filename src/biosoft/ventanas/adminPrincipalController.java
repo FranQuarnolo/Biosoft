@@ -112,6 +112,7 @@ public class adminPrincipalController extends ControladorBaseDatosFx implements 
         }
     }
     
+    //Boton Eliminar
     @FXML
     private void apretarEliminarRegistro(ActionEvent event) {
         ControladorProducto controladorP = new ControladorProducto();
