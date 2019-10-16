@@ -23,7 +23,28 @@ public class adminPrincipalController {
     
     
     
+    @FXML
+    private void apretarAgregar(ActionEvent event){
+         try {
+            //Cargo el archivo fxml de la ventana de registro
+            FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("adminNuevo.fxml"));
+            Parent root8 = (Parent) FXMLLoader3.load();
+            Stage nuevo = new Stage();
+            nuevo.setScene(new Scene(root8));
 
+            //La hago bonita
+//            modificar.getIcons().add(new Image("file:src/imagenes/registro.png"));
+            nuevo.setTitle("Nuevo");
+            nuevo.initStyle(StageStyle.UNDECORATED);
+            System.out.println("Iniciando la ventana de agregar nuevo...");
+            //Inicio la ventana
+            nuevo.show();
+    
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     private void apretarModificar(ActionEvent event){

@@ -183,7 +183,7 @@
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <Button layoutX="748.0" layoutY="504.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #006400; -fx-background-radius: 7; -fx-border-color: #000000; -fx-border-radius: 7;" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="24.0" />
+            <Button layoutX="748.0" layoutY="504.0" mnemonicParsing="false" onAction="#apretarAgregar" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #006400; -fx-background-radius: 7; -fx-border-color: #000000; -fx-border-radius: 7;" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="24.0" />
             <Label layoutX="756.0" layoutY="510.0" mouseTransparent="true" text="+Agregar" textFill="WHITE" AnchorPane.bottomAnchor="29.0" AnchorPane.rightAnchor="32.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
