@@ -5,6 +5,15 @@
  */
 package biosoft.ventanas;
 
+import java.io.IOException;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 /**
  *
  * @author Wayne
@@ -15,4 +24,16 @@ public class adminPrincipalController {
     }
     
     
+    
+    //Boton Salir
+    @FXML
+    private void apretarSalir(ActionEvent event) throws IOException{
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+        Parent root5 = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene scene = new Scene(root5);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow(); 
+        appStage.setScene(scene);   
+        appStage.toFront();
+        appStage.show();
+    }
 }
