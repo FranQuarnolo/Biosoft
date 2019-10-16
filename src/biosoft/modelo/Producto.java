@@ -3,33 +3,27 @@ package biosoft.modelo;
 
 
 public class Producto {
-    private int idProducto;
+    private int idProd;
     private String tipo;
     private String nombre;
-    private DetalleVenta detalleVenta;
-
-    public Producto(int idProducto, String tipo, String nombre, DetalleVenta detalleVenta) {
-        this.idProducto = idProducto;
+    
+        public Producto() {
+        this(0,null, null);
+    }
+    
+    public Producto(int idProd, String tipo, String nombre) {
+        this.idProd = idProd;
         this.tipo = tipo;
         this.nombre = nombre;
-        this.detalleVenta = detalleVenta;
+        
     }
-
-    public DetalleVenta getDetalleVenta() {
-        return detalleVenta;
-    }
-
-    public void setDetalleVenta(DetalleVenta detalleVenta) {
-        this.detalleVenta = detalleVenta;
-    }
-
-    
+ 
     public int getIdProducto() {
-        return idProducto;
+        return idProd;
     }
 
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+    public void setIdProducto(int idProd) {
+        this.idProd = idProd;
     }
 
     public String getTipo() {

@@ -1,10 +1,12 @@
 package biosoft.BaseDatos;
 
+import biosoft.modelo.Producto;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javafx.collections.ObservableList;
 import javax.swing.JOptionPane;
 
 /**
@@ -64,6 +66,18 @@ public class ControladorBaseDatosFx {
         return resultado;
     }
     
+    public void llenarProd(Connection connection, ObservableList<Producto> listaProducto) {
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT * FROM producto");
+            while (rs.next()) {
+                listaProducto.add(new Producto(rs.getInt("idProd"), rs.getString("nombre"), rs.getString("tipo")));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error aca");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     
 }
