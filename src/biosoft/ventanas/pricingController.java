@@ -120,13 +120,7 @@ public class pricingController implements Initializable {
     //Boton Cancelar
     @FXML
     private void apretarCancelar(ActionEvent event) throws IOException {
-//        ((Node) (event.getSource())).getScene().getWindow().hide();
-//        Parent root5 = FXMLLoader.load(getClass().getResource("login.fxml"));
-//        Scene scene = new Scene(root5);
-//        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow(); 
-//        appStage.setScene(scene);   
-//        appStage.toFront();
-//        appStage.show();
+//        Aqui va el metodo limpiar
          
     }
     

@@ -177,7 +177,7 @@
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <Button layoutX="660.0" layoutY="504.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #5c86a4; -fx-background-radius: 7; -fx-border-color: #000000; -fx-border-radius: 7;" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="112.0" />
+            <Button layoutX="660.0" layoutY="504.0" mnemonicParsing="false" onAction="#apretarModificar" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #5c86a4; -fx-background-radius: 7; -fx-border-color: #000000; -fx-border-radius: 7;" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="112.0" />
             <Label layoutX="668.0" layoutY="510.0" mouseTransparent="true" text="Modificar" textFill="WHITE" AnchorPane.bottomAnchor="29.0" AnchorPane.rightAnchor="119.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
