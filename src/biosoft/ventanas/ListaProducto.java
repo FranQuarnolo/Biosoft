@@ -1,24 +1,16 @@
 
-package biosoft.modelo;
+package biosoft.ventanas;
 
 import java.util.ArrayList;
 
 
 public class ListaProducto {
     private ArrayList listaProducto;
-    private Producto producto;
+   
 
-    public ListaProducto(ArrayList listaProducto, Producto producto) {
+    public ListaProducto(ArrayList listaProducto) {
         this.listaProducto = listaProducto;
-        this.producto = producto;
-    }
-
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+       
     }
 
 
