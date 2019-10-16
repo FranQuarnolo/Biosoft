@@ -79,7 +79,7 @@ public class ControladorProducto extends ControladorBaseDatosFx {
 
         try {
             
-            String SQL = String.format(insertarSQL, p.getIdProducto(), p.getNombre(), p.getTipo());
+            String SQL = String.format(insertarSQL, p.getIdProd(), p.getNombre(), p.getTipo());
             Statement sentencia = getConexion().createStatement();
             sentencia.execute(SQL);
             return true;
@@ -119,7 +119,7 @@ public class ControladorProducto extends ControladorBaseDatosFx {
             if (rs != null) {
                 while (rs.next()) {
                     Producto prodNuevo = new Producto();
-                    prodNuevo.setIdProducto(rs.getInt(1));
+                    prodNuevo.setIdProd(rs.getInt(1));
                     prodNuevo.setNombre(rs.getString(2));
                     prodNuevo.setTipo(rs.getString(3));
                                       
@@ -146,7 +146,7 @@ public class ControladorProducto extends ControladorBaseDatosFx {
             if (rs != null) {
                 while (rs.next()) {
                     Producto prodNuevo = new Producto();
-                    prodNuevo.setIdProducto(rs.getInt(1));
+                    prodNuevo.setIdProd(rs.getInt(1));
                     prodNuevo.setNombre(rs.getString(2));
                     prodNuevo.setTipo(rs.getString(3));
                     
