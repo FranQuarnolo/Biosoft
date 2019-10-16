@@ -1,12 +1,22 @@
 package biosoft.ventanas;
 
+import biosoft.BaseDatos.ControladorBaseDatosFx;
+import biosoft.modelo.Producto;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -15,11 +25,37 @@ import javafx.stage.StageStyle;
  *
  * @author Wayne
  */
-public class adminPrincipalController {
+public class adminPrincipalController extends ControladorBaseDatosFx implements Initializable{
 
+    private Producto producto;
+    @FXML
+    private TableView<Producto> listaProd;
+    @FXML
+    private TableColumn<Producto, Integer> codigo;
+    @FXML
+    private TableColumn<Producto, String> tipo;
+    @FXML
+    private TableColumn<Producto, String> nombre;
+
+    
+    private ObservableList<Producto> listaProducto;  
+    
     public adminPrincipalController() {
     }
-
+    
+    @Override
+    public void initialize(URL location, ResourceBundle rb) {
+        
+        listaProducto = FXCollections.observableArrayList();
+        ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+        db.llenarProducto(db.getConexion(), listaProducto);
+        listaProd.setItems(listaProducto);        
+        codigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        tipo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        nombre.setCellValueFactory(new PropertyValueFactory<>("tipo"));   
+          
+    }  
+    
     //Boton agregar
     @FXML
     private void apretarAgregar(ActionEvent event) {
