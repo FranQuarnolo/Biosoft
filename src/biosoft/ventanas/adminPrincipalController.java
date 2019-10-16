@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -31,7 +32,7 @@ public class adminPrincipalController extends ControladorBaseDatosFx implements 
     @FXML
     private TableView<Producto> listaProd;
     @FXML
-    private TableColumn<Producto, Integer> codigo;
+    private TableColumn<Producto, Integer> idProd;
     @FXML
     private TableColumn<Producto, String> tipo;
     @FXML
@@ -48,9 +49,9 @@ public class adminPrincipalController extends ControladorBaseDatosFx implements 
         
         listaProducto = FXCollections.observableArrayList();
         ControladorBaseDatosFx db = new ControladorBaseDatosFx();
-        db.llenarProducto(db.getConexion(), listaProducto);
+        db.llenarProd(db.getConexion(), listaProducto);
         listaProd.setItems(listaProducto);        
-        codigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        idProd.setCellValueFactory(new PropertyValueFactory<>("idProd"));
         tipo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         nombre.setCellValueFactory(new PropertyValueFactory<>("tipo"));   
           
@@ -81,6 +82,8 @@ public class adminPrincipalController extends ControladorBaseDatosFx implements 
     @FXML
     private void apretarModificar(ActionEvent event) {
         try {
+            Producto selectedInscripcion= listaProd.getSelectionModel().getSelectedItem();
+            if (selectedInscripcion != null) {
             //Cargo el archivo fxml de la ventana de registro
             FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("adminModificar.fxml"));
             Parent root2 = (Parent) FXMLLoader3.load();
@@ -93,7 +96,16 @@ public class adminPrincipalController extends ControladorBaseDatosFx implements 
             modificar.initStyle(StageStyle.UNDECORATED);
             System.out.println("Iniciando la ventana de modificacion...");
             //Inicio la ventana
-            modificar.show();
+            modificar.show();            
+            } else {
+                // Si no se selecciona nada
+                Alert alerta1 = new Alert(Alert.AlertType.ERROR);
+                alerta1.setTitle("Error");
+                alerta1.setHeaderText("Error");
+                alerta1.setContentText("Selecciona algun elemento de la lista");
+                alerta1.showAndWait();
+            }
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
