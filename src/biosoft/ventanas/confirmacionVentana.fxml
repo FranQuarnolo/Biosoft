@@ -12,8 +12,8 @@
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="393.0" style="-fx-background-color: #2F4F4F;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <children>
-            <Button cancelButton="true" layoutX="68.0" layoutY="101.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #757575; -fx-background-radius: 10;" />
-            <Button defaultButton="true" layoutX="241.0" layoutY="101.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #008000; -fx-background-radius: 10;" />
+            <Button cancelButton="true" layoutX="68.0" layoutY="101.0" mnemonicParsing="false" onAction="#presionarCancelar" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #757575; -fx-background-radius: 10;" />
+            <Button fx:id="btnSi" defaultButton="true" layoutX="241.0" layoutY="101.0" mnemonicParsing="false" onAction="#presionarSi" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #008000; -fx-background-radius: 10;" />
             <Label layoutX="80.0" layoutY="109.0" mouseTransparent="true" text="Cancelar" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />

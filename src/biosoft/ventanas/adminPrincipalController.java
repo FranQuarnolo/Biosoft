@@ -19,7 +19,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -115,21 +114,47 @@ public class adminPrincipalController extends ControladorBaseDatosFx implements 
     //Boton Eliminar
     @FXML
     private void apretarEliminarRegistro(ActionEvent event) {
-        ControladorProducto controladorP = new ControladorProducto();
         int selectedIndex = listaProd.getSelectionModel().getSelectedIndex();
+        ControladorBaseDatosFx control = new ControladorBaseDatosFx();
+        //Le envio el elemento seleccionado al metodo de obtener en el controlador de la base de datos
+        control.eliminarSeleccionado(selectedIndex);
         if (selectedIndex >= 0) {
-            System.out.println("Eliminado");
-            /*controladorP.borrarDatos(idProd.getCellData(selectedIndex));
-            listaProd.getItems().remove(selectedIndex);*/
-        } else {
-            // Nada seleccionado
-            Alert alerta2 = new Alert(Alert.AlertType.ERROR);
-            alerta2.setTitle("Error");
-            alerta2.setHeaderText("Error");
-            alerta2.setContentText("Selecciona algun elemento de la lista");
-            alerta2.showAndWait();
-
+        try {
+            //Cargo el archivo fxml
+            FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("confirmacionVentana.fxml"));
+            Parent root8 = (Parent) FXMLLoader3.load();
+            Stage nuevo = new Stage();
+            nuevo.setScene(new Scene(root8));
+            //La hago bonita
+//           modificar.getIcons().add(new Image("file:src/imagenes/registro.png"));
+            nuevo.setTitle("Estas Seguro?");
+            nuevo.initStyle(StageStyle.UNDECORATED);
+            System.out.println("Iniciando la ventana de confirmacion...");
+            //Inicio la ventana
+            nuevo.show();
+            
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        }else{
+             try {
+            //Cargo el archivo fxml
+            FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("seleccioneElemento.fxml"));
+            Parent root8 = (Parent) FXMLLoader3.load();
+            Stage nuevo = new Stage();
+            nuevo.setScene(new Scene(root8));
+            //La hago bonita
+//           modificar.getIcons().add(new Image("file:src/imagenes/registro.png"));
+            nuevo.setTitle("No Seleccion!");
+            nuevo.initStyle(StageStyle.UNDECORATED);
+            System.out.println("Seleccione un elemento por favor");
+            //Inicio la ventana
+            nuevo.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }   
+        }
+        
     }
 
     //Boton Cerrar Sesion
