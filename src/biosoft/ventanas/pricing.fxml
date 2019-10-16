@@ -3,7 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.pricingController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.pricingController">
    <children>
       <AnchorPane prefHeight="35.0" prefWidth="750.0" style="-fx-background-color: #2F4F4F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -195,20 +195,9 @@
                         <Font name="Arial Bold" size="16.0" />
                      </font>
                   </Label>
-                  <ChoiceBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="155.0" style="-fx-background-color: #F0FFFF; -fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                  <ChoiceBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="155.0" style="-fx-background-color: #F0FFFF; -fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  <ChoiceBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="155.0" style="-fx-background-color: #F0FFFF; -fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                  <ChoiceBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="155.0" style="-fx-background-color: #F0FFFF; -fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-                  <ChoiceBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="107.0" style="-fx-background-color: #F0FFFF; -fx-background-radius: 15;" GridPane.columnIndex="4" GridPane.halignment="LEFT">
-                     <GridPane.margin>
-                        <Insets left="5.0" />
-                     </GridPane.margin>
-                  </ChoiceBox>
-                  <ChoiceBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="155.0" style="-fx-background-color: #F0FFFF; -fx-background-radius: 15;" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  <ChoiceBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="155.0" style="-fx-background-color: #F0FFFF; -fx-background-radius: 15;" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                  <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="19.0" prefWidth="24.0" textFill="#e5e5e5" GridPane.rowIndex="8" />
-                  <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="19.0" prefWidth="24.0" textFill="#e8e8e8" GridPane.rowIndex="9" />
-                  <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="19.0" prefWidth="24.0" textFill="#e8e8e8" GridPane.rowIndex="10" />
+                  <CheckBox fx:id="clienteImportante" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="19.0" prefWidth="24.0" textFill="#e5e5e5" GridPane.rowIndex="8" />
+                  <CheckBox fx:id="DEV_Bidones" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="19.0" prefWidth="24.0" textFill="#e8e8e8" GridPane.rowIndex="9" />
+                  <CheckBox fx:id="contratoDeAprov" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="19.0" prefWidth="24.0" textFill="#e8e8e8" GridPane.rowIndex="10" />
                   <Label text="Cliente Importante" textFill="#171717" GridPane.columnIndex="1" GridPane.rowIndex="8">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
@@ -233,12 +222,6 @@
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F0FFFF; -fx-background-radius: 10;" GridPane.columnIndex="3" GridPane.rowIndex="12" />
-                  <Pane prefHeight="29.0" prefWidth="137.0" style="-fx-background-color: #F0FFFF; -fx-background-radius: 10;" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="12">
-                     <GridPane.margin>
-                        <Insets left="10.0" />
-                     </GridPane.margin>
-                  </Pane>
                   <Label text="US$/Precio Anterior" textFill="#171717" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="11">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
@@ -249,6 +232,23 @@
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
+                  <ComboBox fx:id="tipoProducto" prefWidth="150.0" GridPane.columnIndex="1" />
+                  <ComboBox fx:id="nombre" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="origenMercaderia" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="plazoPago" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <ComboBox fx:id="cantidad" prefWidth="150.0" GridPane.columnIndex="4" />
+                  <ComboBox fx:id="tiempoEntrega" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="lugarEntrega" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="12">
+                     <children>
+                        <Label fx:id="precioAnterior" layoutX="14.0" layoutY="8.0" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="12">
+                     <children>
+                        <Label fx:id="monto" layoutX="14.0" layoutY="8.0" />
+                     </children>
+                  </Pane>
                </children>
             </GridPane>
             <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="350.0" layoutY="371.0" mnemonicParsing="false" onAction="#apretarCancelar" prefHeight="35.0" prefWidth="95.0" style="-fx-background-color: #757575; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-color: #000000;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="305.0">
