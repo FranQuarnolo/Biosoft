@@ -19,19 +19,16 @@ public class adminPrincipalController {
 
     public adminPrincipalController() {
     }
-    
-    
-    
-    
+
+    //Boton agregar
     @FXML
-    private void apretarAgregar(ActionEvent event){
-         try {
+    private void apretarAgregar(ActionEvent event) {
+        try {
             //Cargo el archivo fxml de la ventana de registro
             FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("adminNuevo.fxml"));
             Parent root8 = (Parent) FXMLLoader3.load();
             Stage nuevo = new Stage();
             nuevo.setScene(new Scene(root8));
-
             //La hago bonita
 //            modificar.getIcons().add(new Image("file:src/imagenes/registro.png"));
             nuevo.setTitle("Nuevo");
@@ -39,15 +36,14 @@ public class adminPrincipalController {
             System.out.println("Iniciando la ventana de agregar nuevo...");
             //Inicio la ventana
             nuevo.show();
-    
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    //Boton modificar
     @FXML
-    private void apretarModificar(ActionEvent event){
+    private void apretarModificar(ActionEvent event) {
         try {
             //Cargo el archivo fxml de la ventana de registro
             FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("adminModificar.fxml"));
@@ -62,16 +58,14 @@ public class adminPrincipalController {
             System.out.println("Iniciando la ventana de modificacion...");
             //Inicio la ventana
             modificar.show();
-    
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
-//Boton Cerrar Sesion
+
+    //Boton Cerrar Sesion
     @FXML
-    private void apretarCerrarSesion(ActionEvent event) throws IOException{
+    private void apretarCerrarSesion(ActionEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();
         System.out.println("Cerrando ventana de administrador");
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
