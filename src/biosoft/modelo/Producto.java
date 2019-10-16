@@ -18,11 +18,11 @@ public class Producto {
         
     }
  
-    public int getIdProducto() {
+    public int getIdProd() {
         return idProd;
     }
 
-    public void setIdProducto(int idProd) {
+    public void setIdProd(int idProd) {
         this.idProd = idProd;
     }
 
