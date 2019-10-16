@@ -6,6 +6,7 @@ public class Producto {
     private int idProducto;
     private String tipo;
     private String nombre;
+    private DetalleVenta detalleVenta;
 
     public Producto(int idProducto, String tipo, String nombre) {
         this.idProducto = idProducto;

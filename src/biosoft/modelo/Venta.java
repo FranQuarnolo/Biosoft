@@ -8,6 +8,7 @@ public class Venta {
     private int idVenta;
     private float total;
     private Date fecha;
+    private DetalleVenta detalleVenta;
 
     public Venta(int idVenta, float total, Date fecha) {
         this.idVenta = idVenta;
