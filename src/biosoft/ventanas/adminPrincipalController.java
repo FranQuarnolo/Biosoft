@@ -1,6 +1,7 @@
 package biosoft.ventanas;
 
 import biosoft.BaseDatos.ControladorBaseDatosFx;
+import biosoft.modelo.ControladorProducto;
 import biosoft.modelo.Producto;
 import java.io.IOException;
 import java.net.URL;
@@ -108,6 +109,25 @@ public class adminPrincipalController extends ControladorBaseDatosFx implements 
             
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void apretarEliminarRegistro(ActionEvent event) {
+        ControladorProducto controladorP = new ControladorProducto();
+        int selectedIndex = listaProd.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            System.out.println("Eliminado");
+            /*controladorP.borrarDatos(idProd.getCellData(selectedIndex));
+            listaProd.getItems().remove(selectedIndex);*/
+        } else {
+            // Nada seleccionado
+            Alert alerta2 = new Alert(Alert.AlertType.ERROR);
+            alerta2.setTitle("Error");
+            alerta2.setHeaderText("Error");
+            alerta2.setContentText("Selecciona algun elemento de la lista");
+            alerta2.showAndWait();
+
         }
     }
 
