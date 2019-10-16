@@ -1,5 +1,6 @@
 package biosoft.BaseDatos;
 
+import biosoft.modelo.ControladorProducto;
 import biosoft.modelo.Producto;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -80,21 +81,6 @@ public class ControladorBaseDatosFx {
         }
     }
 
-    //Metodo para obtener el id de Producto seleccionado
-    public int eliminarSeleccionado(int idProd){
-        int resultado = 0;
-        try {
-            Statement ps = conexion.createStatement();
-            ResultSet rs = ps.executeQuery("SELECT * FROM producto WHERE idProd="+idProd);
-            if (rs.next()) {
-                resultado = 1;
-            } else {
-                resultado = 0;
-                        }
-        } catch (SQLException e) {
-            System.out.println("Error aca");
-            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
-        }
-        return resultado;
-    }  
+    
+
 }
