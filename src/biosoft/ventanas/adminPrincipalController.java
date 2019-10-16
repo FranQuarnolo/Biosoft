@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package biosoft.ventanas;
 
 import java.io.IOException;
@@ -25,14 +20,15 @@ public class adminPrincipalController {
     
     
     
-    //Boton Salir
+    //Boton Cerrar Sesion
     @FXML
-    private void apretarSalir(ActionEvent event) throws IOException{
+    private void apretarCerrarSesion(ActionEvent event) throws IOException{
         ((Node) (event.getSource())).getScene().getWindow().hide();
-        Parent root5 = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene scene = new Scene(root5);
-        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow(); 
-        appStage.setScene(scene);   
+        System.out.println("Cerrando ventana de administrador");
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene scene = new Scene(root);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(scene);
         appStage.toFront();
         appStage.show();
     }

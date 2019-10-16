@@ -192,17 +192,17 @@
             <TableView layoutX="12.0" layoutY="8.0" prefHeight="540.0" prefWidth="460.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="5.0">
               <columns>
                 <TableColumn prefWidth="24.0" resizable="false" text="#" />
-                <TableColumn prefWidth="124.0" text="Tipo" />
-                  <TableColumn prefWidth="242.0" text="Nombre" />
+                <TableColumn editable="false" prefWidth="124.0" text="Tipo" />
+                  <TableColumn editable="false" prefWidth="242.0" text="Nombre" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button cancelButton="true" layoutX="814.0" layoutY="16.0" minWidth="39.0" mnemonicParsing="false" onAction="#apretarSalir" prefHeight="26.0" prefWidth="62.0" style="-fx-background-color: #757575; -fx-border-color: #ffffff; -fx-background-radius: 50; -fx-border-radius: 50;" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="14.0" />
-            <Label layoutX="830.0" layoutY="22.0" mouseTransparent="true" prefHeight="15.0" prefWidth="30.0" text="Salir" textFill="WHITE" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0">
+            <Button cancelButton="true" layoutX="814.0" layoutY="16.0" minWidth="39.0" mnemonicParsing="false" onAction="#apretarCerrarSesion" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #757575; -fx-border-color: #ffffff; -fx-background-radius: 50; -fx-border-radius: 50;" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0" />
+            <Label layoutX="830.0" layoutY="22.0" mouseTransparent="true" prefHeight="15.0" prefWidth="78.0" text="Cerrar Sesion" textFill="WHITE" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="20.0">
                <font>
-                  <Font name="Arial Bold" size="12.0" />
+                  <Font name="Arial Bold" size="11.0" />
                </font>
             </Label>
          </children>

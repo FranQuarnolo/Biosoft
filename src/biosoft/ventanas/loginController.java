@@ -93,6 +93,7 @@ public class loginController extends ControladorBaseDatosFx {
                             Stage stage8 = new Stage();
 
                             stage8.initModality(Modality.APPLICATION_MODAL);
+                            stage8.initStyle(StageStyle.UNDECORATED);
 
 //                            stage2.getIcons().add(new Image("file:biosoft/images/load.png"));
                             stage8.setTitle("Administrador");
