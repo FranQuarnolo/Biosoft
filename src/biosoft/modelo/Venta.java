@@ -10,12 +10,22 @@ public class Venta {
     private Date fecha;
     private DetalleVenta detalleVenta;
 
-    public Venta(int idVenta, float total, Date fecha) {
+    public Venta(int idVenta, float total, Date fecha, DetalleVenta detalleVenta) {
         this.idVenta = idVenta;
         this.total = total;
         this.fecha = fecha;
+        this.detalleVenta = detalleVenta;
     }
 
+    public DetalleVenta getDetalleVenta() {
+        return detalleVenta;
+    }
+
+    public void setDetalleVenta(DetalleVenta detalleVenta) {
+        this.detalleVenta = detalleVenta;
+    }
+
+   
     public int getIdVenta() {
         return idVenta;
     }
