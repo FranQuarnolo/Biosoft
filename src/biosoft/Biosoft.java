@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import biosoft.ventanas.LoginController;
+import biosoft.ventanas.loginController;
 import javafx.scene.image.Image;
 import javafx.stage.StageStyle;
 
@@ -37,7 +37,7 @@ public class Biosoft extends Application {
     public void mostrarLogin() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Biosoft.class.getResource("ventanas/Login.fxml"));
+            loader.setLocation(Biosoft.class.getResource("ventanas/login.fxml"));
             AnchorPane login = (AnchorPane) loader.load();
             Scene scene = new Scene(login);
             ventana.setScene(scene);
@@ -46,7 +46,7 @@ public class Biosoft extends Application {
             ventana.getIcons().add(new Image("file:images/logo2.png"));
             ventana.setTitle("BioSano.S.A - LogIn");
             
-            LoginController controlador = loader.getController();
+            loginController controlador = loader.getController();
             controlador.setMiApp(this);
             
             ventana.show();

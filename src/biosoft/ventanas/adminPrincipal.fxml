@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.adminPrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.adminPrincipalController">
    <children>
       <AnchorPane prefHeight="35.0" prefWidth="750.0" style="-fx-background-color: #2F4F4F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -48,7 +49,7 @@
             <InnerShadow radius="7.035" width="9.14" />
          </effect>
          <children>
-            <GridPane layoutX="481.0" layoutY="47.0" prefHeight="374.0" prefWidth="395.0" AnchorPane.bottomAnchor="134.0" AnchorPane.leftAnchor="481.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="47.0">
+            <GridPane layoutX="481.0" layoutY="73.0" prefHeight="374.0" prefWidth="395.0" AnchorPane.bottomAnchor="108.0" AnchorPane.leftAnchor="481.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="73.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="198.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="195.0" />
@@ -205,6 +206,12 @@
                   <Font name="Arial Bold" size="11.0" />
                </font>
             </Label>
+            <TextField fx:id="buscadorProducto" layoutX="522.0" layoutY="7.0" onAction="#busquedaProducto" promptText="buscador" />
+            <ImageView fitHeight="21.0" fitWidth="27.0" layoutX="492.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/buscador.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

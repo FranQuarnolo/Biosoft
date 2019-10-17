@@ -81,6 +81,20 @@ public class ControladorBaseDatosFx {
         }
     }
 
-    
+    //Metodo para busqueda filtrada de producto
+    public void busquedaProd(Connection connection, ObservableList<Producto> listaProducto, String producto) {
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT * FROM `producto` WHERE `nombre` LIKE '%"+producto+"%' "
+                            + " or `nombre` LIKE '%"+producto+"' "
+                            + "or `nombre` LIKE '"+producto+"%'");
+            while (rs.next()) {
+                listaProducto.add(new Producto(rs.getInt("idProd"), rs.getString("nombre"), rs.getString("tipo")));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error aca");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
 }

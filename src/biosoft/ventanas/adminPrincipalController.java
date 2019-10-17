@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -26,8 +27,9 @@ import javafx.stage.StageStyle;
  *
  * @author Wayne
  */
-public class adminPrincipalController extends ControladorBaseDatosFx implements Initializable {
+public class adminPrincipalController extends ControladorBaseDatosFx{
 
+    private adminPrincipalController admin;
     private Producto producto;
     @FXML
     private TableView<Producto> listaProd;
@@ -37,19 +39,22 @@ public class adminPrincipalController extends ControladorBaseDatosFx implements 
     private TableColumn<Producto, String> tipo;
     @FXML
     private TableColumn<Producto, String> nombre;
+    @FXML
+    private TextField buscadorProducto;
 
     private ObservableList<Producto> listaProducto;
 
     public adminPrincipalController() {
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle rb) {
+    
+    public void initialize() {
 
         listaProducto = FXCollections.observableArrayList();
         ControladorBaseDatosFx db = new ControladorBaseDatosFx();
         db.llenarProd(db.getConexion(), listaProducto);
         listaProd.setItems(listaProducto);
+        
         idProd.setCellValueFactory(new PropertyValueFactory<>("idProd"));
         tipo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         nombre.setCellValueFactory(new PropertyValueFactory<>("tipo"));
@@ -175,6 +180,25 @@ public class adminPrincipalController extends ControladorBaseDatosFx implements 
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+
+    }
+    
+     //Metodo para busqueda filtrada de producto
+    public void busquedaProducto() {
+        String busqueda = buscadorProducto.getText();
+
+        if(busqueda!=null){
+        listaProducto = FXCollections.observableArrayList();
+        ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+        db.busquedaProd(db.getConexion(), listaProducto, busqueda);
+        listaProd.setItems(listaProducto);
+        
+        idProd.setCellValueFactory(new PropertyValueFactory<>("idProd"));
+        tipo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        nombre.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+        }else{
+            admin.initialize();
         }
 
     }
