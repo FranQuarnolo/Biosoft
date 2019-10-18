@@ -19,8 +19,7 @@ public class Biosoft extends Application {
     /////
     private Stage ventana;
     public Biosoft(){
-    }
-    
+    } 
     //Inicia
     @Override
     public void start(Stage ventanaPrincipal){
