@@ -3,7 +3,10 @@ package biosoft.ventanas;
 import biosoft.BaseDatos.ControladorBaseDatosFx;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,8 +24,9 @@ import javafx.stage.StageStyle;
  *
  * @author Wayne
  */
-public class PricingController implements Initializable {
-
+public class PricingController extends ControladorBaseDatosFx implements Initializable {
+    ObservableList listaTipoComboBox = FXCollections.observableArrayList();
+    ControladorBaseDatosFx baseDatos = new ControladorBaseDatosFx();
     @FXML
     private CheckBox clienteImportante;
 
@@ -33,7 +37,7 @@ public class PricingController implements Initializable {
     private CheckBox contratoDeAprov;
 
     @FXML
-    private ComboBox<?> tipoProducto;
+    private ComboBox<String> tipoProducto;
 
     @FXML
     private ComboBox<?> nombre;
@@ -65,9 +69,21 @@ public class PricingController implements Initializable {
      @Override
     public void initialize(URL url, ResourceBundle rb) {
        ControladorBaseDatosFx ct = new ControladorBaseDatosFx();
+       cargarComboBox();
+
        
-       
-       
+    }
+    
+    public void cargarComboBox(){
+        listaTipoComboBox.removeAll(listaTipoComboBox);
+        ArrayList<String> listaTipo = new ArrayList<String>();
+        listaTipo = baseDatos.llenarComboboxTipo(baseDatos.getConexion());
+        System.out.println(listaTipo);
+        for (int i = 0; i < listaTipo.size(); i++) {
+       //     listaTipoComboBox.add(listaTipo.get(i));
+            tipoProducto.getItems().addAll(listaTipo.get(i));
+        }
+        
     }
     
     //Metodo para mostrar la ventana de acceso denegado
