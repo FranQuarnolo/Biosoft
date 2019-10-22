@@ -26,6 +26,7 @@ import javafx.stage.StageStyle;
  */
 public class PricingController extends ControladorBaseDatosFx implements Initializable {
     ObservableList listaTipoComboBox = FXCollections.observableArrayList();
+    ObservableList listaNombreComboBox = FXCollections.observableArrayList();
     ControladorBaseDatosFx baseDatos = new ControladorBaseDatosFx();
     @FXML
     private CheckBox clienteImportante;
@@ -40,7 +41,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
     private ComboBox<String> tipoProducto;
 
     @FXML
-    private ComboBox<?> nombre;
+    private ComboBox<String> nombre;
 
     @FXML
     private ComboBox<?> origenMercaderia;
@@ -69,21 +70,37 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
      @Override
     public void initialize(URL url, ResourceBundle rb) {
        ControladorBaseDatosFx ct = new ControladorBaseDatosFx();
-       cargarComboBox();
+       cargarComboBoxTipo();
 
        
     }
-    
-    public void cargarComboBox(){
+    //Metodo para cargar el combo box de tipo
+    public void cargarComboBoxTipo(){
         listaTipoComboBox.removeAll(listaTipoComboBox);
         ArrayList<String> listaTipo = new ArrayList<String>();
         listaTipo = baseDatos.llenarComboboxTipo(baseDatos.getConexion());
         System.out.println(listaTipo);
         for (int i = 0; i < listaTipo.size(); i++) {
-       //     listaTipoComboBox.add(listaTipo.get(i));
             tipoProducto.getItems().addAll(listaTipo.get(i));
         }
         
+    }
+    
+    
+    //Metodo para cargar el combo box de nombre
+    
+    public void cargarComboBoxNombre(ActionEvent event){
+        String selectedInscripcion = tipoProducto.getSelectionModel().getSelectedItem();
+        
+        listaNombreComboBox.removeAll(listaNombreComboBox);
+        nombre.getItems().clear();
+        ArrayList<String> listaNombre = new ArrayList<String>();
+        listaNombre = baseDatos.llenarComboboxNombre(baseDatos.getConexion(),selectedInscripcion);
+        System.out.println(listaNombre);
+        for (int i = 0; i < listaNombre.size(); i++) {
+            nombre.getItems().addAll(listaNombre.get(i));
+        }
+       
     }
     
     //Metodo para mostrar la ventana de acceso denegado
