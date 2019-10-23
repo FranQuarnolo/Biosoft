@@ -134,4 +134,87 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
+    
+    public ArrayList<String> llenarComboboxOrigen(Connection connection) {
+        ArrayList<String> listaTipo = new ArrayList<String>();
+        
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT DISTINCT nombre FROM origen ");
+            while (rs.next()) {
+                listaTipo.add(rs.getString("nombre"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error aca");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+
+        return listaTipo;
+    }
+    
+    public ArrayList<String> llenarComboboxPlazoDePago(Connection connection) {
+        ArrayList<String> listaTipo = new ArrayList<String>();
+        
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT DISTINCT nombre FROM plazodepago ");
+            while (rs.next()) {
+                listaTipo.add(rs.getString("nombre"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error aca");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+
+        return listaTipo;
+    }
+    public ArrayList<String> llenarComboboxCantidad(Connection connection) {
+        ArrayList<String> listaTipo = new ArrayList<String>();
+        
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT DISTINCT nombre FROM cantidad ");
+            while (rs.next()) {
+                listaTipo.add(rs.getString("nombre"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error aca");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+
+        return listaTipo;
+    }
+    public ArrayList<String> llenarComboboxTiempoDeEntrega(Connection connection) {
+        ArrayList<String> listaTipo = new ArrayList<String>();
+        
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT DISTINCT nombre FROM tiempodeentrega ");
+            while (rs.next()) {
+                listaTipo.add(rs.getString("nombre"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error aca");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+
+        return listaTipo;
+    }
+    public ArrayList<String> llenarComboboxDestino(Connection connection) {
+        ArrayList<String> listaTipo = new ArrayList<String>();
+        
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT DISTINCT nombre FROM destino ");
+            while (rs.next()) {
+                listaTipo.add(rs.getString("nombre"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error aca");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+
+        return listaTipo;
+    }
+    
 }
