@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class ControladorProducto extends ControladorBaseDatosFx {
     private String borrarTablaSQL = "DROP TABLE IF EXISTS producto";
     private String crearTablaSQL = "CREATE TABLE IF NOT EXISTS `producto`(`idProd` int(11) NOT NULL , `nombre` varchar(50) DEFAULT NULL, `tipo` varchar(50) DEFAULT NULL)";
-    private String insertarSQL = "INSERT INTO `producto`(`idProd`, `nombre`, `apellido`, `tipo`) VALUES(%s,'%s', '%s')";
+    private String insertarSQL = "INSERT INTO `producto`(`nombre`, `tipo`) VALUES('%s', '%s')";
     private String buscarPorIdSQL = "SELECT * FROM producto WHERE idProd = %s";
     private String buscarTodosSQL = "SELECT * FROM producto";
     private String actualizarSQL= "UPDATE `persona` SET `nombre`='Fran' WHERE id=1 "; //arreglar
@@ -79,7 +79,7 @@ public class ControladorProducto extends ControladorBaseDatosFx {
 
         try {
             
-            String SQL = String.format(insertarSQL, p.getIdProd(), p.getNombre(), p.getTipo());
+            String SQL = String.format(insertarSQL, p.getNombre(), p.getTipo());
             Statement sentencia = getConexion().createStatement();
             sentencia.execute(SQL);
             return true;
