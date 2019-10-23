@@ -116,7 +116,7 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
-    
+
     //Metodo para llenar combo box por Nombre
     public ArrayList<String> llenarComboboxNombre(Connection connection, String tipo) {
         ArrayList<String> listaTipo = new ArrayList<String>();
@@ -134,10 +134,11 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
-    
+
+    //Metodo para llenar combo box por Origen
     public ArrayList<String> llenarComboboxOrigen(Connection connection) {
         ArrayList<String> listaTipo = new ArrayList<String>();
-        
+
         try {
             Statement ps = connection.createStatement();
             ResultSet rs = ps.executeQuery("SELECT DISTINCT nombre FROM origen ");
@@ -151,10 +152,11 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
-    
+
+    //Metodo para llenar combo box por Plazo pago
     public ArrayList<String> llenarComboboxPlazoDePago(Connection connection) {
         ArrayList<String> listaTipo = new ArrayList<String>();
-        
+
         try {
             Statement ps = connection.createStatement();
             ResultSet rs = ps.executeQuery("SELECT DISTINCT nombre FROM plazodepago ");
@@ -168,9 +170,11 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
+    //Metodo para llenar combo box por Cantidad
+
     public ArrayList<String> llenarComboboxCantidad(Connection connection) {
         ArrayList<String> listaTipo = new ArrayList<String>();
-        
+
         try {
             Statement ps = connection.createStatement();
             ResultSet rs = ps.executeQuery("SELECT DISTINCT nombre FROM cantidad ");
@@ -184,9 +188,11 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
+
+    //Metodo para llenar combo box por Tiempo de Entrega
     public ArrayList<String> llenarComboboxTiempoDeEntrega(Connection connection) {
         ArrayList<String> listaTipo = new ArrayList<String>();
-        
+
         try {
             Statement ps = connection.createStatement();
             ResultSet rs = ps.executeQuery("SELECT DISTINCT nombre FROM tiempodeentrega ");
@@ -200,9 +206,11 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
+    //Metodo para llenar combo box por Destino
+
     public ArrayList<String> llenarComboboxDestino(Connection connection) {
         ArrayList<String> listaTipo = new ArrayList<String>();
-        
+
         try {
             Statement ps = connection.createStatement();
             ResultSet rs = ps.executeQuery("SELECT DISTINCT nombre FROM destino ");
@@ -216,5 +224,5 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
-    
+
 }

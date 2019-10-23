@@ -1,7 +1,9 @@
 package biosoft.ventanas;
 
 import biosoft.BaseDatos.ControladorBaseDatosFx;
+import biosoft.modelo.DetalleVenta;
 import biosoft.modelo.Producto;
+import biosoft.modelo.Venta;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -27,6 +30,24 @@ import javafx.stage.StageStyle;
 public class AdminPrincipalController extends ControladorBaseDatosFx implements Initializable {
 
     private Producto producto;
+    private DetalleVenta detalle;
+    @FXML
+    private Label lCantidad;
+    @FXML
+    private Label lTiempoEntrega;
+    @FXML
+    private Label lDestino;
+    @FXML
+    private Label lOrigen;
+    @FXML
+    private Label lPlazoPago;
+    @FXML
+    private Label lClienteI;
+    @FXML
+    private Label lBidones;
+    @FXML
+    private Label lContrato;
+
     @FXML
     private TableView<Producto> listaProd;
     @FXML
@@ -52,6 +73,7 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
         tipo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         nombre.setCellValueFactory(new PropertyValueFactory<>("tipo"));
 
+//        lCantidad.setText(Integer.toString(detalle.getCantidad()));
     }
 
     //Boton agregar
@@ -78,6 +100,7 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
     //Boton modificar
     @FXML
     private void apretarModificar(ActionEvent event) {
+
         try {
             Producto selectedInscripcion = listaProd.getSelectionModel().getSelectedItem();
             if (selectedInscripcion != null) {
@@ -124,19 +147,16 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
         ConfirmacionVentanaController cn = new ConfirmacionVentanaController();
         //Obtengo si hay o no un elemento seleccionado (Esto es par que continue con el if o no)
         int selectedIndex = listaProd.getSelectionModel().getSelectedIndex();
-        
+
         //Asigno el id del elemento seleccionado a una variable y se la mando al metodo de eliminar de la BD
         Producto idSeleccionado = listaProd.getItems().get(selectedIndex);
         int seleccion = idSeleccionado.getIdProd();
-        
-        
-        
+
         //MANDO ID AL METODO DE LA CLASE DE LA VENTANA DE CONFIRMACION
-        cn.eliminarSeleccionado(seleccion); 
-        
+        cn.eliminarSeleccionado(seleccion);
+
         //SE LO MANDO DIRECTO AL BOTON
 //        cn.presionarSi(event ,seleccion);
-        
         //Control de ventanas
         if (selectedIndex >= 0) {
             try {

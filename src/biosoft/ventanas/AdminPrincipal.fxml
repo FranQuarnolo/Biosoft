@@ -105,7 +105,7 @@
                         <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
-                  <Label text="Valor1" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+                  <Label fx:id="lCantidad" text="Valor1" GridPane.columnIndex="1" GridPane.halignment="LEFT">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -113,7 +113,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Valor2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Label fx:id="lTiempoEntrega" text="Valor2" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -121,7 +121,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Valor3" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label fx:id="lDestino" text="Valor3" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -129,7 +129,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Valor4" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Label fx:id="lOrigen" text="Valor4" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -137,7 +137,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Valor5" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Label fx:id="lPlazoPago" text="Valor5" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -145,7 +145,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Valor6" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <Label fx:id="lClienteI" text="Valor6" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -153,7 +153,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Valor7" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <Label fx:id="lBidones" text="Valor7" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -161,7 +161,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Valor8" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                  <Label fx:id="lContrato" text="Valor8" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <font>
                         <Font size="14.0" />
                      </font>
