@@ -281,15 +281,31 @@
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin></ComboBox>
-                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="12">
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" GridPane.columnIndex="3" GridPane.rowIndex="12">
                      <children>
-                        <Label fx:id="precioAnterior" layoutX="14.0" layoutY="8.0" />
+                        <Label fx:id="precioAnterior" layoutX="36.0" layoutY="-1.0" prefHeight="35.0" prefWidth="102.0" />
+                        <Label layoutX="6.0" layoutY="5.0" text="\$">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
                      </children>
+                     <GridPane.margin>
+                        <Insets right="15.0" />
+                     </GridPane.margin>
                   </Pane>
-                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="12">
+                  <Pane prefHeight="30.0" prefWidth="177.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" GridPane.columnIndex="4" GridPane.rowIndex="12">
                      <children>
-                        <Label fx:id="monto" layoutX="14.0" layoutY="8.0" />
+                        <Label fx:id="monto" layoutX="50.0" layoutY="-1.0" prefHeight="30.0" prefWidth="116.0" />
+                        <Label layoutX="6.0" layoutY="6.0" text="\$">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
                      </children>
+                     <GridPane.margin>
+                        <Insets left="15.0" right="10.0" />
+                     </GridPane.margin>
                   </Pane>
                </children>
             </GridPane>
