@@ -75,7 +75,8 @@ public class LoginController extends ControladorBaseDatosFx {
                     @Override
                     protected Void call() throws Exception {
                         try {
-                            Thread.sleep(2000);
+                            //15seg porque es lo que dura el gif
+                            Thread.sleep(15000);
                         } catch (InterruptedException e) {
                         }
                         return null;
