@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -175,6 +176,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         Parent root3 = (Parent) FXMLLoader.load();
         Stage stage3 = new Stage();
         stage3.initStyle(StageStyle.UNDECORATED);
+        stage3.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/noAlert.png")));
         stage3.centerOnScreen();
         stage3.setTitle("Acceso Denegado!");
         stage3.setScene(new Scene(root3));

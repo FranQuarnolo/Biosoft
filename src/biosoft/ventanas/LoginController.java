@@ -64,8 +64,7 @@ public class LoginController extends ControladorBaseDatosFx {
 
                 stage7.initModality(Modality.APPLICATION_MODAL);
                 stage7.initStyle(StageStyle.UNDECORATED);
-                stage7.getIcons().add(new Image("file:load.png"));
-                stage7.getIcons().add(new Image("file:images/load.png"));
+                stage7.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/load.png")));
                 stage7.setTitle("Cargando...");
                 stage7.setScene(new Scene(root7));
 
@@ -95,8 +94,7 @@ public class LoginController extends ControladorBaseDatosFx {
 
                             stage8.initModality(Modality.APPLICATION_MODAL);
                             stage8.initStyle(StageStyle.UNDECORATED);
-
-//                            stage2.getIcons().add(new Image("file:biosoft/images/load.png"));
+                            stage8.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/logosinletras.png")));
                             stage8.setTitle("Administrador");
                             stage8.setScene(new Scene(root2));
                             stage8.show();
@@ -118,7 +116,7 @@ public class LoginController extends ControladorBaseDatosFx {
             Stage stage4 = new Stage();
             stage4.initModality(Modality.APPLICATION_MODAL);
             stage4.initStyle(StageStyle.UNDECORATED);
-
+            stage4.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/alert1.png")));
             stage4.setTitle("Precaucion...");
             stage4.setScene(new Scene(root4));
 
@@ -136,8 +134,7 @@ public class LoginController extends ControladorBaseDatosFx {
 
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.initStyle(StageStyle.UNDECORATED);
-                stage.getIcons().add(new Image("file:load.png"));
-                stage.getIcons().add(new Image("file:images/load.png"));
+                stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/load.png")));
                 stage.setTitle("Cargando...");
                 stage.setScene(new Scene(root1));
 
@@ -168,7 +165,7 @@ public class LoginController extends ControladorBaseDatosFx {
                             stage2.initStyle(StageStyle.UNDECORATED);
                             stage2.setMaximized(true);
 
-                            stage2.getIcons().add(new Image("file:biosoft/images/load.png"));
+                            stage2.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/logosinletras.png")));
                             stage2.setTitle("Pricing");
                             stage2.setScene(new Scene(root2));
                             stage2.show();

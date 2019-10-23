@@ -4,7 +4,6 @@ import biosoft.BaseDatos.ControladorBaseDatosFx;
 import biosoft.modelo.ControladorProducto;
 import biosoft.modelo.DetalleVenta;
 import biosoft.modelo.Producto;
-import biosoft.modelo.Venta;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -59,8 +59,6 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
     private TableColumn<Producto, String> nombre;
 
     private ObservableList<Producto> listaProducto;
-    
-    
 
     public AdminPrincipalController() {
     }
@@ -78,22 +76,20 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
 
     }
 
-    public void señal(int a,int b){
-        int confirmar=a;
+    public void señal(int a, int b) {
+        int confirmar = a;
         System.out.println(confirmar);
-        if(confirmar==1){
+        if (confirmar == 1) {
             ControladorProducto cp = new ControladorProducto();
-            int selected=b;
+            int selected = b;
             System.out.println(selected);
 //            cp.borrarDatos(seleccion);
         }
     }
-    
-    
-    
+
     //Boton actualizar
     @FXML
-    private void apretarReload(ActionEvent event){
+    private void apretarReload(ActionEvent event) {
         listaProducto = FXCollections.observableArrayList();
         ControladorBaseDatosFx db = new ControladorBaseDatosFx();
         db.llenarProd(db.getConexion(), listaProducto);
@@ -102,6 +98,7 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
         tipo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         nombre.setCellValueFactory(new PropertyValueFactory<>("tipo"));
     }
+
     //Boton agregar
     @FXML
     private void apretarAgregar(ActionEvent event) {
@@ -111,8 +108,7 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
             Parent root8 = (Parent) FXMLLoader3.load();
             Stage nuevo = new Stage();
             nuevo.setScene(new Scene(root8));
-            //La hago bonita
-//            modificar.getIcons().add(new Image("file:src/imagenes/registro.png"));
+            nuevo.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/new.png")));
             nuevo.setTitle("Nuevo");
             nuevo.initStyle(StageStyle.UNDECORATED);
             System.out.println("Iniciando la ventana de agregar nuevo...");
@@ -135,8 +131,7 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
                 Parent root2 = (Parent) FXMLLoader3.load();
                 Stage modificar = new Stage();
                 modificar.setScene(new Scene(root2));
-                //La hago bonita
-//                modificar.getIcons().add(new Image("file:src/imagenes/registro.png"));
+                modificar.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/edit.png")));
                 modificar.setTitle("Modificacion");
                 modificar.initStyle(StageStyle.UNDECORATED);
                 System.out.println("Iniciando la ventana de modificacion...");
@@ -149,8 +144,7 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
                     Parent root8 = (Parent) FXMLLoader3.load();
                     Stage nuevo = new Stage();
                     nuevo.setScene(new Scene(root8));
-                    //La hago bonita
-//           modificar.getIcons().add(new Image("file:src/imagenes/registro.png"));
+                    nuevo.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/alert1.png")));
                     nuevo.setTitle("No Seleccion!");
                     nuevo.initStyle(StageStyle.UNDECORATED);
                     System.out.println("Seleccione un elemento por favor");
@@ -173,15 +167,18 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
         //Obtengo si hay o no un elemento seleccionado (Esto es par que continue con el if o no)
         int selectedIndex = listaProd.getSelectionModel().getSelectedIndex();
 
-        //Asigno el id del elemento seleccionado a una variable y se la mando al metodo de eliminar de la BD
-        Producto idSeleccionado = listaProd.getItems().get(selectedIndex);
-        int seleccion = idSeleccionado.getIdProd();
-//        señal(1, seleccion);
-        //MANDO ID AL METODO DE LA CLASE DE LA VENTANA DE CONFIRMACION
-        cn.eliminarSeleccionado(seleccion);
+//        Asigno el id del elemento seleccionado a una variable y se la mando al metodo de eliminar de la BD
+//        Producto idSeleccionado = listaProd.getItems().get(selectedIndex);
+//        int seleccion = idSeleccionado.getIdProd();
+//        MANDO ID AL METODO DE LA CLASE DE LA VENTANA DE CONFIRMACION
+//        cn.eliminarSeleccionado(seleccion);
         //SE LO MANDO DIRECTO AL BOTON
 //        cn.presionarSi(event ,seleccion);
-        //Control de ventanas
+        
+
+
+
+//Control de ventanas
         if (selectedIndex >= 0) {
             try {
                 //Cargo el archivo fxml
@@ -189,8 +186,7 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
                 Parent root8 = (Parent) FXMLLoader3.load();
                 Stage nuevo = new Stage();
                 nuevo.setScene(new Scene(root8));
-                //La hago bonita
-//           modificar.getIcons().add(new Image("file:src/imagenes/registro.png"));
+                nuevo.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/noAlert.png")));
                 nuevo.setTitle("Estas Seguro?");
                 nuevo.initStyle(StageStyle.UNDECORATED);
                 System.out.println("Iniciando la ventana de confirmacion...");
@@ -200,8 +196,7 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            
-            
+
         } else {
             try {
                 //Cargo el archivo fxml
@@ -209,8 +204,7 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
                 Parent root8 = (Parent) FXMLLoader3.load();
                 Stage nuevo = new Stage();
                 nuevo.setScene(new Scene(root8));
-                //La hago bonita
-//           modificar.getIcons().add(new Image("file:src/imagenes/registro.png"));
+                nuevo.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/alert1.png")));
                 nuevo.setTitle("No Seleccion!");
                 nuevo.initStyle(StageStyle.UNDECORATED);
                 System.out.println("Seleccione un elemento por favor");

@@ -30,9 +30,7 @@ public class ConfirmacionVentanaController {
         //METODO BORRADO
 //        cn.borrarDatos(id);   
     }  
-    public void señal(int a){
-       int confirmar=a;
-    }
+    
     //Boton presionar si
     @FXML
     public void presionarSi(ActionEvent event) {

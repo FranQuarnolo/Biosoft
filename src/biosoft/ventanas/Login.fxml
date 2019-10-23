@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -34,8 +35,7 @@
             <GridPane alignment="CENTER" layoutX="288.0" layoutY="23.0" prefHeight="322.0" prefWidth="383.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="18.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.0" minWidth="10.0" prefWidth="122.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="0.0" prefWidth="19.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="191.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="243.0" minWidth="10.0" prefWidth="243.0" />
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -49,45 +49,59 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label mouseTransparent="true" text="Usuario" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Label mouseTransparent="true" text="Usuario" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Arial Black" size="16.0" />
                      </font>
+                     <GridPane.margin>
+                        <Insets left="35.0" top="5.0" />
+                     </GridPane.margin>
                   </Label>
-                  <Label mouseTransparent="true" text="Contraseña" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+                  <Label mouseTransparent="true" text="Contraseña" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
                      <font>
                         <Font name="Arial Black" size="16.0" />
                      </font>
+                     <GridPane.margin>
+                        <Insets left="35.0" top="5.0" />
+                     </GridPane.margin>
                   </Label>
-                  <ImageView pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <ImageView pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <image>
                         <Image url="@../images/user.png" />
                      </image>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
                   </ImageView>
-                  <ImageView pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <ImageView pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <image>
                         <Image url="@../images/key.png" />
                      </image>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
                   </ImageView>
-                  <Button fx:id="loginboton" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#apretarLogin" prefHeight="32.0" prefWidth="136.0" style="-fx-background-color: #006400; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #ffffff;" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+                  <Button fx:id="loginboton" defaultButton="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#apretarLogin" prefHeight="32.0" prefWidth="136.0" style="-fx-background-color: #006400; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #ffffff;" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Label mouseTransparent="true" text="LOG IN" textFill="#f2f2f2" underline="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+                  <Label mouseTransparent="true" text="LOG IN" textFill="#f2f2f2" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <CheckBox mnemonicParsing="false" prefHeight="2.0" prefWidth="10.0" selected="true" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
-                  </CheckBox>
                   <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" mouseTransparent="true" text="Recuerdame" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
                      <font>
                         <Font name="Arial Black" size="12.0" />
                      </font>
+                     <GridPane.margin>
+                        <Insets right="30.0" />
+                     </GridPane.margin>
                   </Label>
-                  <TextField fx:id="usuario" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <PasswordField fx:id="contrasena" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <TextField fx:id="usuario" style="-fx-background-radius: 10;" text="biosano" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <PasswordField fx:id="contrasena" style="-fx-background-radius: 10;" text="putoelquelee" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <RadioButton mnemonicParsing="false" prefHeight="25.0" prefWidth="23.0" selected="true" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
                </children>
             </GridPane>
             <ImageView fitHeight="44.0" fitWidth="46.0" layoutX="32.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">

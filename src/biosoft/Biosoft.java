@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import biosoft.ventanas.LoginController;
 import javafx.scene.image.Image;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.StageStyle;
 
 /**
@@ -42,7 +43,7 @@ public class Biosoft extends Application {
             ventana.setScene(scene);
             //Lo hago bonito
             ventana.initStyle(StageStyle.UNDECORATED);
-            ventana.getIcons().add(new Image("file:images/logo2.png"));
+            ventana.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/logosinletras.png")));
             ventana.setTitle("BioSano.S.A - LogIn");
             
             LoginController controlador = loader.getController();
