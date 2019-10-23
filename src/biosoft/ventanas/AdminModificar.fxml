@@ -1,16 +1,245 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.AdminModificarController">
    <children>
-      <Button layoutX="274.0" layoutY="175.0" mnemonicParsing="false" onAction="#apretarSalir" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: #757575; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-color: #000000;" />
-      <Label layoutX="282.0" layoutY="179.0" mouseTransparent="true" text="SALIR" textFill="WHITE">
+      <Button cancelButton="true" layoutX="530.0" layoutY="20.0" mnemonicParsing="false" onAction="#apretarSalir" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: #757575; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-color: #000000;" />
+      <Label layoutX="539.0" layoutY="23.0" mouseTransparent="true" text="SALIR" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="2.0" layoutY="65.0" prefHeight="309.0" prefWidth="580.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="185.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.0" minWidth="10.0" prefWidth="197.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="164.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="32.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Cantidad:" textFill="WHITE" GridPane.halignment="RIGHT">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label text="Tiempo Entrega:" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label text="Destino:" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label text="Origen:" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label text="Plazo de Pago:" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label text="Cliente Importante:" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label text="Dev. Bidones:" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label text="Contrato de Aprov.:" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField prefHeight="26.0" prefWidth="142.0" GridPane.columnIndex="2">
+               <opaqueInsets>
+                  <Insets left="15.0" />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets left="15.0" />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <opaqueInsets>
+                  <Insets left="15.0" />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <opaqueInsets>
+                  <Insets left="15.0" />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <opaqueInsets>
+                  <Insets left="15.0" />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <opaqueInsets>
+                  <Insets left="15.0" />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="6">
+               <opaqueInsets>
+                  <Insets left="15.0" />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="7">
+               <opaqueInsets>
+                  <Insets left="15.0" />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </TextField>
+            <ComboBox prefHeight="28.0" prefWidth="170.0" style="-fx-background-radius: 10;" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox prefWidth="170.0" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox prefWidth="170.0" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox prefWidth="170.0" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox prefWidth="170.0" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox prefWidth="170.0" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox prefWidth="170.0" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox prefWidth="170.0" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <ImageView fitHeight="26.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../images/edit.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../images/edit.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../images/edit.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../images/edit.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../images/edit.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../images/edit.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../images/edit.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../images/edit.png" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
+      <Label layoutX="62.0" layoutY="16.0" text="MODIFICAR PRODUCTO" textFill="WHITE" underline="true">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="41.0" fitWidth="54.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logosinletras.png" />
+         </image>
+      </ImageView>
+      <Button defaultButton="true" layoutX="250.0" layoutY="358.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="101.0" style="-fx-background-color: #008000; -fx-background-radius: 10;" />
+      <Label layoutX="264.0" layoutY="366.0" mouseTransparent="true" text="GUARDAR" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
    </children>

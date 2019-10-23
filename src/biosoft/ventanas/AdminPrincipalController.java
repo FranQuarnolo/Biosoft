@@ -133,7 +133,7 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
                 modificar.setScene(new Scene(root2));
                 modificar.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/edit.png")));
                 modificar.setTitle("Modificacion");
-                modificar.initStyle(StageStyle.UNDECORATED);
+//                modificar.initStyle(StageStyle.UNDECORATED);
                 System.out.println("Iniciando la ventana de modificacion...");
                 //Inicio la ventana
                 modificar.show();
