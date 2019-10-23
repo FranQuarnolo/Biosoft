@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javafx.collections.ObservableList;
 import javax.swing.JOptionPane;
 
@@ -96,5 +97,38 @@ public class ControladorBaseDatosFx {
             JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    
+    public ArrayList<String> llenarComboboxTipo(Connection connection){
+        ArrayList<String> listaTipo = new ArrayList<String>();
+       // String q="SELECT tipo FROM `producto`";
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT DISTINCT tipo FROM producto ");
+            while (rs.next()) {
+                listaTipo.add(rs.getString("tipo"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error aca");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return listaTipo;
+    }
+    
+    public ArrayList<String> llenarComboboxNombre(Connection connection,String tipo){
+        ArrayList<String> listaTipo = new ArrayList<String>();
+       // String q="SELECT tipo FROM `producto`";
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT nombre FROM producto WHERE `tipo` LIKE '%"+tipo+"%' ");
+            while (rs.next()) {
+                listaTipo.add(rs.getString("nombre"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error aca");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+       
+        return listaTipo;
+    }
 }
