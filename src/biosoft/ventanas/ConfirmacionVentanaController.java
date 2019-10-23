@@ -26,13 +26,16 @@ public class ConfirmacionVentanaController {
         int id = idProd;
         System.out.println(id);
         ControladorProducto cn = new ControladorProducto();
+        
         //METODO BORRADO
 //        cn.borrarDatos(id);   
     }  
-    
+    public void señal(int a){
+       int confirmar=a;
+    }
     //Boton presionar si
     @FXML
-    private void presionarSi(ActionEvent event) {
+    public void presionarSi(ActionEvent event) {
        
         /*
                 Probando y probando: si hago este metodo publico y le mando el id como parametro
@@ -58,7 +61,11 @@ public class ConfirmacionVentanaController {
 //        System.out.println(id);
                 
         System.out.println("Eliminando...");
+        
         ((Node) (event.getSource())).getScene().getWindow().hide();
+        ConfirmacionVentanaController sd = new ConfirmacionVentanaController();
+        
+        
     }
 
     //Boton cancelar

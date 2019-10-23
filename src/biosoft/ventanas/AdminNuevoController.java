@@ -35,6 +35,8 @@ public class AdminNuevoController {
                 producto.setTipo(tTipo.getText());
                 
                 controladorProducto.insertarSQL(producto);
+                ((Node) (event.getSource())).getScene().getWindow().hide();
+                
                 
             }catch(NumberFormatException e){
                     JOptionPane.showMessageDialog(null, "Esta ingresando valores no numericos en campos numericos\n "+e); 

@@ -45,6 +45,7 @@ public class ControladorBaseDatosFx {
         } finally {
             // JOptionPane.showMessageDialog(null, "Conexión a la Base de Datos Exitosa");
             System.out.println("Conexión a la Base de Datos Exitosa");
+            System.out.println("Actualizando...");
         }
     }
 

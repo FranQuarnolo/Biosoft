@@ -1,6 +1,7 @@
 package biosoft.ventanas;
 
 import biosoft.BaseDatos.ControladorBaseDatosFx;
+import biosoft.modelo.ControladorProducto;
 import biosoft.modelo.DetalleVenta;
 import biosoft.modelo.Producto;
 import biosoft.modelo.Venta;
@@ -58,6 +59,8 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
     private TableColumn<Producto, String> nombre;
 
     private ObservableList<Producto> listaProducto;
+    
+    
 
     public AdminPrincipalController() {
     }
@@ -73,9 +76,32 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
         tipo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         nombre.setCellValueFactory(new PropertyValueFactory<>("tipo"));
 
-//        lCantidad.setText(Integer.toString(detalle.getCantidad()));
     }
 
+    public void señal(int a,int b){
+        int confirmar=a;
+        System.out.println(confirmar);
+        if(confirmar==1){
+            ControladorProducto cp = new ControladorProducto();
+            int selected=b;
+            System.out.println(selected);
+//            cp.borrarDatos(seleccion);
+        }
+    }
+    
+    
+    
+    //Boton actualizar
+    @FXML
+    private void apretarReload(ActionEvent event){
+        listaProducto = FXCollections.observableArrayList();
+        ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+        db.llenarProd(db.getConexion(), listaProducto);
+        listaProd.setItems(listaProducto);
+        idProd.setCellValueFactory(new PropertyValueFactory<>("idProd"));
+        tipo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        nombre.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+    }
     //Boton agregar
     @FXML
     private void apretarAgregar(ActionEvent event) {
@@ -143,7 +169,6 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
     //Boton Eliminar
     @FXML
     private void apretarEliminarRegistro(ActionEvent event) {
-//        ControladorBaseDatosFx control = new ControladorBaseDatosFx();
         ConfirmacionVentanaController cn = new ConfirmacionVentanaController();
         //Obtengo si hay o no un elemento seleccionado (Esto es par que continue con el if o no)
         int selectedIndex = listaProd.getSelectionModel().getSelectedIndex();
@@ -151,10 +176,9 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
         //Asigno el id del elemento seleccionado a una variable y se la mando al metodo de eliminar de la BD
         Producto idSeleccionado = listaProd.getItems().get(selectedIndex);
         int seleccion = idSeleccionado.getIdProd();
-
+//        señal(1, seleccion);
         //MANDO ID AL METODO DE LA CLASE DE LA VENTANA DE CONFIRMACION
         cn.eliminarSeleccionado(seleccion);
-
         //SE LO MANDO DIRECTO AL BOTON
 //        cn.presionarSi(event ,seleccion);
         //Control de ventanas
@@ -176,6 +200,8 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            
+            
         } else {
             try {
                 //Cargo el archivo fxml
