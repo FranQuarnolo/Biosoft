@@ -2,6 +2,7 @@ package biosoft.ventanas;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 
 /**
  *
@@ -14,6 +15,6 @@ public class AdminModificarController {
     
     @FXML
     private void apretarSalir(ActionEvent event){
-        System.exit(0); 
+         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 }

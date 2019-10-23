@@ -184,7 +184,7 @@
                </font>
             </Label>
             <Button layoutX="748.0" layoutY="504.0" mnemonicParsing="false" onAction="#apretarAgregar" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #006400; -fx-background-radius: 7; -fx-border-color: #000000; -fx-border-radius: 7;" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="24.0" />
-            <Label layoutX="756.0" layoutY="510.0" mouseTransparent="true" onDragDetected="#apretarAgregar" text="+Agregar" textFill="WHITE" AnchorPane.bottomAnchor="29.0" AnchorPane.rightAnchor="32.0">
+            <Label layoutX="756.0" layoutY="510.0" mouseTransparent="true" text="+Agregar" textFill="WHITE" AnchorPane.bottomAnchor="29.0" AnchorPane.rightAnchor="32.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
@@ -199,7 +199,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button cancelButton="true" layoutX="814.0" layoutY="16.0" minWidth="39.0" mnemonicParsing="false" onAction="#apretarCerrarSesion" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #757575; -fx-border-color: #ffffff; -fx-background-radius: 50; -fx-border-radius: 50;" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0" />
+            <Button layoutX="814.0" layoutY="16.0" minWidth="39.0" mnemonicParsing="false" onAction="#apretarCerrarSesion" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #757575; -fx-border-color: #ffffff; -fx-background-radius: 50; -fx-border-radius: 50;" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0" />
             <Label layoutX="830.0" layoutY="22.0" mouseTransparent="true" onDragDetected="#apretarCerrarSesion" prefHeight="15.0" prefWidth="78.0" text="Cerrar Sesion" textFill="WHITE" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font name="Arial Bold" size="11.0" />

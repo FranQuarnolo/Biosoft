@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
@@ -192,6 +193,20 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
     private void apretarCancelar(ActionEvent event) throws IOException {
         limpiar();
          
+    }
+    
+    @FXML
+    private void apretarCerrarSalir (ActionEvent event) throws IOException{
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+        System.out.println("Cerrando ventana de administrador");
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Scene scene = new Scene(root);
+        
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setMaximized(false);
+        appStage.setScene(scene);
+        appStage.toFront();
+        appStage.show();
     }
     
 

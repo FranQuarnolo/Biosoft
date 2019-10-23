@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.PricingController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.PricingController">
    <children>
       <AnchorPane prefHeight="35.0" prefWidth="750.0" style="-fx-background-color: #2F4F4F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -321,6 +321,12 @@
             <Label layoutX="738.0" layoutY="516.0" mouseTransparent="true" text="FINALIZAR" textFill="#f2f2f2" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="27.0">
                <font>
                   <Font name="Arial Bold" size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="769.0" layoutY="9.0" minWidth="39.0" mnemonicParsing="false" onAction="#apretarCerrarSalir" prefHeight="27.0" prefWidth="61.0" style="-fx-background-color: #757575; -fx-border-color: #ffffff; -fx-background-radius: 50; -fx-border-radius: 50;" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="9.0" />
+            <Label layoutX="783.0" layoutY="15.0" mouseTransparent="true" prefHeight="15.0" prefWidth="41.0" text="Salir" textFill="WHITE" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
          </children>

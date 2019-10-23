@@ -4,25 +4,51 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.AdminNuevoController">
+<AnchorPane id="AnchorPane" prefHeight="228.0" prefWidth="451.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.AdminNuevoController">
    <children>
-      <Button layoutX="498.0" layoutY="339.0" mnemonicParsing="false" onAction="#apretarSalir" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: #757575; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-color: #000000;" />
-      <Label layoutX="506.0" layoutY="343.0" mouseTransparent="true" text="SALIR" textFill="WHITE">
+      <Button layoutX="82.0" layoutY="168.0" mnemonicParsing="false" onAction="#apretarSalir" prefHeight="32.0" prefWidth="64.0" style="-fx-background-color: #757575; -fx-border-radius: 7; -fx-background-radius: 7; -fx-border-color: #000000;" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="82.0" />
+      <Label layoutX="96.0" layoutY="175.0" mouseTransparent="true" text="SALIR" textFill="WHITE" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="96.0">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <VBox layoutX="190.0" layoutY="66.0" prefHeight="208.0" prefWidth="237.0">
+      <Button defaultButton="true" layoutX="307.0" layoutY="169.0" mnemonicParsing="false" onAction="#apretarGuardar" prefHeight="32.0" prefWidth="83.0" style="-fx-background-color: #008000; -fx-background-radius: 10;" AnchorPane.bottomAnchor="27.0" AnchorPane.rightAnchor="61.0" />
+      <GridPane layoutX="35.0" layoutY="35.0" prefHeight="102.0" prefWidth="354.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="106.0" minWidth="10.0" prefWidth="16.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.0" minWidth="10.0" prefWidth="206.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="34.0" minHeight="7.0" prefHeight="34.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="18.0" minHeight="10.0" prefHeight="11.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <TextField fx:id="tTipo" layoutX="50.0" layoutY="50.0" prefHeight="25.0" prefWidth="175.0" />
-            <TextField fx:id="tNombre" layoutX="50.0" layoutY="150.0" prefHeight="27.0" prefWidth="237.0" />
+            <TextField fx:id="tTipo" prefHeight="25.0" prefWidth="175.0" GridPane.columnIndex="2" />
+            <TextField fx:id="tNombre" prefHeight="27.0" prefWidth="237.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label prefHeight="17.0" prefWidth="83.0" text="     Tipo:" textFill="WHITE" GridPane.halignment="RIGHT">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="83.0" text="Nombre:" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
-      </VBox>
-      <Label layoutX="70.0" layoutY="66.0" prefHeight="17.0" prefWidth="83.0" text="     Tipo" textFill="WHITE" />
-      <Label layoutX="81.0" layoutY="91.0" prefHeight="27.0" prefWidth="83.0" text="Nombre" textFill="WHITE" />
-      <Button layoutX="427.0" layoutY="340.0" mnemonicParsing="false" onAction="#apretarNuevp" text="Aceptar" />
+      </GridPane>
+      <Label layoutX="317.0" layoutY="176.0" mouseTransparent="true" text="GUARDAR" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

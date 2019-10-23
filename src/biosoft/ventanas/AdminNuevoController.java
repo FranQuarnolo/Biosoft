@@ -5,6 +5,7 @@ import biosoft.modelo.ControladorProducto;
 import biosoft.modelo.Producto;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import org.controlsfx.dialog.Dialogs;
@@ -22,13 +23,10 @@ public class AdminNuevoController {
     
     ControladorProducto controladorProducto = new ControladorProducto();
     Producto producto = new Producto();
-    @FXML
-    private void apretarSalir(ActionEvent event){
-        System.exit(0); 
-    }
     
+    //Boton Guardar 
     @FXML
-    private void apretarNuevo(ActionEvent event){
+    private void apretarGuardar(ActionEvent event){
         if (siEsInvalido()) {
             try{
            
@@ -44,6 +42,11 @@ public class AdminNuevoController {
         }
     }
     
+    //Boton salir
+    @FXML
+    private void apretarSalir(ActionEvent event){
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+    }
       public boolean siEsInvalido() {
         String errorMessage = "";
 
