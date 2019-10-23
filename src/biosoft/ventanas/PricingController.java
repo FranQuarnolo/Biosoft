@@ -70,10 +70,9 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
      @Override
     public void initialize(URL url, ResourceBundle rb) {
        ControladorBaseDatosFx ct = new ControladorBaseDatosFx();
-       cargarComboBoxTipo();
-
-       
+       cargarComboBoxTipo();   
     }
+    
     //Metodo para cargar el combo box de tipo
     public void cargarComboBoxTipo(){
         listaTipoComboBox.removeAll(listaTipoComboBox);
@@ -85,10 +84,8 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         }
         
     }
-    
-    
-    //Metodo para cargar el combo box de nombre
-    
+     
+    //Metodo para cargar el combo box de nombre 
     public void cargarComboBoxNombre(ActionEvent event){
         String selectedInscripcion = tipoProducto.getSelectionModel().getSelectedItem();
         
@@ -119,13 +116,14 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
     }
     
     //Metodo para limpiar registros
-     private void limpiar() {
+    private void limpiar() {
+        
         clienteImportante.setSelected(false);
         DEV_Bidones.setSelected(false);
         contratoDeAprov.setSelected(false);
          
-        tipoProducto.setValue(null);
-        nombre.setValue(null);
+        tipoProducto.setValue("");
+        nombre.setValue("");
         origenMercaderia.setValue(null);
         plazoPago.setValue(null);
         cantidad.setValue(null);
@@ -192,7 +190,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
     //Boton Cancelar
     @FXML
     private void apretarCancelar(ActionEvent event) throws IOException {
-//        Aqui va el metodo limpiar
+        limpiar();
          
     }
     
