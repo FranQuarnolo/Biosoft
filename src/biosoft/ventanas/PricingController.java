@@ -28,6 +28,11 @@ import javafx.stage.StageStyle;
 public class PricingController extends ControladorBaseDatosFx implements Initializable {
     ObservableList listaTipoComboBox = FXCollections.observableArrayList();
     ObservableList listaNombreComboBox = FXCollections.observableArrayList();
+    ObservableList listaOrigenComboBox = FXCollections.observableArrayList();
+    ObservableList listaPlazoPagoComboBox = FXCollections.observableArrayList();
+    ObservableList listaCantidadComboBox = FXCollections.observableArrayList();
+    ObservableList listaTiempoEntregaComboBox = FXCollections.observableArrayList();
+    ObservableList listaDestinoComboBox = FXCollections.observableArrayList();
     ControladorBaseDatosFx baseDatos = new ControladorBaseDatosFx();
     @FXML
     private CheckBox clienteImportante;
@@ -45,19 +50,19 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
     private ComboBox<String> nombre;
 
     @FXML
-    private ComboBox<?> origenMercaderia;
+    private ComboBox<String> origenMercaderia;
 
     @FXML
-    private ComboBox<?> plazoPago;
+    private ComboBox<String> plazoPago;
 
     @FXML
-    private ComboBox<?> cantidad;
+    private ComboBox<String> cantidad;
 
     @FXML
-    private ComboBox<?> tiempoEntrega;
+    private ComboBox<String> tiempoEntrega;
 
     @FXML
-    private ComboBox<?> lugarEntrega;
+    private ComboBox<String> lugarEntrega;
 
     @FXML
     private Label precioAnterior;
@@ -71,7 +76,12 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
      @Override
     public void initialize(URL url, ResourceBundle rb) {
        ControladorBaseDatosFx ct = new ControladorBaseDatosFx();
-       cargarComboBoxTipo();   
+       cargarComboBoxTipo();  
+       cargarComboBoxOrigen();
+       cargarComboBoxPlazoDePago();
+       cargarComboBoxCantidad();
+       cargarComboBoxTiempoDeEntrega();
+       cargarComboBoxDestino();
     }
     
     //Metodo para cargar el combo box de tipo
@@ -99,6 +109,61 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
             nombre.getItems().addAll(listaNombre.get(i));
         }
        
+    }
+    
+    public void cargarComboBoxOrigen(){
+        listaOrigenComboBox.removeAll(listaOrigenComboBox);
+        ArrayList<String> listaOrigen = new ArrayList<String>();
+        listaOrigen = baseDatos.llenarComboboxOrigen(baseDatos.getConexion());
+        System.out.println(listaOrigen);
+        for (int i = 0; i < listaOrigen.size(); i++) {
+            origenMercaderia.getItems().addAll(listaOrigen.get(i));
+        }
+        
+    }
+    
+    public void cargarComboBoxPlazoDePago(){
+        listaPlazoPagoComboBox.removeAll(listaPlazoPagoComboBox);
+        ArrayList<String> listaPlazoDePago = new ArrayList<String>();
+        listaPlazoDePago = baseDatos.llenarComboboxPlazoDePago(baseDatos.getConexion());
+        System.out.println(listaPlazoDePago);
+        for (int i = 0; i < listaPlazoDePago.size(); i++) {
+            plazoPago.getItems().addAll(listaPlazoDePago.get(i));
+        }
+        
+    }
+    
+    public void cargarComboBoxCantidad(){
+        listaCantidadComboBox.removeAll(listaCantidadComboBox);
+        ArrayList<String> listaCantidad = new ArrayList<String>();
+        listaCantidad = baseDatos.llenarComboboxCantidad(baseDatos.getConexion());
+        System.out.println(listaCantidad);
+        for (int i = 0; i < listaCantidad.size(); i++) {
+            cantidad.getItems().addAll(listaCantidad.get(i));
+        }
+        
+    }
+    
+    public void cargarComboBoxTiempoDeEntrega(){
+        listaTiempoEntregaComboBox.removeAll(listaTiempoEntregaComboBox);
+        ArrayList<String> listaTiempoDeEntrega = new ArrayList<String>();
+        listaTiempoDeEntrega = baseDatos.llenarComboboxTiempoDeEntrega(baseDatos.getConexion());
+        System.out.println(listaTiempoDeEntrega);
+        for (int i = 0; i < listaTiempoDeEntrega.size(); i++) {
+            tiempoEntrega.getItems().addAll(listaTiempoDeEntrega.get(i));
+        }
+        
+    }
+    
+    public void cargarComboBoxDestino(){
+        listaDestinoComboBox.removeAll(listaDestinoComboBox);
+        ArrayList<String> listaDestino = new ArrayList<String>();
+        listaDestino = baseDatos.llenarComboboxDestino(baseDatos.getConexion());
+        System.out.println(listaDestino);
+        for (int i = 0; i < listaDestino.size(); i++) {
+            lugarEntrega.getItems().addAll(listaDestino.get(i));
+        }
+        
     }
     
     //Metodo para mostrar la ventana de acceso denegado
