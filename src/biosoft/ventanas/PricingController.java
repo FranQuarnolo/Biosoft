@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 
 /**
  * FXML Controller class
@@ -27,6 +29,7 @@ import javafx.stage.StageStyle;
  * @author Wayne
  */
 public class PricingController extends ControladorBaseDatosFx implements Initializable {
+
     ObservableList listaTipoComboBox = FXCollections.observableArrayList();
     ObservableList listaNombreComboBox = FXCollections.observableArrayList();
     ObservableList listaOrigenComboBox = FXCollections.observableArrayList();
@@ -70,23 +73,23 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
 
     @FXML
     private Label monto;
-    
+
     public PricingController() {
     }
 
-     @Override
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
-       ControladorBaseDatosFx ct = new ControladorBaseDatosFx();
-       cargarComboBoxTipo();  
-       cargarComboBoxOrigen();
-       cargarComboBoxPlazoDePago();
-       cargarComboBoxCantidad();
-       cargarComboBoxTiempoDeEntrega();
-       cargarComboBoxDestino();
+        ControladorBaseDatosFx ct = new ControladorBaseDatosFx();
+        cargarComboBoxTipo();
+        cargarComboBoxOrigen();
+        cargarComboBoxPlazoDePago();
+        cargarComboBoxCantidad();
+        cargarComboBoxTiempoDeEntrega();
+        cargarComboBoxDestino();
     }
-    
+
     //Metodo para cargar el combo box de tipo
-    public void cargarComboBoxTipo(){
+    public void cargarComboBoxTipo() {
         listaTipoComboBox.removeAll(listaTipoComboBox);
         ArrayList<String> listaTipo = new ArrayList<String>();
         listaTipo = baseDatos.llenarComboboxTipo(baseDatos.getConexion());
@@ -94,25 +97,25 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         for (int i = 0; i < listaTipo.size(); i++) {
             tipoProducto.getItems().addAll(listaTipo.get(i));
         }
-        
+
     }
-     
+
     //Metodo para cargar el combo box de nombre 
-    public void cargarComboBoxNombre(ActionEvent event){
+    public void cargarComboBoxNombre(ActionEvent event) {
         String selectedInscripcion = tipoProducto.getSelectionModel().getSelectedItem();
-        
+
         listaNombreComboBox.removeAll(listaNombreComboBox);
         nombre.getItems().clear();
         ArrayList<String> listaNombre = new ArrayList<String>();
-        listaNombre = baseDatos.llenarComboboxNombre(baseDatos.getConexion(),selectedInscripcion);
+        listaNombre = baseDatos.llenarComboboxNombre(baseDatos.getConexion(), selectedInscripcion);
         System.out.println(listaNombre);
         for (int i = 0; i < listaNombre.size(); i++) {
             nombre.getItems().addAll(listaNombre.get(i));
         }
-       
+
     }
-    
-    public void cargarComboBoxOrigen(){
+
+    public void cargarComboBoxOrigen() {
         listaOrigenComboBox.removeAll(listaOrigenComboBox);
         ArrayList<String> listaOrigen = new ArrayList<String>();
         listaOrigen = baseDatos.llenarComboboxOrigen(baseDatos.getConexion());
@@ -120,10 +123,10 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         for (int i = 0; i < listaOrigen.size(); i++) {
             origenMercaderia.getItems().addAll(listaOrigen.get(i));
         }
-        
+
     }
-    
-    public void cargarComboBoxPlazoDePago(){
+
+    public void cargarComboBoxPlazoDePago() {
         listaPlazoPagoComboBox.removeAll(listaPlazoPagoComboBox);
         ArrayList<String> listaPlazoDePago = new ArrayList<String>();
         listaPlazoDePago = baseDatos.llenarComboboxPlazoDePago(baseDatos.getConexion());
@@ -131,10 +134,10 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         for (int i = 0; i < listaPlazoDePago.size(); i++) {
             plazoPago.getItems().addAll(listaPlazoDePago.get(i));
         }
-        
+
     }
-    
-    public void cargarComboBoxCantidad(){
+
+    public void cargarComboBoxCantidad() {
         listaCantidadComboBox.removeAll(listaCantidadComboBox);
         ArrayList<String> listaCantidad = new ArrayList<String>();
         listaCantidad = baseDatos.llenarComboboxCantidad(baseDatos.getConexion());
@@ -142,10 +145,10 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         for (int i = 0; i < listaCantidad.size(); i++) {
             cantidad.getItems().addAll(listaCantidad.get(i));
         }
-        
+
     }
-    
-    public void cargarComboBoxTiempoDeEntrega(){
+
+    public void cargarComboBoxTiempoDeEntrega() {
         listaTiempoEntregaComboBox.removeAll(listaTiempoEntregaComboBox);
         ArrayList<String> listaTiempoDeEntrega = new ArrayList<String>();
         listaTiempoDeEntrega = baseDatos.llenarComboboxTiempoDeEntrega(baseDatos.getConexion());
@@ -153,10 +156,10 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         for (int i = 0; i < listaTiempoDeEntrega.size(); i++) {
             tiempoEntrega.getItems().addAll(listaTiempoDeEntrega.get(i));
         }
-        
+
     }
-    
-    public void cargarComboBoxDestino(){
+
+    public void cargarComboBoxDestino() {
         listaDestinoComboBox.removeAll(listaDestinoComboBox);
         ArrayList<String> listaDestino = new ArrayList<String>();
         listaDestino = baseDatos.llenarComboboxDestino(baseDatos.getConexion());
@@ -164,9 +167,9 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         for (int i = 0; i < listaDestino.size(); i++) {
             lugarEntrega.getItems().addAll(listaDestino.get(i));
         }
-        
+
     }
-    
+
     //Metodo para mostrar la ventana de acceso denegado
     public void accesoDenegado(ActionEvent event) throws IOException {
 
@@ -178,18 +181,30 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         stage3.initStyle(StageStyle.UNDECORATED);
         stage3.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/noAlert.png")));
         stage3.centerOnScreen();
+//        stage3.getOnCloseRequest()
+//                .handle(
+//                        new WindowEvent(
+//                                stage3,
+//                                WindowEvent.WINDOW_CLOSE_REQUEST));
+//        stage3.fireEvent(
+//                new WindowEvent(
+//                        stage3,
+//                        WindowEvent.WINDOW_CLOSE_REQUEST
+//                )
+//        );
+       
         stage3.setTitle("Acceso Denegado!");
         stage3.setScene(new Scene(root3));
         stage3.show();
     }
-    
+
     //Metodo para limpiar registros
     private void limpiar() {
-        
+
         clienteImportante.setSelected(false);
         DEV_Bidones.setSelected(false);
         contratoDeAprov.setSelected(false);
-         
+
         tipoProducto.setValue("");
         nombre.setValue("");
         origenMercaderia.setValue(null);
@@ -197,84 +212,89 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         cantidad.setValue(null);
         tiempoEntrega.setValue(null);
         lugarEntrega.setValue(null);
-        
+
         precioAnterior.setText("");
         monto.setText("");
     }
-    
-     
-     
-     
+
     //Pestañas
     @FXML
     private void apretarStock(ActionEvent event) throws IOException {
         PricingController cn = new PricingController();
         cn.accesoDenegado(event);
+
     }
+
     @FXML
     private void apretarBookin(ActionEvent event) throws IOException {
         PricingController cn = new PricingController();
         cn.accesoDenegado(event);
     }
+
     @FXML
     private void apretarFinance(ActionEvent event) throws IOException {
         PricingController cn = new PricingController();
         cn.accesoDenegado(event);
     }
+
     @FXML
     private void apretarCobranza(ActionEvent event) throws IOException {
         PricingController cn = new PricingController();
         cn.accesoDenegado(event);
     }
+
     @FXML
     private void apretarPagos(ActionEvent event) throws IOException {
         PricingController cn = new PricingController();
         cn.accesoDenegado(event);
     }
+
     @FXML
     private void apretarContabilidad(ActionEvent event) throws IOException {
         PricingController cn = new PricingController();
         cn.accesoDenegado(event);
     }
+
     @FXML
     private void apretarCrm(ActionEvent event) throws IOException {
         PricingController cn = new PricingController();
         cn.accesoDenegado(event);
     }
-    
+
     //Botones inferiores
     //Boton Realizar otra venta o presupuesto
     @FXML
-    private void apretarRealizarOtra(ActionEvent event){
+    private void apretarRealizarOtra(ActionEvent event) {
         //Aca deberia guardar lo ingresado en algun lado, limpiar la pantalla y asi poder ingresar otros datos
     }
+
     //Boton finalizar
     @FXML
-    private void apretarFinalizar(ActionEvent event){
+    private void apretarFinalizar(ActionEvent event) {
         //Y aca nose, guardar o tirar para que imprima el precio o algo asi.
         //CHARLARRR
         //!!!
     }
+
     //Boton Cancelar
     @FXML
     private void apretarCancelar(ActionEvent event) throws IOException {
         limpiar();
-         
+
     }
-    
+
     @FXML
-    private void apretarCerrarSalir (ActionEvent event) throws IOException{
+    private void apretarCerrarSalir(ActionEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();
         System.out.println("Cerrando ventana de administrador");
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene scene = new Scene(root);
-        
+
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         appStage.setMaximized(false);
         appStage.setScene(scene);
         appStage.toFront();
         appStage.show();
     }
-    
 
 }
