@@ -6,16 +6,17 @@ public class Producto {
     private int idProd;
     private String tipo;
     private String nombre;
+    private float precio;
     
         public Producto() {
-        this(0,null, null);
+        this(0,null, null,0);
     }
     
-    public Producto(int idProd, String tipo, String nombre) {
+    public Producto(int idProd, String tipo, String nombre, float precio) {
         this.idProd = idProd;
         this.tipo = tipo;
         this.nombre = nombre;
-        
+        this.precio = precio;
     }
  
     public int getIdProd() {
@@ -42,5 +43,11 @@ public class Producto {
         this.nombre = nombre;
     }
     
+    public float getPrecio(){
+        return precio;
+    }
     
+    public void setPrecio(float precio){
+        this.precio = precio;
+    }
 }

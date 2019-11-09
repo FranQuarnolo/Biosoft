@@ -102,17 +102,27 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
 
     //Metodo para cargar el combo box de nombre 
     public void cargarComboBoxNombre(ActionEvent event) {
-        String selectedInscripcion = tipoProducto.getSelectionModel().getSelectedItem();
+        String selectedTipo = tipoProducto.getSelectionModel().getSelectedItem();
 
         listaNombreComboBox.removeAll(listaNombreComboBox);
         nombre.getItems().clear();
         ArrayList<String> listaNombre = new ArrayList<String>();
-        listaNombre = baseDatos.llenarComboboxNombre(baseDatos.getConexion(), selectedInscripcion);
+        listaNombre = baseDatos.llenarComboboxNombre(baseDatos.getConexion(), selectedTipo);
         System.out.println(listaNombre);
         for (int i = 0; i < listaNombre.size(); i++) {
             nombre.getItems().addAll(listaNombre.get(i));
         }
 
+    }
+    
+    // Metodo para cargar precio
+    public void cargarPrecios(ActionEvent event) {
+        String selectedNombre = nombre.getSelectionModel().getSelectedItem();
+        float precio;
+        
+        precio=baseDatos.llenarPrecio(baseDatos.getConexion(), selectedNombre);
+       
+        precioAnterior.setText(Float.toString(precio));
     }
 
     public void cargarComboBoxOrigen() {

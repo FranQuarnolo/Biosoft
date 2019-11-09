@@ -76,7 +76,7 @@ public class ControladorBaseDatosFx {
             Statement ps = connection.createStatement();
             ResultSet rs = ps.executeQuery("SELECT * FROM producto");
             while (rs.next()) {
-                listaProducto.add(new Producto(rs.getInt("idProd"), rs.getString("nombre"), rs.getString("tipo")));
+                listaProducto.add(new Producto(rs.getInt("idProd"), rs.getString("nombre"), rs.getString("tipo"), rs.getFloat("idProd")));
             }
         } catch (SQLException e) {
             System.out.println("Error aca");
@@ -92,7 +92,7 @@ public class ControladorBaseDatosFx {
                     + " or `nombre` LIKE '%" + producto + "' "
                     + "or `nombre` LIKE '" + producto + "%'");
             while (rs.next()) {
-                listaProducto.add(new Producto(rs.getInt("idProd"), rs.getString("nombre"), rs.getString("tipo")));
+                listaProducto.add(new Producto(rs.getInt("idProd"), rs.getString("nombre"), rs.getString("tipo"), rs.getFloat("idProd")));
             }
         } catch (SQLException e) {
             System.out.println("Error aca");
@@ -224,6 +224,26 @@ public class ControladorBaseDatosFx {
         }
 
         return listaTipo;
+    }
+    
+    // Metodo para llenar precio
+    
+    public float llenarPrecio(Connection connection, String nombreprod) {
+        ArrayList<String> listaPrecio = new ArrayList<String>();
+       float precio=0;
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT precio FROM producto WHERE nombre = '"+nombreprod+"'");
+            while (rs.next()) {
+               listaPrecio.add(rs.getString("precio"));
+            }
+            precio=Float.parseFloat(listaPrecio.get(0));
+        } catch (SQLException e) {
+            System.out.println("Error aca metodo precio");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return precio;
     }
 
 }
