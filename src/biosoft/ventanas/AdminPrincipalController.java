@@ -21,6 +21,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -147,9 +148,10 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
                     nuevo.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/alert1.png")));
                     nuevo.setTitle("No Seleccion!");
                     nuevo.initStyle(StageStyle.UNDECORATED);
+                    nuevo.initModality(Modality.APPLICATION_MODAL);
                     System.out.println("Seleccione un elemento por favor");
                     //Inicio la ventana
-                    nuevo.show();
+                    nuevo.showAndWait();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -189,9 +191,10 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
                 nuevo.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/noAlert.png")));
                 nuevo.setTitle("Estas Seguro?");
                 nuevo.initStyle(StageStyle.UNDECORATED);
+                nuevo.initModality(Modality.APPLICATION_MODAL);
                 System.out.println("Iniciando la ventana de confirmacion...");
                 //Inicio la ventana
-                nuevo.show();
+                nuevo.showAndWait();
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -207,9 +210,10 @@ public class AdminPrincipalController extends ControladorBaseDatosFx implements 
                 nuevo.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/alert1.png")));
                 nuevo.setTitle("No Seleccion!");
                 nuevo.initStyle(StageStyle.UNDECORATED);
+                nuevo.initModality(Modality.APPLICATION_MODAL);
                 System.out.println("Seleccione un elemento por favor");
                 //Inicio la ventana
-                nuevo.show();
+                nuevo.showAndWait();
             } catch (IOException e) {
                 e.printStackTrace();
             }

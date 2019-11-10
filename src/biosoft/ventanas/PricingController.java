@@ -1,13 +1,19 @@
 package biosoft.ventanas;
 
 import biosoft.BaseDatos.ControladorBaseDatosFx;
+import static com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.shutdown;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,8 +25,10 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 
 /**
@@ -80,7 +88,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ControladorBaseDatosFx ct = new ControladorBaseDatosFx();
-        
+
         cargarComboBoxTipo();
         cargarComboBoxOrigen();
         cargarComboBoxPlazoDePago();
@@ -115,18 +123,17 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         }
 
     }
-    
+
     // Metodo para cargar precio mas caro
     public void cargarPrecios(ActionEvent event) {
         String selectedNombre = nombre.getSelectionModel().getSelectedItem();
         float precio;
-        
-        precio=baseDatos.llenarPrecio(baseDatos.getConexion(), selectedNombre);
-       
+
+        precio = baseDatos.llenarPrecio(baseDatos.getConexion(), selectedNombre);
+
         precioAnterior.setText(Float.toString(precio));
     }
-   
-    
+
     public void cargarComboBoxOrigen() {
         listaOrigenComboBox.removeAll(listaOrigenComboBox);
         ArrayList<String> listaOrigen = new ArrayList<String>();
@@ -191,23 +198,16 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         Parent root3 = (Parent) FXMLLoader.load();
         Stage stage3 = new Stage();
         stage3.initStyle(StageStyle.UNDECORATED);
+        stage3.initModality(Modality.APPLICATION_MODAL);
         stage3.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/noAlert.png")));
         stage3.centerOnScreen();
-//        stage3.getOnCloseRequest()
-//                .handle(
-//                        new WindowEvent(
-//                                stage3,
-//                                WindowEvent.WINDOW_CLOSE_REQUEST));
-//        stage3.fireEvent(
-//                new WindowEvent(
-//                        stage3,
-//                        WindowEvent.WINDOW_CLOSE_REQUEST
-//                )
-//        );
-       
         stage3.setTitle("Acceso Denegado!");
         stage3.setScene(new Scene(root3));
-        stage3.show();
+        stage3.showAndWait();
+       
+
+       
+
     }
 
     //Metodo para limpiar registros
@@ -284,36 +284,35 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
     @FXML
     private void apretarFinalizar(ActionEvent event) {
         System.out.println("Se Apreto Finalizar");
-        float anterior=0,precio = 0;
- 
-        int selectedtipoPago=-1,selectedcantidad=-1,selectedTiempoEntrega=-1,selectedDestino=-1;
+        float anterior = 0, precio = 0;
+
+        int selectedtipoPago = -1, selectedcantidad = -1, selectedTiempoEntrega = -1, selectedDestino = -1;
         try {
-            anterior=Float.parseFloat(precioAnterior.getText());
-            
+            anterior = Float.parseFloat(precioAnterior.getText());
+
             selectedtipoPago = plazoPago.getSelectionModel().getSelectedIndex();
             selectedcantidad = cantidad.getSelectionModel().getSelectedIndex();
             selectedTiempoEntrega = tiempoEntrega.getSelectionModel().getSelectedIndex();
             selectedDestino = lugarEntrega.getSelectionModel().getSelectedIndex();
-        
-        System.out.println(selectedtipoPago);
-        
-        if(selectedtipoPago<0 || selectedcantidad<0 || selectedTiempoEntrega<0 || selectedDestino<0 ){
-            //CREA LA ALERTA AMIWIN
-        System.out.println("Complete los campos");
-        }   
-        else{
-        precio=baseDatos.descuentoFormaDePago(baseDatos.getConexion(), selectedtipoPago)+baseDatos.descuentoCantidad(baseDatos.getConexion(), selectedcantidad)+baseDatos.descuentoTiempoEntrega(baseDatos.getConexion(), selectedTiempoEntrega)+baseDatos.descuentolugarEntrega(baseDatos.getConexion(), selectedDestino);
-        
-        precio=anterior-precio;
-        System.out.println(precio);
-        monto.setText(Float.toString(precio));
-        
+
+            System.out.println(selectedtipoPago);
+
+            if (selectedtipoPago < 0 || selectedcantidad < 0 || selectedTiempoEntrega < 0 || selectedDestino < 0) {
+                //CREA LA ALERTA AMIWIN
+                System.out.println("Complete los campos");
+            } else {
+                precio = baseDatos.descuentoFormaDePago(baseDatos.getConexion(), selectedtipoPago) + baseDatos.descuentoCantidad(baseDatos.getConexion(), selectedcantidad) + baseDatos.descuentoTiempoEntrega(baseDatos.getConexion(), selectedTiempoEntrega) + baseDatos.descuentolugarEntrega(baseDatos.getConexion(), selectedDestino);
+
+                precio = anterior - precio;
+                System.out.println(precio);
+                monto.setText(Float.toString(precio));
+
             }
         } catch (Exception e) {
             System.out.println("Seleccione el nombre del producto");
-            
+
         }
-        
+
     }
 
     //Boton Cancelar
@@ -337,4 +336,4 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         appStage.show();
     }
 
-}                   
+}
