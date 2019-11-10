@@ -48,7 +48,7 @@
             <InnerShadow radius="7.035" width="9.14" />
          </effect>
          <children>
-            <Button layoutX="814.0" layoutY="16.0" minWidth="39.0" mnemonicParsing="false" onAction="#apretarAtras" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #DC143C; -fx-border-color: #ffffff; -fx-background-radius: 50; -fx-border-radius: 50;" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0" />
+            <Button layoutX="814.0" layoutY="16.0" minWidth="39.0" mnemonicParsing="false" onAction="#apretarAtras" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #A52A2A; -fx-border-color: #ffffff; -fx-background-radius: 50; -fx-border-radius: 50;" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0" />
             <Label layoutX="822.0" layoutY="20.0" mouseTransparent="true" prefHeight="16.0" prefWidth="41.0" text="Atras" textFill="WHITE" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />

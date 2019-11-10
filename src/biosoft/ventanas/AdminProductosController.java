@@ -103,16 +103,17 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
             Producto selectedInscripcion = listaProd.getSelectionModel().getSelectedItem();
             if (selectedInscripcion != null) {
                 //Cargo el archivo fxml de la ventana de registro
-                FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("AdminModificar.fxml"));
+                FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("AdminModificarProducto.fxml"));
                 Parent root2 = (Parent) FXMLLoader3.load();
                 Stage modificar = new Stage();
                 modificar.setScene(new Scene(root2));
                 modificar.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/edit.png")));
                 modificar.setTitle("Modificacion");
-//                modificar.initStyle(StageStyle.UNDECORATED);
+                modificar.initStyle(StageStyle.UNDECORATED);
+                modificar.initModality(Modality.APPLICATION_MODAL);
                 System.out.println("Iniciando la ventana de modificacion...");
                 //Inicio la ventana
-                modificar.show();
+                modificar.showAndWait();
             } else {
                 try {
                     //Cargo el archivo fxml

@@ -37,7 +37,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="193.0" layoutY="240.0" minWidth="39.0" mnemonicParsing="false" onAction="#apretarCerrarSesion" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #DC143C; -fx-border-color: #ffffff; -fx-background-radius: 50; -fx-border-radius: 50;" />
+      <Button layoutX="193.0" layoutY="240.0" minWidth="39.0" mnemonicParsing="false" onAction="#apretarCerrarSesion" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #A52A2A; -fx-border-color: #ffffff; -fx-background-radius: 50; -fx-border-radius: 50;" />
       <Label layoutX="201.0" layoutY="246.0" mouseTransparent="true" prefHeight="15.0" prefWidth="78.0" text="Cerrar Sesion" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="11.0" />

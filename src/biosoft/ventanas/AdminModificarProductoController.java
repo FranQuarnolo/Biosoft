@@ -8,7 +8,7 @@ import javafx.scene.Node;
  *
  * @author Wayne
  */
-public class AdminModificarController {
+public class AdminModificarProductoController {
     
     
     
