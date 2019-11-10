@@ -319,7 +319,7 @@
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="627.0" layoutY="371.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="107.0" style="-fx-background-color: #006400; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-color: #000000;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="15.0">
+            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="627.0" layoutY="371.0" mnemonicParsing="false" onAction="#apretarFinalizar" prefHeight="35.0" prefWidth="107.0" style="-fx-background-color: #006400; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-color: #000000;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="15.0">
                <font>
                   <Font name="Arial Black" size="13.0" />
                </font>
@@ -334,7 +334,7 @@
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="738.0" layoutY="516.0" mouseTransparent="true" text="FINALIZAR" textFill="#f2f2f2" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="27.0">
+            <Label layoutX="738.0" layoutY="516.0" mouseTransparent="true" onDragDetected="#apretarFinalizar" text="FINALIZAR" textFill="#f2f2f2" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="27.0">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>

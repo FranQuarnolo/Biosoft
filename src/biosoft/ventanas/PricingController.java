@@ -80,6 +80,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ControladorBaseDatosFx ct = new ControladorBaseDatosFx();
+        
         cargarComboBoxTipo();
         cargarComboBoxOrigen();
         cargarComboBoxPlazoDePago();
@@ -115,7 +116,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
 
     }
     
-    // Metodo para cargar precio
+    // Metodo para cargar precio mas caro
     public void cargarPrecios(ActionEvent event) {
         String selectedNombre = nombre.getSelectionModel().getSelectedItem();
         float precio;
@@ -124,7 +125,8 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
        
         precioAnterior.setText(Float.toString(precio));
     }
-
+   
+    
     public void cargarComboBoxOrigen() {
         listaOrigenComboBox.removeAll(listaOrigenComboBox);
         ArrayList<String> listaOrigen = new ArrayList<String>();
@@ -281,9 +283,31 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
     //Boton finalizar
     @FXML
     private void apretarFinalizar(ActionEvent event) {
+        System.out.println("Se Apreto Finalizar");
         //Y aca nose, guardar o tirar para que imprima el precio o algo asi.
         //CHARLARRR
         //!!!
+        //Inicio todas las variables en -1 para comprobar q se carguen mas adelante
+        int selectedtipoPago=-1,selectedcantidad=-1,selectedTiempoEntrega=-1,selectedDestino=-1;
+ 
+        selectedtipoPago = plazoPago.getSelectionModel().getSelectedIndex();
+        selectedcantidad = cantidad.getSelectionModel().getSelectedIndex();
+        selectedTiempoEntrega = tiempoEntrega.getSelectionModel().getSelectedIndex();
+        selectedDestino = lugarEntrega.getSelectionModel().getSelectedIndex();
+        float precio=0;
+        System.out.println(selectedtipoPago);
+        if(selectedtipoPago<0 || selectedcantidad<0 || selectedTiempoEntrega<0 || selectedDestino<0 ){
+            //CREA LA ALERTA AMIWIN
+        System.out.println("Complete los campos");
+        }   
+        else{
+        precio=baseDatos.descuentoFormaDePago(baseDatos.getConexion(), selectedtipoPago)+baseDatos.descuentoCantidad(baseDatos.getConexion(), selectedcantidad)+baseDatos.descuentoTiempoEntrega(baseDatos.getConexion(), selectedTiempoEntrega)+baseDatos.descuentolugarEntrega(baseDatos.getConexion(), selectedDestino);
+        float anterior=Float.parseFloat(precioAnterior.getText());
+        precio=anterior-precio;
+        System.out.println(precio);
+        monto.setText(Float.toString(precio));
+        
+            }
     }
 
     //Boton Cancelar
@@ -307,4 +331,4 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         appStage.show();
     }
 
-}
+}                   

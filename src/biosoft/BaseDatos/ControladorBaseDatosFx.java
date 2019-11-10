@@ -245,5 +245,96 @@ public class ControladorBaseDatosFx {
         
         return precio;
     }
-
+    
+    public float descuentoFormaDePago(Connection connection, int formaDePago) {
+        ArrayList<String> formaDePagos = new ArrayList<String>();
+        System.out.println("aca");
+       float descuento=0;
+        try {
+            System.out.println("1");
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT descuento FROM plazodepago WHERE idPlazoDePago = '"+formaDePago+"'");
+            System.out.println("2");
+            while (rs.next()) {
+               formaDePagos.add(rs.getString("descuento"));
+            }
+            System.out.println("3");
+            descuento=Float.parseFloat(formaDePagos.get(0));
+           
+        } catch (SQLException e) {
+            System.out.println("Error metodo descuentoFormaDePago");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return descuento;
+    }
+    
+    public float descuentoCantidad(Connection connection, int cantidad) {
+        ArrayList<String> cantidades = new ArrayList<String>();
+        System.out.println("aca");
+       float descuento=0;
+        try {
+            System.out.println("1");
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT descuento FROM cantidad WHERE idCantidad = '"+cantidad+"'");
+            System.out.println("2");
+            while (rs.next()) {
+               cantidades.add(rs.getString("descuento"));
+            }
+            System.out.println("3");
+            descuento=Float.parseFloat(cantidades.get(0));
+           
+        } catch (SQLException e) {
+            System.out.println("Error metodo descuentoCantidad");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return descuento;
+    }
+    
+    public float descuentoTiempoEntrega(Connection connection, int tiempoEntrega) {
+        ArrayList<String> tiempoEntregas = new ArrayList<String>();
+        System.out.println("aca");
+       float descuento=0;
+        try {
+            System.out.println("1");
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT descuento FROM tiempodeentrega WHERE IdTiempodeEntrega = '"+tiempoEntrega+"'");
+            System.out.println("2");
+            while (rs.next()) {
+               tiempoEntregas.add(rs.getString("descuento"));
+            }
+            System.out.println("3");
+            descuento=Float.parseFloat(tiempoEntregas.get(0));
+           
+        } catch (SQLException e) {
+            System.out.println("Error metodo descuentoCantidad");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return descuento;
+    }
+    
+        public float descuentolugarEntrega(Connection connection, int lugarEntrega) {
+        ArrayList<String> lugarEntregas = new ArrayList<String>();
+        System.out.println("aca");
+       float descuento=0;
+        try {
+            System.out.println("1");
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT descuento FROM Destino WHERE idDestino = '"+lugarEntrega+"'");
+            System.out.println("2");
+            while (rs.next()) {
+               lugarEntregas.add(rs.getString("descuento"));
+            }
+            System.out.println("3");
+            descuento=Float.parseFloat(lugarEntregas.get(0));
+           
+        } catch (SQLException e) {
+            System.out.println("Error metodo descuentoCantidad");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return descuento;
+    }
 }
