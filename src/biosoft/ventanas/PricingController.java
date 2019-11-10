@@ -284,30 +284,36 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
     @FXML
     private void apretarFinalizar(ActionEvent event) {
         System.out.println("Se Apreto Finalizar");
-        //Y aca nose, guardar o tirar para que imprima el precio o algo asi.
-        //CHARLARRR
-        //!!!
-        //Inicio todas las variables en -1 para comprobar q se carguen mas adelante
-        int selectedtipoPago=-1,selectedcantidad=-1,selectedTiempoEntrega=-1,selectedDestino=-1;
+        float anterior=0,precio = 0;
  
-        selectedtipoPago = plazoPago.getSelectionModel().getSelectedIndex();
-        selectedcantidad = cantidad.getSelectionModel().getSelectedIndex();
-        selectedTiempoEntrega = tiempoEntrega.getSelectionModel().getSelectedIndex();
-        selectedDestino = lugarEntrega.getSelectionModel().getSelectedIndex();
-        float precio=0;
+        int selectedtipoPago=-1,selectedcantidad=-1,selectedTiempoEntrega=-1,selectedDestino=-1;
+        try {
+            anterior=Float.parseFloat(precioAnterior.getText());
+            
+            selectedtipoPago = plazoPago.getSelectionModel().getSelectedIndex();
+            selectedcantidad = cantidad.getSelectionModel().getSelectedIndex();
+            selectedTiempoEntrega = tiempoEntrega.getSelectionModel().getSelectedIndex();
+            selectedDestino = lugarEntrega.getSelectionModel().getSelectedIndex();
+        
         System.out.println(selectedtipoPago);
+        
         if(selectedtipoPago<0 || selectedcantidad<0 || selectedTiempoEntrega<0 || selectedDestino<0 ){
             //CREA LA ALERTA AMIWIN
         System.out.println("Complete los campos");
         }   
         else{
         precio=baseDatos.descuentoFormaDePago(baseDatos.getConexion(), selectedtipoPago)+baseDatos.descuentoCantidad(baseDatos.getConexion(), selectedcantidad)+baseDatos.descuentoTiempoEntrega(baseDatos.getConexion(), selectedTiempoEntrega)+baseDatos.descuentolugarEntrega(baseDatos.getConexion(), selectedDestino);
-        float anterior=Float.parseFloat(precioAnterior.getText());
+        
         precio=anterior-precio;
         System.out.println(precio);
         monto.setText(Float.toString(precio));
         
             }
+        } catch (Exception e) {
+            System.out.println("Seleccione el nombre del producto");
+            
+        }
+        
     }
 
     //Boton Cancelar
