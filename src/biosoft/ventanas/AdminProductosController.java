@@ -127,24 +127,26 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
 
     //Boton modificar
     @FXML
-    private void apretarModificar(ActionEvent event) {
+    public void apretarModificar(ActionEvent event) {
 
         try {
-            Producto selectedInscripcion = listaProd.getSelectionModel().getSelectedItem();
-            if (selectedInscripcion != null) {
+            Producto selectedProducto = listaProd.getSelectionModel().getSelectedItem();
+            if (selectedProducto != null) {
+                
                 //Cargo el archivo fxml de la ventana de registro
                 FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("AdminModificarProducto.fxml"));
                 Parent root2 = (Parent) FXMLLoader3.load();
+                
                 Stage modificar = new Stage();
                 modificar.setScene(new Scene(root2));
                 modificar.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/edit.png")));
                 modificar.setTitle("Modificacion");
-                modificar.initStyle(StageStyle.UNDECORATED);
-                modificar.initModality(Modality.APPLICATION_MODAL);
+             //   modificar.initStyle(StageStyle.UNDECORATED);
+              //  modificar.initModality(Modality.APPLICATION_MODAL);
                 System.out.println("Iniciando la ventana de modificacion...");
                 //Inicio la ventana
-                AdminModificarProductoController AMPC = new AdminModificarProductoController();
-                AMPC.initialize(selectedInscripcion);
+                AdminModificarProductoController modif = FXMLLoader3.getController();
+                modif.initialize(selectedProducto);
                 modificar.showAndWait();
             } else {
                 try {

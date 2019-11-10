@@ -1,8 +1,6 @@
 package biosoft.ventanas;
 
 import biosoft.modelo.Producto;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -16,26 +14,32 @@ public class AdminModificarProductoController {
     
     
     @FXML
-    private TextField Nombre;
+    private TextField tNombre;
     @FXML
-    private TextField Tipo;
+    private TextField tTipo;
     @FXML
-    private TextField Precio;
+    private TextField tPrecio;
     
     private Producto producto;
     
+    
+    
     @FXML
     public void initialize(Producto producto) {
-        this.producto = producto;
-        System.out.println(producto.getIdProd()+producto.getNombre());
-        try {
+         this.producto = producto;
+         String a = producto.getNombre();
+        try{
             
-        Nombre.setText(producto.getNombre());
-        Tipo.setText(producto.getTipo());
-        Precio.setText(Float.toString(producto.getPrecio()));
+            System.out.println(a);
+            tTipo.setText(producto.getTipo());
+            System.out.println("1");
+            tNombre.setText(producto.getNombre());
+            tPrecio.setPromptText(Float.toString(producto.getPrecio()));
+            
         
         } catch (Exception e) {
-            System.out.println("error initialize");
+            System.out.println(e);
+            
         }
     }
     @FXML

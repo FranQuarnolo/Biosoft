@@ -62,9 +62,9 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="Tipo" style="-fx-background-radius: 10;" GridPane.columnIndex="2" />
-            <TextField fx:id="Nombre" style="-fx-background-radius: 10;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="Precio" style="-fx-background-radius: 10;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="tipo" style="-fx-background-radius: 10;" GridPane.columnIndex="2" />
+            <TextField fx:id="nombre" style="-fx-background-radius: 10;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="precio" style="-fx-background-radius: 10;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <ImageView fitHeight="27.0" fitWidth="36.0" layoutX="281.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
