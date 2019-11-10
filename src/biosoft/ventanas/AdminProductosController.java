@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
@@ -45,7 +46,16 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
     private TableColumn<Producto, String> tipo;
     @FXML
     private TableColumn<Producto, String> nombre;
-
+    @FXML
+    private TableColumn<Producto, String> precio;
+    
+    @FXML
+    private TextField nuevoNombre;
+    @FXML
+    private TextField nuevoTipo;
+    @FXML
+    private TextField nuevoPrecio;
+    
     private ObservableList<Producto> listaProducto;
 
     public AdminProductosController() {
@@ -61,7 +71,10 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
         idProd.setCellValueFactory(new PropertyValueFactory<>("idProd"));
         tipo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         nombre.setCellValueFactory(new PropertyValueFactory<>("tipo"));
-
+        precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        nuevoNombre.setText("");
+        nuevoTipo.setText("");
+        nuevoPrecio.setText("");
     }
 
     public void señal(int a, int b) {
@@ -86,13 +99,30 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
         idProd.setCellValueFactory(new PropertyValueFactory<>("idProd"));
         tipo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         nombre.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+        precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        nuevoNombre.setText("");
+        nuevoTipo.setText("");
+        nuevoPrecio.setText("");
     }
 
     //Boton agregar
     @FXML
     private void apretarAgregar(ActionEvent event) {
        //ACA DEBERIA GUARDAR LOS CAMBIOS DEL NUEVO PRODUCTO EN LA BASE
+        try {
+            
         
+       Producto producto = new Producto();
+       producto.setNombre(nuevoNombre.getText());
+       producto.setTipo(nuevoTipo.getText());
+       producto.setPrecio(Float.parseFloat(nuevoPrecio.getText()));
+       ControladorProducto cp = new ControladorProducto();
+       cp.insertarSQL(producto);
+       } catch (Exception e) {
+            System.out.println(e);
+            //Agregar alerta que hay campos incompletos o erroneos
+        }
+       //Crear alerta que se agrego correctamente el producto
     }
 
     //Boton modificar
@@ -113,6 +143,8 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
                 modificar.initModality(Modality.APPLICATION_MODAL);
                 System.out.println("Iniciando la ventana de modificacion...");
                 //Inicio la ventana
+                AdminModificarProductoController AMPC = new AdminModificarProductoController();
+                AMPC.initialize(selectedInscripcion);
                 modificar.showAndWait();
             } else {
                 try {

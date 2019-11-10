@@ -76,7 +76,7 @@ public class ControladorBaseDatosFx {
             Statement ps = connection.createStatement();
             ResultSet rs = ps.executeQuery("SELECT * FROM producto");
             while (rs.next()) {
-                listaProducto.add(new Producto(rs.getInt("idProd"), rs.getString("nombre"), rs.getString("tipo"), rs.getFloat("idProd")));
+                listaProducto.add(new Producto(rs.getInt("idProd"), rs.getString("nombre"), rs.getString("tipo"), rs.getFloat("precio")));
             }
         } catch (SQLException e) {
             System.out.println("Error aca");
@@ -92,7 +92,7 @@ public class ControladorBaseDatosFx {
                     + " or `nombre` LIKE '%" + producto + "' "
                     + "or `nombre` LIKE '" + producto + "%'");
             while (rs.next()) {
-                listaProducto.add(new Producto(rs.getInt("idProd"), rs.getString("nombre"), rs.getString("tipo"), rs.getFloat("idProd")));
+                listaProducto.add(new Producto(rs.getInt("idProd"), rs.getString("nombre"), rs.getString("tipo"), rs.getFloat("precio")));
             }
         } catch (SQLException e) {
             System.out.println("Error aca");
