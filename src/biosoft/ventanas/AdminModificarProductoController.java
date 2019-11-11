@@ -1,5 +1,6 @@
 package biosoft.ventanas;
 
+import biosoft.modelo.ControladorProducto;
 import biosoft.modelo.Producto;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,18 +26,19 @@ public class AdminModificarProductoController {
     
     
     @FXML
-    public void initialize(Producto producto) {
-         this.producto = producto;
-         String a = producto.getNombre();
+    public void initialize(Producto product) {
+         this.producto = product;
+         
+         
         try{
-            
-            System.out.println(a);
+            System.out.println(producto.getNombre());
+            System.out.println(producto.getTipo());
+            System.out.println(producto.getPrecio());
             tTipo.setText(producto.getTipo());
             System.out.println("1");
             tNombre.setText(producto.getNombre());
-            tPrecio.setPromptText(Float.toString(producto.getPrecio()));
-            
-        
+            tPrecio.setText(Float.toString(producto.getPrecio()));
+
         } catch (Exception e) {
             System.out.println(e);
             
@@ -46,4 +48,20 @@ public class AdminModificarProductoController {
     private void apretarSalir(ActionEvent event){
          ((Node) (event.getSource())).getScene().getWindow().hide();
     }
+    
+     @FXML
+    private void apretarGuardar(ActionEvent event){
+         System.out.println("iniciando guardado");
+         Producto prod = new Producto();
+         prod.setIdProd(producto.getIdProd());
+         prod.setNombre(tNombre.getText());
+         prod.setTipo(tTipo.getText());
+         prod.setPrecio(Float.parseFloat(tPrecio.getText()));
+         ControladorProducto controlP = new ControladorProducto();
+         controlP.actualizarSQL(prod);
+         ((Node) (event.getSource())).getScene().getWindow().hide();
+         
+    }
+    
+    
 }

@@ -69,8 +69,8 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
         db.llenarProd(db.getConexion(), listaProducto);
         listaProd.setItems(listaProducto);
         idProd.setCellValueFactory(new PropertyValueFactory<>("idProd"));
-        tipo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        nombre.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+        tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+        nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         nuevoNombre.setText("");
         nuevoTipo.setText("");
@@ -97,8 +97,8 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
         db.llenarProd(db.getConexion(), listaProducto);
         listaProd.setItems(listaProducto);
         idProd.setCellValueFactory(new PropertyValueFactory<>("idProd"));
-        tipo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        nombre.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+        nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         nuevoNombre.setText("");
         nuevoTipo.setText("");
@@ -141,8 +141,8 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
                 modificar.setScene(new Scene(root2));
                 modificar.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/edit.png")));
                 modificar.setTitle("Modificacion");
-             //   modificar.initStyle(StageStyle.UNDECORATED);
-              //  modificar.initModality(Modality.APPLICATION_MODAL);
+                modificar.initStyle(StageStyle.UNDECORATED);
+                modificar.initModality(Modality.APPLICATION_MODAL);
                 System.out.println("Iniciando la ventana de modificacion...");
                 //Inicio la ventana
                 AdminModificarProductoController modif = FXMLLoader3.getController();

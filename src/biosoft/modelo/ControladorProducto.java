@@ -22,7 +22,7 @@ public class ControladorProducto extends ControladorBaseDatosFx {
     private String insertarSQL = "INSERT INTO `producto`(`nombre`, `tipo`,`precio`) VALUES('%s', '%s',%s)";
     private String buscarPorIdSQL = "SELECT * FROM producto WHERE idProd = %s";
     private String buscarTodosSQL = "SELECT * FROM producto";
-    private String actualizarSQL= "UPDATE `persona` SET `nombre`='Fran' WHERE id=1 "; //arreglar
+    private String actualizarSQL= "UPDATE producto SET nombre = '%s' , tipo='%s' , precio =%s WHERE idProd = %s "; //arreglar
     private String eliminarSQL= "DELETE FROM `producto` WHERE `idProd`=%s";
 
     public ControladorProducto() {
@@ -91,13 +91,15 @@ public class ControladorProducto extends ControladorBaseDatosFx {
 
     }
     
-    public boolean actualizarSQL(){
+    public boolean actualizarSQL(Producto p){
         try {
+            System.out.println(p.getIdProd());
             
-            String SQL = String.format(actualizarSQL);
+            String SQL = String.format(actualizarSQL,p.getNombre(), p.getTipo(),p.getPrecio(),p.getIdProd());
             Statement sentencia = getConexion().createStatement();
             sentencia.execute(SQL);
-                
+            System.out.println(SQL);
+            System.out.println(sentencia);
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(ControladorProducto.class.getName()).log(Level.SEVERE, null, ex);
@@ -149,6 +151,7 @@ public class ControladorProducto extends ControladorBaseDatosFx {
                     prodNuevo.setIdProd(rs.getInt(1));
                     prodNuevo.setNombre(rs.getString(2));
                     prodNuevo.setTipo(rs.getString(3));
+                    prodNuevo.setPrecio(rs.getFloat(4));
                     
                     productos.add(prodNuevo);
                 }

@@ -4,15 +4,15 @@ package biosoft.modelo;
 
 public class Producto {
     private int idProd;
-    private String tipo;
     private String nombre;
+    private String tipo;
     private float precio;
     
         public Producto() {
         this(0,null, null,0);
     }
     
-    public Producto(int idProd, String tipo, String nombre, float precio) {
+    public Producto(int idProd,String nombre, String tipo,  float precio) {
         this.idProd = idProd;
         this.tipo = tipo;
         this.nombre = nombre;
