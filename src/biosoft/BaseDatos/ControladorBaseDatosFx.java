@@ -408,6 +408,22 @@ public class ControladorBaseDatosFx {
             JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
     }
-
     
+    public int contador1(Connection connection, ObservableList<Producto> listaproductos) {
+        try {
+            int n = 0;
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT count(*) FROM producto");
+            if(rs.next()) {
+                //Si hay resultados obtengo el valor.
+             n = rs.getInt(1);
+            }
+            
+            return n;
+        } catch (SQLException e) {
+            System.out.println("Error en llenar Plazo de Pago");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+        return 0;
+    } 
 }

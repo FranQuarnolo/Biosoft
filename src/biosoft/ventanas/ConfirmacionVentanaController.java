@@ -1,10 +1,14 @@
 package biosoft.ventanas;
 
+import biosoft.BaseDatos.ControladorBaseDatosFx;
 import biosoft.modelo.ControladorProducto;
+import biosoft.modelo.Producto;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 
 
 /**
@@ -16,8 +20,9 @@ public class ConfirmacionVentanaController {
     int indice=-1;
     @FXML
     private Button btnSi;
-    
+    private ControladorBaseDatosFx controldb;
 
+    
     public ConfirmacionVentanaController() {
     }
 
@@ -26,7 +31,7 @@ public class ConfirmacionVentanaController {
     public void eliminarSeleccionado(int idProd){
        //Recibe el indice q lo manda a la accion presionarSi
         this.indice = idProd;
-
+   
     }  
     
     //Boton presionar si
@@ -34,7 +39,6 @@ public class ConfirmacionVentanaController {
     public void presionarSi(ActionEvent event) {
        ControladorProducto control = new ControladorProducto();
        control.borrarDatos(indice);
- 
                 
         System.out.println("Eliminando...");
         

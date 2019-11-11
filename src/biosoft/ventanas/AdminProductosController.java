@@ -6,6 +6,7 @@ import biosoft.modelo.DetalleVenta;
 import biosoft.modelo.Producto;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,6 +25,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,7 +35,6 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
 
     private Producto producto;
     private DetalleVenta detalle;
- 
 
     @FXML
     private TableView<Producto> listaProd;
@@ -72,25 +73,9 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
         nuevoNombre.setText("");
         nuevoTipo.setText("");
         nuevoPrecio.setText("");
+      
     }
-
     
-    //Boton actualizar
-    @FXML
-    private void apretarReload(ActionEvent event) {
-        listaProducto = FXCollections.observableArrayList();
-        ControladorBaseDatosFx db = new ControladorBaseDatosFx();
-        db.llenarProd(db.getConexion(), listaProducto);
-        listaProd.setItems(listaProducto);
-        idProd.setCellValueFactory(new PropertyValueFactory<>("idProd"));
-        nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
-        precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
-        nuevoNombre.setText("");
-        nuevoTipo.setText("");
-        nuevoPrecio.setText("");
-    }
-
     //Boton agregar
     @FXML
     private void apretarAgregar(ActionEvent event) throws IOException {
@@ -101,7 +86,15 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
        producto.setTipo(nuevoTipo.getText());
        producto.setPrecio(Float.parseFloat(nuevoPrecio.getText()));
        ControladorProducto cp = new ControladorProducto();
+       nuevoNombre.setText("");
+       nuevoTipo.setText("");
+       nuevoPrecio.setText("");
        cp.insertarSQL(producto);
+       JOptionPane.showMessageDialog(null, "Producto agregado correctamente");
+       listaProd.getItems().clear();
+       ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+       db.llenarProd(db.getConexion(), listaProducto);
+       listaProd.setItems(listaProducto);
        } catch (Exception e) {
             //Cargo el archivo fxml
                     FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("NoIngresaNada.fxml"));
@@ -117,7 +110,7 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
                     nuevo.showAndWait();
            
         }
-    
+       
     }
 
     //Boton modificar
@@ -169,7 +162,7 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
 
     //Boton Eliminar
     @FXML
-    private void apretarEliminarRegistro(ActionEvent event) {
+    private void apretarEliminarRegistro(ActionEvent event) throws SQLException {
         ConfirmacionVentanaController cn = new ConfirmacionVentanaController();
         //Obtengo si hay o no un elemento seleccionado (Esto es par que continue con el if o no)
         int selectedIndex=-1;
@@ -197,7 +190,11 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
                 ConfirmacionVentanaController confirm = FXMLLoader3.getController();
                 confirm.eliminarSeleccionado(selectedIndex);
                 nuevo.showAndWait();
-
+                listaProd.getItems().clear();
+                ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+                db.llenarProd(db.getConexion(), listaProducto);
+                listaProd.setItems(listaProducto);
+                
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -220,7 +217,14 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
                 e.printStackTrace();
             }
         }
-
+        ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+        int n = db.contador1(db.getConexion(), listaProducto);
+        if(n == 0){
+            ControladorProducto cp = new ControladorProducto();
+            cp.truncate();
+        }else{
+            System.out.println("continue");
+        }
     }
 
     //Boton Cerrar Sesion

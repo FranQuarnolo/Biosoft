@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.ObservableList;
 
 
 /**
@@ -24,11 +25,26 @@ public class ControladorProducto extends ControladorBaseDatosFx {
     private String buscarTodosSQL = "SELECT * FROM producto";
     private String actualizarSQL= "UPDATE producto SET nombre = '%s' , tipo='%s' , precio =%s WHERE idProd = %s "; //arreglar
     private String eliminarSQL= "DELETE FROM `producto` WHERE `idProd`=%s";
+    private String truncateSQL= "TRUNCATE TABLE `producto`";
 
     public ControladorProducto() {
         super();
     }
+
+    public boolean truncate(){
+        try {
+            String SQL = String.format(truncateSQL);
+            Statement sentencia = getConexion().createStatement();
+            sentencia.execute(SQL);
+            
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorProducto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
     
+    }
     
     public boolean borrarDatos(int id){
         try {

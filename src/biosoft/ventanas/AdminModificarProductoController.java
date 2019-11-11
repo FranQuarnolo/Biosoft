@@ -44,6 +44,8 @@ public class AdminModificarProductoController {
             
         }
     }
+    
+    
     @FXML
     private void apretarSalir(ActionEvent event){
          ((Node) (event.getSource())).getScene().getWindow().hide();

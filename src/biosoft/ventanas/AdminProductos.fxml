@@ -146,12 +146,6 @@
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <Button layoutX="519.0" layoutY="12.0" mnemonicParsing="false" onAction="#apretarReload" prefHeight="32.0" prefWidth="60.0" style="-fx-background-radius: 30; -fx-background-color: #008000;" AnchorPane.rightAnchor="321.0" AnchorPane.topAnchor="12.0" />
-            <ImageView fitHeight="27.0" fitWidth="40.0" layoutX="536.0" layoutY="14.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/reload.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </children>
