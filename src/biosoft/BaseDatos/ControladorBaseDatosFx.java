@@ -2,7 +2,11 @@ package biosoft.BaseDatos;
 
 import biosoft.modelo.Cantidad;
 import biosoft.modelo.ControladorProducto;
+import biosoft.modelo.Destino;
+import biosoft.modelo.Origen;
+import biosoft.modelo.PlazoPago;
 import biosoft.modelo.Producto;
+import biosoft.modelo.TiempoEntrega;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -226,120 +230,120 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
-    
+
     // Metodo para llenar precio
-    
     public float llenarPrecio(Connection connection, String nombreprod) {
         ArrayList<String> listaPrecio = new ArrayList<String>();
-       float precio=0;
+        float precio = 0;
         try {
             Statement ps = connection.createStatement();
-            ResultSet rs = ps.executeQuery("SELECT precio FROM producto WHERE nombre = '"+nombreprod+"'");
+            ResultSet rs = ps.executeQuery("SELECT precio FROM producto WHERE nombre = '" + nombreprod + "'");
             while (rs.next()) {
-               listaPrecio.add(rs.getString("precio"));
+                listaPrecio.add(rs.getString("precio"));
             }
-            precio=Float.parseFloat(listaPrecio.get(0));
+            precio = Float.parseFloat(listaPrecio.get(0));
         } catch (SQLException e) {
             System.out.println("Error aca metodo precio");
             JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
-        
+
         return precio;
     }
-    
+
     public float descuentoFormaDePago(Connection connection, int formaDePago) {
         ArrayList<String> formaDePagos = new ArrayList<String>();
         System.out.println("aca");
-       float descuento=0;
+        float descuento = 0;
         try {
             System.out.println("1");
             Statement ps = connection.createStatement();
-            ResultSet rs = ps.executeQuery("SELECT descuento FROM plazodepago WHERE idPlazoDePago = '"+formaDePago+"'");
+            ResultSet rs = ps.executeQuery("SELECT descuento FROM plazodepago WHERE idPlazoDePago = '" + formaDePago + "'");
             System.out.println("2");
             while (rs.next()) {
-               formaDePagos.add(rs.getString("descuento"));
+                formaDePagos.add(rs.getString("descuento"));
             }
             System.out.println("3");
-            descuento=Float.parseFloat(formaDePagos.get(0));
-           
+            descuento = Float.parseFloat(formaDePagos.get(0));
+
         } catch (SQLException e) {
             System.out.println("Error metodo descuentoFormaDePago");
             JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
-        
+
         return descuento;
     }
-    
+
     public float descuentoCantidad(Connection connection, int cantidad) {
         ArrayList<String> cantidades = new ArrayList<String>();
         System.out.println("aca");
-       float descuento=0;
+        float descuento = 0;
         try {
             System.out.println("1");
             Statement ps = connection.createStatement();
-            ResultSet rs = ps.executeQuery("SELECT descuento FROM cantidad WHERE idCantidad = '"+cantidad+"'");
+            ResultSet rs = ps.executeQuery("SELECT descuento FROM cantidad WHERE idCantidad = '" + cantidad + "'");
             System.out.println("2");
             while (rs.next()) {
-               cantidades.add(rs.getString("descuento"));
+                cantidades.add(rs.getString("descuento"));
             }
             System.out.println("3");
-            descuento=Float.parseFloat(cantidades.get(0));
-           
+            descuento = Float.parseFloat(cantidades.get(0));
+
         } catch (SQLException e) {
             System.out.println("Error metodo descuentoCantidad");
             JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
-        
+
         return descuento;
     }
-    
+
     public float descuentoTiempoEntrega(Connection connection, int tiempoEntrega) {
         ArrayList<String> tiempoEntregas = new ArrayList<String>();
         System.out.println("aca");
-       float descuento=0;
+        float descuento = 0;
         try {
             System.out.println("1");
             Statement ps = connection.createStatement();
-            ResultSet rs = ps.executeQuery("SELECT descuento FROM tiempodeentrega WHERE IdTiempodeEntrega = '"+tiempoEntrega+"'");
+            ResultSet rs = ps.executeQuery("SELECT descuento FROM tiempodeentrega WHERE IdTiempodeEntrega = '" + tiempoEntrega + "'");
             System.out.println("2");
             while (rs.next()) {
-               tiempoEntregas.add(rs.getString("descuento"));
+                tiempoEntregas.add(rs.getString("descuento"));
             }
             System.out.println("3");
-            descuento=Float.parseFloat(tiempoEntregas.get(0));
-           
+            descuento = Float.parseFloat(tiempoEntregas.get(0));
+
         } catch (SQLException e) {
             System.out.println("Error metodo descuentoCantidad");
             JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
-        
+
+        return descuento;
+    }
+
+    public float descuentolugarEntrega(Connection connection, int lugarEntrega) {
+        ArrayList<String> lugarEntregas = new ArrayList<String>();
+        System.out.println("aca");
+        float descuento = 0;
+        try {
+            System.out.println("1");
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT descuento FROM Destino WHERE idDestino = '" + lugarEntrega + "'");
+            System.out.println("2");
+            while (rs.next()) {
+                lugarEntregas.add(rs.getString("descuento"));
+            }
+            System.out.println("3");
+            descuento = Float.parseFloat(lugarEntregas.get(0));
+
+        } catch (SQLException e) {
+            System.out.println("Error metodo descuentoCantidad");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+
         return descuento;
     }
     
-        public float descuentolugarEntrega(Connection connection, int lugarEntrega) {
-        ArrayList<String> lugarEntregas = new ArrayList<String>();
-        System.out.println("aca");
-       float descuento=0;
-        try {
-            System.out.println("1");
-            Statement ps = connection.createStatement();
-            ResultSet rs = ps.executeQuery("SELECT descuento FROM Destino WHERE idDestino = '"+lugarEntrega+"'");
-            System.out.println("2");
-            while (rs.next()) {
-               lugarEntregas.add(rs.getString("descuento"));
-            }
-            System.out.println("3");
-            descuento=Float.parseFloat(lugarEntregas.get(0));
-           
-        } catch (SQLException e) {
-            System.out.println("Error metodo descuentoCantidad");
-            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
-        }
-        
-        return descuento;
-    }
-        
-       public void llenarCantidad(Connection connection, ObservableList<Cantidad> listaCantidad) {
+    //Metodo para llenar  Table view Cantidad
+    public void llenarCantidad(Connection connection, ObservableList<Cantidad> listaCantidad) {
         try {
             Statement ps = connection.createStatement();
             ResultSet rs = ps.executeQuery("SELECT * FROM cantidad");
@@ -351,4 +355,59 @@ public class ControladorBaseDatosFx {
             JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
     }
+    //Metodo para llenar  Table view Destino
+    public void llenarDestino(Connection connection, ObservableList<Destino> listaDestino) {
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT * FROM destino");
+            while (rs.next()) {
+                listaDestino.add(new Destino(rs.getInt("idDestino"), rs.getString("nombre"), rs.getFloat("descuento")));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en llenar Destino");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    //Metodo para llenar  Table view Origen
+    public void llenarOrigen(Connection connection, ObservableList<Origen> listaOrigen) {
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT * FROM origen");
+            while (rs.next()) {
+                listaOrigen.add(new Origen(rs.getInt("idOrigen"), rs.getString("nombre"), rs.getFloat("descuento")));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en llenar Origen");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+    } 
+    //Metodo para llenar  Table view Tiempo de Entrega
+    public void llenarTiempoEntrega(Connection connection, ObservableList<TiempoEntrega> listaTiempoEntrega) {
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT * FROM tiempodeentrega");
+            while (rs.next()) {
+                listaTiempoEntrega.add(new TiempoEntrega(rs.getInt("IdTiempodeEntrega"), rs.getString("nombre"), rs.getFloat("descuento")));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en llenar Tiempo de entrega");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    //Metodo para llenar  Table view Plazo de Pago
+    public void llenarPlazoPago(Connection connection, ObservableList<PlazoPago> listaPlazoPago) {
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT * FROM plazodepago");
+            while (rs.next()) {
+                listaPlazoPago.add(new PlazoPago(rs.getInt("idPlazoDePago"), rs.getString("nombre"), rs.getFloat("descuento")));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en llenar Plazo de Pago");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    
 }

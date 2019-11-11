@@ -309,7 +309,7 @@
                   </Pane>
                </children>
             </GridPane>
-            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="597.0" layoutY="507.0" mnemonicParsing="false" onAction="#apretarCancelar" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #6495ED; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #000000;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="212.0">
+            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="597.0" layoutY="507.0" mnemonicParsing="false" onAction="#apretarLimpiar" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #6495ED; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #000000;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="212.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>

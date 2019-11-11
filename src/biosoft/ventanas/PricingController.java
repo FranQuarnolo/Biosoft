@@ -1,20 +1,13 @@
 package biosoft.ventanas;
 
 import biosoft.BaseDatos.ControladorBaseDatosFx;
-import static com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.shutdown;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,8 +21,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.Window;
-import javafx.stage.WindowEvent;
 
 /**
  * FXML Controller class
@@ -123,7 +114,6 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         }
 
     }
-
     // Metodo para cargar precio mas caro
     public void cargarPrecios(ActionEvent event) {
         String selectedNombre = nombre.getSelectionModel().getSelectedItem();
@@ -133,7 +123,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
 
         precioAnterior.setText(Float.toString(precio));
     }
-
+    // Metodo para cargar origen
     public void cargarComboBoxOrigen() {
         listaOrigenComboBox.removeAll(listaOrigenComboBox);
         ArrayList<String> listaOrigen = new ArrayList<String>();
@@ -144,7 +134,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         }
 
     }
-
+    // Metodo para cargar Plazo de pago
     public void cargarComboBoxPlazoDePago() {
         listaPlazoPagoComboBox.removeAll(listaPlazoPagoComboBox);
         ArrayList<String> listaPlazoDePago = new ArrayList<String>();
@@ -155,7 +145,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         }
 
     }
-
+    // Metodo para cargar Cantidad
     public void cargarComboBoxCantidad() {
         listaCantidadComboBox.removeAll(listaCantidadComboBox);
         ArrayList<String> listaCantidad = new ArrayList<String>();
@@ -166,7 +156,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         }
 
     }
-
+    // Metodo para cargar Tiempo de entrega
     public void cargarComboBoxTiempoDeEntrega() {
         listaTiempoEntregaComboBox.removeAll(listaTiempoEntregaComboBox);
         ArrayList<String> listaTiempoDeEntrega = new ArrayList<String>();
@@ -177,7 +167,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         }
 
     }
-
+    // Metodo para cargar Destino
     public void cargarComboBoxDestino() {
         listaDestinoComboBox.removeAll(listaDestinoComboBox);
         ArrayList<String> listaDestino = new ArrayList<String>();
@@ -204,15 +194,11 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         stage3.setTitle("Acceso Denegado!");
         stage3.setScene(new Scene(root3));
         stage3.showAndWait();
-       
-
-       
 
     }
 
     //Metodo para limpiar registros
     private void limpiar() {
-
         clienteImportante.setSelected(false);
         DEV_Bidones.setSelected(false);
         contratoDeAprov.setSelected(false);
@@ -234,7 +220,6 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
     private void apretarStock(ActionEvent event) throws IOException {
         PricingController cn = new PricingController();
         cn.accesoDenegado(event);
-
     }
 
     @FXML
@@ -274,11 +259,6 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
     }
 
     //Botones inferiores
-    //Boton Realizar otra venta o presupuesto
-    @FXML
-    private void apretarRealizarOtra(ActionEvent event) {
-        //Aca deberia guardar lo ingresado en algun lado, limpiar la pantalla y asi poder ingresar otros datos
-    }
 
     //Boton finalizar
     @FXML
@@ -317,7 +297,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
 
     //Boton Cancelar
     @FXML
-    private void apretarCancelar(ActionEvent event) throws IOException {
+    private void apretarLimpiar(ActionEvent event) throws IOException {
         limpiar();
 
     }

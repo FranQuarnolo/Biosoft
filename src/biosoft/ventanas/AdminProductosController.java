@@ -16,7 +16,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -35,8 +34,6 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
     private Producto producto;
     private DetalleVenta detalle;
  
-    
-    
 
     @FXML
     private TableView<Producto> listaProd;
@@ -77,17 +74,6 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
         nuevoPrecio.setText("");
     }
 
-    public void señal(int a, int b) {
-        int confirmar = a;
-        System.out.println(confirmar);
-        if (confirmar == 1) {
-            ControladorProducto cp = new ControladorProducto();
-            int selected = b;
-            System.out.println(selected);
-//            cp.borrarDatos(seleccion);
-        }
-    }
-
     
     //Boton actualizar
     @FXML
@@ -110,8 +96,6 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
     private void apretarAgregar(ActionEvent event) throws IOException {
     
         try {
-            
-        
        Producto producto = new Producto();
        producto.setNombre(nuevoNombre.getText());
        producto.setTipo(nuevoTipo.getText());
@@ -144,7 +128,7 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
             Producto selectedProducto = listaProd.getSelectionModel().getSelectedItem();
             if (selectedProducto != null) {
                 
-                //Cargo el archivo fxml de la ventana de registro
+                //Cargo el archivo fxml de la ventana de modificar
                 FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("AdminModificarProducto.fxml"));
                 Parent root2 = (Parent) FXMLLoader3.load();
                 
@@ -195,17 +179,6 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
              System.out.println("Error" + e);
         }
         
-
-//        Asigno el id del elemento seleccionado a una variable y se la mando al metodo de eliminar de la BD
-//        Producto idSeleccionado = listaProd.getItems().get(selectedIndex);
-//        int seleccion = idSeleccionado.getIdProd();
-//        MANDO ID AL METODO DE LA CLASE DE LA VENTANA DE CONFIRMACION
-//        cn.eliminarSeleccionado(seleccion);
-        //SE LO MANDO DIRECTO AL BOTON
-//        cn.presionarSi(event ,seleccion);
-        
-
-
 
 //Control de ventanas
         if (selectedIndex >= 0) {
