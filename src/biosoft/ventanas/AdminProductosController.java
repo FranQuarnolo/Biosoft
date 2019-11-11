@@ -108,7 +108,7 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
     //Boton agregar
     @FXML
     private void apretarAgregar(ActionEvent event) {
-       //ACA DEBERIA GUARDAR LOS CAMBIOS DEL NUEVO PRODUCTO EN LA BASE
+    
         try {
             
         
@@ -177,7 +177,7 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
     private void apretarEliminarRegistro(ActionEvent event) {
         ConfirmacionVentanaController cn = new ConfirmacionVentanaController();
         //Obtengo si hay o no un elemento seleccionado (Esto es par que continue con el if o no)
-        int selectedIndex = listaProd.getSelectionModel().getSelectedIndex();
+        int selectedIndex = listaProd.getSelectionModel().getSelectedItem().getIdProd();
 
 //        Asigno el id del elemento seleccionado a una variable y se la mando al metodo de eliminar de la BD
 //        Producto idSeleccionado = listaProd.getItems().get(selectedIndex);
@@ -204,6 +204,8 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
                 nuevo.initModality(Modality.APPLICATION_MODAL);
                 System.out.println("Iniciando la ventana de confirmacion...");
                 //Inicio la ventana
+                ConfirmacionVentanaController confirm = FXMLLoader3.getController();
+                confirm.eliminarSeleccionado(selectedIndex);
                 nuevo.showAndWait();
 
             } catch (IOException e) {
