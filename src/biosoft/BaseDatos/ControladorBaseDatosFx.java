@@ -1,5 +1,6 @@
 package biosoft.BaseDatos;
 
+import biosoft.modelo.Cantidad;
 import biosoft.modelo.ControladorProducto;
 import biosoft.modelo.Producto;
 import java.sql.Connection;
@@ -336,5 +337,18 @@ public class ControladorBaseDatosFx {
         }
         
         return descuento;
+    }
+        
+       public void llenarCantidad(Connection connection, ObservableList<Cantidad> listaCantidad) {
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT * FROM cantidad");
+            while (rs.next()) {
+                listaCantidad.add(new Cantidad(rs.getInt("idCantidad"), rs.getString("nombre"), rs.getFloat("descuento")));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en llenarCantidad");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

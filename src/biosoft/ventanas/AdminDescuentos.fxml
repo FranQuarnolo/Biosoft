@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.AdminDescuentosController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.AdminDescuentosController">
    <children>
       <AnchorPane prefHeight="44.0" prefWidth="900.0" style="-fx-background-color: #2F4F4F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -58,10 +58,10 @@
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <TableView layoutX="5.0" layoutY="28.0" prefHeight="142.0" prefWidth="218.0">
+            <TableView fx:id="listaCant" layoutX="5.0" layoutY="28.0" prefHeight="142.0" prefWidth="218.0">
               <columns>
-                <TableColumn prefWidth="161.0" text="Cantidad" />
-                  <TableColumn prefWidth="75.0" text="Monto" />
+                <TableColumn fx:id="nombre" prefWidth="161.0" text="Cantidad" />
+                  <TableColumn fx:id="descuentoCant" prefWidth="75.0" text="Monto" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
