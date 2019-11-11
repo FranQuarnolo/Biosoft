@@ -131,9 +131,9 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
                     System.out.println("Seleccione un elemento por favor");
                     //Inicio la ventana
                     nuevo.showAndWait();
-            //Agregar alerta que hay campos incompletos o erroneos
+           
         }
-       //Crear alerta que se agrego correctamente el producto
+    
     }
 
     //Boton modificar

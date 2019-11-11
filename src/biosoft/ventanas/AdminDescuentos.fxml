@@ -108,7 +108,7 @@
             <TextField layoutX="228.0" layoutY="380.0" prefHeight="32.0" prefWidth="191.0" />
             <TextField layoutX="678.0" layoutY="67.0" prefHeight="32.0" prefWidth="191.0" />
             <TextField layoutX="678.0" layoutY="223.0" prefHeight="32.0" prefWidth="191.0" />
-            <Label layoutX="231.0" layoutY="47.0" text="Editar campo seleccionado">
+            <Label layoutX="231.0" layoutY="47.0" text="Editar campos seleccionados">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
@@ -121,7 +121,7 @@
                   <ColorAdjust brightness="-1.0" contrast="1.0" hue="0.93" saturation="-0.52" />
                </effect>
             </ImageView>
-            <Label layoutX="231.0" layoutY="206.0" text="Editar campo seleccionado">
+            <Label layoutX="231.0" layoutY="206.0" text="Editar campos seleccionados">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
@@ -134,7 +134,7 @@
                   <ColorAdjust brightness="-1.0" contrast="1.0" hue="0.93" saturation="-0.52" />
                </effect>
             </ImageView>
-            <Label layoutX="228.0" layoutY="360.0" text="Editar campo seleccionado">
+            <Label layoutX="228.0" layoutY="360.0" text="Editar campos seleccionados">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
@@ -147,7 +147,7 @@
                   <ColorAdjust brightness="-1.0" contrast="1.0" hue="0.93" saturation="-0.52" />
                </effect>
             </ImageView>
-            <Label layoutX="678.0" layoutY="47.0" text="Editar campo seleccionado">
+            <Label layoutX="678.0" layoutY="47.0" text="Editar campos seleccionados">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
@@ -160,7 +160,7 @@
                   <ColorAdjust brightness="-1.0" contrast="1.0" hue="0.93" saturation="-0.52" />
                </effect>
             </ImageView>
-            <Label layoutX="679.0" layoutY="203.0" text="Editar campo seleccionado">
+            <Label layoutX="679.0" layoutY="203.0" text="Editar campos seleccionados">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
@@ -173,6 +173,11 @@
                   <ColorAdjust brightness="-1.0" contrast="1.0" hue="0.93" saturation="-0.52" />
                </effect>
             </ImageView>
+            <TextField layoutX="231.0" layoutY="106.0" prefHeight="32.0" prefWidth="191.0" />
+            <TextField layoutX="229.0" layoutY="267.0" prefHeight="32.0" prefWidth="191.0" />
+            <TextField layoutX="228.0" layoutY="420.0" prefHeight="32.0" prefWidth="191.0" />
+            <TextField layoutX="678.0" layoutY="106.0" prefHeight="32.0" prefWidth="191.0" />
+            <TextField layoutX="678.0" layoutY="262.0" prefHeight="32.0" prefWidth="191.0" />
          </children>
       </AnchorPane>
    </children>

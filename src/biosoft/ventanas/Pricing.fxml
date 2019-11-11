@@ -137,8 +137,8 @@
             <GridPane alignment="CENTER" layoutX="21.0" layoutY="59.0" prefHeight="308.0" prefWidth="707.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="59.0">
               <columnConstraints>
                   <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="140.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="159.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="26.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.0" minWidth="10.0" prefWidth="252.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="0.0" prefWidth="0.0" />
                   <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="153.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="205.0" minWidth="10.0" prefWidth="205.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="43.0" />
@@ -206,7 +206,7 @@
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Dev. Bidones" textFill="#171717" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                  <Label text="Devolucion Bidones" textFill="#171717" GridPane.columnIndex="1" GridPane.rowIndex="9">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
@@ -214,7 +214,7 @@
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Contrato de Aprov." textFill="#171717" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                  <Label text="Contrato de Aprovisionamiento" textFill="#171717" GridPane.columnIndex="1" GridPane.rowIndex="10">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
@@ -224,12 +224,12 @@
                   </Label>
                   <Label text="Precio Original" textFill="#171717" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="11">
                      <font>
-                        <Font name="Arial Bold" size="14.0" />
+                        <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
                   <Label text="Precio Descuento" textFill="#171717" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="11">
                      <font>
-                        <Font name="Arial Bold" size="14.0" />
+                        <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
                   <ComboBox fx:id="tipoProducto" onAction="#cargarComboBoxNombre" prefHeight="28.0" prefWidth="163.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="1">
@@ -309,7 +309,7 @@
                   </Pane>
                </children>
             </GridPane>
-            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="381.0" layoutY="508.0" mnemonicParsing="false" onAction="#apretarCancelar" prefHeight="35.0" prefWidth="95.0" style="-fx-background-color: #757575; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-color: #000000;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="374.0">
+            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="597.0" layoutY="507.0" mnemonicParsing="false" onAction="#apretarCancelar" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #6495ED; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #000000;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="212.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
@@ -319,11 +319,6 @@
                   <Font name="Arial Black" size="13.0" />
                </font>
             </Button>
-            <Label layoutX="401.0" layoutY="518.0" mouseTransparent="true" text="Cancelar" textFill="#f2f2f2" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="394.0">
-               <font>
-                  <Font name="Arial Bold" size="13.0" />
-               </font>
-            </Label>
             <Label layoutX="689.0" layoutY="516.0" mouseTransparent="true" onDragDetected="#apretarFinalizar" text="Consultar Precio" textFill="#f2f2f2" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="32.0">
                <font>
                   <Font name="Arial Bold" size="16.0" />
@@ -335,6 +330,11 @@
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
+            <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="604.0" layoutY="510.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="218.0">
+               <image>
+                  <Image url="@../images/brocha.png" />
+               </image>
+            </ImageView>
          </children>
          <effect>
             <InnerShadow radius="7.035" width="9.14" />
