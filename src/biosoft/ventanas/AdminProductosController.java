@@ -177,7 +177,13 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
     private void apretarEliminarRegistro(ActionEvent event) {
         ConfirmacionVentanaController cn = new ConfirmacionVentanaController();
         //Obtengo si hay o no un elemento seleccionado (Esto es par que continue con el if o no)
-        int selectedIndex = listaProd.getSelectionModel().getSelectedItem().getIdProd();
+        int selectedIndex=-1;
+        try {
+             selectedIndex = listaProd.getSelectionModel().getSelectedItem().getIdProd();
+        } catch (Exception e) {
+             System.out.println("Error" + e);
+        }
+        
 
 //        Asigno el id del elemento seleccionado a una variable y se la mando al metodo de eliminar de la BD
 //        Producto idSeleccionado = listaProd.getItems().get(selectedIndex);

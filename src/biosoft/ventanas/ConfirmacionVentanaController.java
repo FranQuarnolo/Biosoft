@@ -17,7 +17,6 @@ public class ConfirmacionVentanaController {
     @FXML
     private Button btnSi;
     
-   
 
     public ConfirmacionVentanaController() {
     }
@@ -28,7 +27,6 @@ public class ConfirmacionVentanaController {
        //Recibe el indice q lo manda a la accion presionarSi
         this.indice = idProd;
 
- 
     }  
     
     //Boton presionar si
@@ -42,7 +40,6 @@ public class ConfirmacionVentanaController {
         
         ((Node) (event.getSource())).getScene().getWindow().hide();
         ConfirmacionVentanaController sd = new ConfirmacionVentanaController();
-        
         
     }
 
