@@ -135,13 +135,69 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
         nombrePlazo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         descuentoPlazo.setCellValueFactory(new PropertyValueFactory<>("descuento"));
     }
-    
+     @FXML
+     public void apretarReload(ActionEvent event) {
+        listaCantidad = FXCollections.observableArrayList();
+        ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+        db.llenarCantidad(db.getConexion(), listaCantidad);
+        listaCant.setItems(listaCantidad);
+        idCant.setCellValueFactory(new PropertyValueFactory<>("idCantidad"));
+        nombreCant.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        descuentoCant.setCellValueFactory(new PropertyValueFactory<>("descuento"));
+        
+        //Aca carga los de la lista de DESTINO
+        listaDestino = FXCollections.observableArrayList();
+        db.llenarDestino(db.getConexion(), listaDestino);
+        listaDest.setItems(listaDestino);
+        idDest.setCellValueFactory(new PropertyValueFactory<>("idDestino"));
+        nombreDest.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        descuentoDest.setCellValueFactory(new PropertyValueFactory<>("descuento"));
+        
+        //Aca carga los de la lista de ORIGEN
+        listaOrigen = FXCollections.observableArrayList();
+        db.llenarOrigen(db.getConexion(), listaOrigen);
+        listaOrig.setItems(listaOrigen);
+        idOrig.setCellValueFactory(new PropertyValueFactory<>("idOrigen"));
+        nombreOrig.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        descuentoOrig.setCellValueFactory(new PropertyValueFactory<>("descuento"));
+        
+        //Aca carga los de la lista de TIEMPO DE ENTREGA
+        listaTiempoEntrega = FXCollections.observableArrayList();
+        db.llenarTiempoEntrega(db.getConexion(), listaTiempoEntrega);
+        listaTiempo.setItems(listaTiempoEntrega);
+        idTiempoEntrega.setCellValueFactory(new PropertyValueFactory<>("idTiempodeEntrega"));
+        nombreTiempoEntrega.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        descuentoTiempoEntrega.setCellValueFactory(new PropertyValueFactory<>("descuento"));
+        
+         //Aca carga los de la lista de PLAZO DE PAGO
+        listaPlazoPago = FXCollections.observableArrayList();
+        db.llenarPlazoPago(db.getConexion(), listaPlazoPago);
+        listaPlazo.setItems(listaPlazoPago);
+        idPlazo.setCellValueFactory(new PropertyValueFactory<>("idPlazoDePago"));
+        nombrePlazo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        descuentoPlazo.setCellValueFactory(new PropertyValueFactory<>("descuento"));
+    }
    
 
     //Boton Editar
     @FXML
     private void apretarEditar(ActionEvent event) {
        try {
+           int VerificadorDeDescuento=0;
+            if(listaCant.getSelectionModel().getSelectedItem()!=null){
+                VerificadorDeDescuento=1;
+            }else if(listaDest.getSelectionModel().getSelectedItem()!=null){
+                VerificadorDeDescuento=2;
+            }else if(listaOrig.getSelectionModel().getSelectedItem()!=null){
+                VerificadorDeDescuento=3;
+            }else if(listaTiempo.getSelectionModel().getSelectedItem()!=null){
+                VerificadorDeDescuento=4;
+            }else if(listaPlazo.getSelectionModel().getSelectedItem()!=null){
+                VerificadorDeDescuento=5;
+            }
+            System.out.println(VerificadorDeDescuento);
+            
+            
             //Cargo el archivo fxml
             FXMLLoader FXMLLoader7 = new FXMLLoader(getClass().getResource("AdminEditarDescuentos.fxml"));
             Parent root8 = (Parent) FXMLLoader7.load();
@@ -153,7 +209,27 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
             editar.initModality(Modality.APPLICATION_MODAL);
             System.out.println("Editando campo seleccionado");
             //Inicio la ventana
+            AdminEditarDescuentosController editarDes = FXMLLoader7.getController();
+            switch(VerificadorDeDescuento){
+                case 1:
+                    
+                    editarDes.MetodoCantidad(listaCant.getSelectionModel().getSelectedItem());
+                    break;
+                case 2: 
+                    editarDes.MetodoDestino(listaDest.getSelectionModel().getSelectedItem());
+                    break;
+                case 3:
+                    editarDes.MetodoOrigen(listaOrig.getSelectionModel().getSelectedItem());
+                    break;
+                case 4:
+                    editarDes.MetodoTiempoEntrega(listaTiempo.getSelectionModel().getSelectedItem());
+                    break;
+                case 5:
+                    editarDes.MetodoPlazoPago(listaPlazo.getSelectionModel().getSelectedItem());
+                    break;
+            }
             editar.showAndWait();
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
