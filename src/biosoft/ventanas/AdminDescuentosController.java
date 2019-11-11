@@ -39,11 +39,12 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
     
     @Override
     public void initialize(URL location, ResourceBundle rb) {
-        System.out.println("estoy aca");
+        
         listaCantidad = FXCollections.observableArrayList();
         ControladorBaseDatosFx db = new ControladorBaseDatosFx();
         db.llenarCantidad(db.getConexion(), listaCantidad);
         listaCant.setItems(listaCantidad);
+        //Comentada porque no esta en el tableview
 //        idCant.setCellValueFactory(new PropertyValueFactory<>("idCantidad"));
         nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         descuentoCant.setCellValueFactory(new PropertyValueFactory<>("descuento"));

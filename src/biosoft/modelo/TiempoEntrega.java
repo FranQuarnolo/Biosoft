@@ -2,35 +2,35 @@ package biosoft.modelo;
 
 /**
  *
- * @author Andres
+ * @author Wayne
  */
-public class Cantidad {
-    private int idCantidad;
+public class TiempoEntrega {
+     private int idTiempodeEntrega;
     private String nombre;
     private float descuento;
     
-    public Cantidad() {
+    public TiempoEntrega() {
         this(0,null,0);
     }
     
-    public Cantidad(int idCantidad,String nombre,  float descuento) {
-        this.idCantidad = idCantidad;
+    public TiempoEntrega(int idTiempodeEntrega,String nombre,  float descuento) {
+        this.idTiempodeEntrega = idTiempodeEntrega;
         this.nombre = nombre;
         this.descuento = descuento;
     }
 
     /**
-     * @return the id
+     * @return the idTiempodeEntrega
      */
-    public int getIdCantidad() {
-        return idCantidad;
+    public int getIdTiempodeEntrega() {
+        return idTiempodeEntrega;
     }
 
     /**
-     * @param id the id to set
+     * @param idTiempodeEntrega the idTiempodeEntrega to set
      */
-    public void setIdCantidad(int idCantidad) {
-        this.idCantidad = idCantidad;
+    public void setIdTiempodeEntrega(int idTiempodeEntrega) {
+        this.idTiempodeEntrega = idTiempodeEntrega;
     }
 
     /**
@@ -60,5 +60,8 @@ public class Cantidad {
     public void setDescuento(float descuento) {
         this.descuento = descuento;
     }
+    
+    
+    
     
 }
