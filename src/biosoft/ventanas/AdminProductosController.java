@@ -107,7 +107,7 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
 
     //Boton agregar
     @FXML
-    private void apretarAgregar(ActionEvent event) {
+    private void apretarAgregar(ActionEvent event) throws IOException {
     
         try {
             
@@ -119,7 +119,18 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
        ControladorProducto cp = new ControladorProducto();
        cp.insertarSQL(producto);
        } catch (Exception e) {
-            System.out.println(e);
+            //Cargo el archivo fxml
+                    FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("NoIngresaNada.fxml"));
+                    Parent root8 = (Parent) FXMLLoader3.load();
+                    Stage nuevo = new Stage();
+                    nuevo.setScene(new Scene(root8));
+                    nuevo.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/alert1.png")));
+                    nuevo.setTitle("No Seleccion!");
+                    nuevo.initStyle(StageStyle.UNDECORATED);
+                    nuevo.initModality(Modality.APPLICATION_MODAL);
+                    System.out.println("Seleccione un elemento por favor");
+                    //Inicio la ventana
+                    nuevo.showAndWait();
             //Agregar alerta que hay campos incompletos o erroneos
         }
        //Crear alerta que se agrego correctamente el producto
