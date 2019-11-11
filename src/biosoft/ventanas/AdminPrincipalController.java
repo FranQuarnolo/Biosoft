@@ -53,6 +53,7 @@ public class AdminPrincipalController {
 
             stage8.initModality(Modality.APPLICATION_MODAL);
             stage8.initStyle(StageStyle.UNDECORATED);
+//            stage8.setMaximized(true);
             stage8.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/logosinletras.png")));
             stage8.setTitle("Administrador");
             stage8.setScene(new Scene(root2));

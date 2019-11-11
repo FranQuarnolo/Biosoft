@@ -136,9 +136,12 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
         descuentoPlazo.setCellValueFactory(new PropertyValueFactory<>("descuento"));
     }
     
-    //Metodo para abrir ventana editar
-    public void ventanaEditar (ActionEvent event){
-         try {
+   
+
+    //Boton Editar
+    @FXML
+    private void apretarEditar(ActionEvent event) {
+       try {
             //Cargo el archivo fxml
             FXMLLoader FXMLLoader7 = new FXMLLoader(getClass().getResource("AdminEditarDescuentos.fxml"));
             Parent root8 = (Parent) FXMLLoader7.load();
@@ -154,15 +157,6 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-    }
-
-    //Boton Editar
-    @FXML
-    private void apretarEditar(ActionEvent event) {
-        System.out.println("Hola me apretaste");
-//        AdminDescuentosController adc = new AdminDescuentosController();
-//        adc.apretarEditar(event);
     }
 
 //Boton Cerrar Sesion
