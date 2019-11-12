@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.AdminProductosController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.AdminProductosController">
    <children>
       <AnchorPane prefHeight="44.0" prefWidth="900.0" style="-fx-background-color: #2F4F4F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -106,7 +106,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#apretarAgregar" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #006400; -fx-background-radius: 7; -fx-border-color: #000000; -fx-border-radius: 7;" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+                  <Button defaultButton="true" mnemonicParsing="false" onAction="#apretarAgregar" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #006400; -fx-background-radius: 7; -fx-border-color: #000000; -fx-border-radius: 7;" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
                   <Label mouseTransparent="true" onDragDetected="#apretarAgregar" text="+Agregar" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
                      <font>
                         <Font name="Arial Bold" size="14.0" />

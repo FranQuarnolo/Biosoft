@@ -6,11 +6,8 @@ import biosoft.modelo.Destino;
 import biosoft.modelo.Origen;
 import biosoft.modelo.PlazoPago;
 import biosoft.modelo.TiempoEntrega;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 
@@ -91,6 +88,15 @@ public class AdminEditarDescuentosController  {
         }
     }
     
+    //Boton Guardar
+    @FXML
+    private void apretarGuardar(ActionEvent event){
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+        System.out.println("Guardando....");
+        
+    }
+    
+    //Boton volver
     @FXML
     private void apretarVolver(ActionEvent event) {
         ((Node) (event.getSource())).getScene().getWindow().hide();

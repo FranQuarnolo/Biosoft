@@ -135,6 +135,7 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
         nombrePlazo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         descuentoPlazo.setCellValueFactory(new PropertyValueFactory<>("descuento"));
     }
+    //Metodo actualizar listass
      @FXML
      public void apretarReload(ActionEvent event) {
         listaCantidad = FXCollections.observableArrayList();
@@ -234,8 +235,9 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
             e.printStackTrace();
         }
     }
-
-//Boton Cerrar Sesion
+    
+    
+    //Boton Cerrar Sesion
     @FXML
     private void apretarAtras(ActionEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();

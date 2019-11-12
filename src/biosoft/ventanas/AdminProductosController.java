@@ -46,14 +46,14 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
     private TableColumn<Producto, String> nombre;
     @FXML
     private TableColumn<Producto, String> precio;
-    
+
     @FXML
     private TextField nuevoNombre;
     @FXML
     private TextField nuevoTipo;
     @FXML
     private TextField nuevoPrecio;
-    
+
     private ObservableList<Producto> listaProducto;
 
     public AdminProductosController() {
@@ -73,44 +73,44 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
         nuevoNombre.setText("");
         nuevoTipo.setText("");
         nuevoPrecio.setText("");
-      
+
     }
-    
+
     //Boton agregar
     @FXML
     private void apretarAgregar(ActionEvent event) throws IOException {
-    
+
         try {
-       Producto producto = new Producto();
-       producto.setNombre(nuevoNombre.getText());
-       producto.setTipo(nuevoTipo.getText());
-       producto.setPrecio(Float.parseFloat(nuevoPrecio.getText()));
-       ControladorProducto cp = new ControladorProducto();
-       nuevoNombre.setText("");
-       nuevoTipo.setText("");
-       nuevoPrecio.setText("");
-       cp.insertarSQL(producto);
-       JOptionPane.showMessageDialog(null, "Producto agregado correctamente");
-       listaProd.getItems().clear();
-       ControladorBaseDatosFx db = new ControladorBaseDatosFx();
-       db.llenarProd(db.getConexion(), listaProducto);
-       listaProd.setItems(listaProducto);
-       } catch (Exception e) {
+            Producto producto = new Producto();
+            producto.setNombre(nuevoNombre.getText());
+            producto.setTipo(nuevoTipo.getText());
+            producto.setPrecio(Float.parseFloat(nuevoPrecio.getText()));
+            ControladorProducto cp = new ControladorProducto();
+            nuevoNombre.setText("");
+            nuevoTipo.setText("");
+            nuevoPrecio.setText("");
+            cp.insertarSQL(producto);
+            JOptionPane.showMessageDialog(null, "Producto agregado correctamente");
+            listaProd.getItems().clear();
+            ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+            db.llenarProd(db.getConexion(), listaProducto);
+            listaProd.setItems(listaProducto);
+        } catch (Exception e) {
             //Cargo el archivo fxml
-                    FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("NoIngresaNada.fxml"));
-                    Parent root8 = (Parent) FXMLLoader3.load();
-                    Stage nuevo = new Stage();
-                    nuevo.setScene(new Scene(root8));
-                    nuevo.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/alert1.png")));
-                    nuevo.setTitle("No Seleccion!");
-                    nuevo.initStyle(StageStyle.UNDECORATED);
-                    nuevo.initModality(Modality.APPLICATION_MODAL);
-                    System.out.println("Seleccione un elemento por favor");
-                    //Inicio la ventana
-                    nuevo.showAndWait();
-           
+            FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("NoIngresaNada.fxml"));
+            Parent root8 = (Parent) FXMLLoader3.load();
+            Stage nuevo = new Stage();
+            nuevo.setScene(new Scene(root8));
+            nuevo.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/alert1.png")));
+            nuevo.setTitle("No Seleccion!");
+            nuevo.initStyle(StageStyle.UNDECORATED);
+            nuevo.initModality(Modality.APPLICATION_MODAL);
+            System.out.println("Seleccione un elemento por favor");
+            //Inicio la ventana
+            nuevo.showAndWait();
+
         }
-       
+
     }
 
     //Boton modificar
@@ -120,11 +120,11 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
         try {
             Producto selectedProducto = listaProd.getSelectionModel().getSelectedItem();
             if (selectedProducto != null) {
-                
+
                 //Cargo el archivo fxml de la ventana de modificar
                 FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("AdminModificarProducto.fxml"));
                 Parent root2 = (Parent) FXMLLoader3.load();
-                
+
                 Stage modificar = new Stage();
                 modificar.setScene(new Scene(root2));
                 modificar.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/edit.png")));
@@ -136,6 +136,10 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
                 AdminModificarProductoController modif = FXMLLoader3.getController();
                 modif.initialize(selectedProducto);
                 modificar.showAndWait();
+                listaProd.getItems().clear();
+                ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+                db.llenarProd(db.getConexion(), listaProducto);
+                listaProd.setItems(listaProducto);
             } else {
                 try {
                     //Cargo el archivo fxml
@@ -150,6 +154,7 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
                     System.out.println("Seleccione un elemento por favor");
                     //Inicio la ventana
                     nuevo.showAndWait();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -165,13 +170,12 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
     private void apretarEliminarRegistro(ActionEvent event) throws SQLException {
         ConfirmacionVentanaController cn = new ConfirmacionVentanaController();
         //Obtengo si hay o no un elemento seleccionado (Esto es par que continue con el if o no)
-        int selectedIndex=-1;
+        int selectedIndex = -1;
         try {
-             selectedIndex = listaProd.getSelectionModel().getSelectedItem().getIdProd();
+            selectedIndex = listaProd.getSelectionModel().getSelectedItem().getIdProd();
         } catch (Exception e) {
-             System.out.println("Error" + e);
+            System.out.println("Error" + e);
         }
-        
 
 //Control de ventanas
         if (selectedIndex >= 0) {
@@ -194,7 +198,7 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
                 ControladorBaseDatosFx db = new ControladorBaseDatosFx();
                 db.llenarProd(db.getConexion(), listaProducto);
                 listaProd.setItems(listaProducto);
-                
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -219,10 +223,10 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
         }
         ControladorBaseDatosFx db = new ControladorBaseDatosFx();
         int n = db.contador1(db.getConexion(), listaProducto);
-        if(n == 0){
+        if (n == 0) {
             ControladorProducto cp = new ControladorProducto();
             cp.truncate();
-        }else{
+        } else {
             System.out.println("continue");
         }
     }
