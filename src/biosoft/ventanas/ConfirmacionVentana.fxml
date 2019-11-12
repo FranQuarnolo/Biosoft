@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="157.0" prefWidth="393.0" style="-fx-background-color: #757575;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.ConfirmacionVentanaController">
+<AnchorPane id="AnchorPane" prefHeight="157.0" prefWidth="393.0" style="-fx-background-color: #757575;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.ConfirmacionVentanaController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="393.0" style="-fx-background-color: #2F4F4F;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+      <AnchorPane prefHeight="200.0" prefWidth="393.0" style="-fx-background-color: #2F4F4F;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <children>
             <Button cancelButton="true" layoutX="68.0" layoutY="101.0" mnemonicParsing="false" onAction="#presionarCancelar" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #757575; -fx-background-radius: 10;" />
             <Button fx:id="btnSi" defaultButton="true" layoutX="241.0" layoutY="101.0" mnemonicParsing="false" onAction="#presionarSi" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #008000; -fx-background-radius: 10;" />

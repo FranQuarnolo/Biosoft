@@ -90,7 +90,18 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
             nuevoTipo.setText("");
             nuevoPrecio.setText("");
             cp.insertarSQL(producto);
-            JOptionPane.showMessageDialog(null, "Producto agregado correctamente");
+            //VENTANA 
+            FXMLLoader FXMLLoader9 = new FXMLLoader(getClass().getResource("AgregadoExitosamente.fxml"));
+            Parent root2 = (Parent) FXMLLoader9.load();
+            Stage exitosa = new Stage();
+            exitosa.setScene(new Scene(root2));
+            exitosa.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/new.png")));
+            exitosa.setTitle("Exito!");
+            exitosa.initStyle(StageStyle.UNDECORATED);
+            exitosa.initModality(Modality.APPLICATION_MODAL);
+            exitosa.showAndWait();
+            System.out.println("Producto agregado correctamente!");
+            //Refresca la lista
             listaProd.getItems().clear();
             ControladorBaseDatosFx db = new ControladorBaseDatosFx();
             db.llenarProd(db.getConexion(), listaProducto);
@@ -124,7 +135,6 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
                 //Cargo el archivo fxml de la ventana de modificar
                 FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("AdminModificarProducto.fxml"));
                 Parent root2 = (Parent) FXMLLoader3.load();
-
                 Stage modificar = new Stage();
                 modificar.setScene(new Scene(root2));
                 modificar.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/edit.png")));
@@ -136,6 +146,7 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
                 AdminModificarProductoController modif = FXMLLoader3.getController();
                 modif.initialize(selectedProducto);
                 modificar.showAndWait();
+                //Refresca la lista
                 listaProd.getItems().clear();
                 ControladorBaseDatosFx db = new ControladorBaseDatosFx();
                 db.llenarProd(db.getConexion(), listaProducto);
@@ -194,6 +205,7 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
                 ConfirmacionVentanaController confirm = FXMLLoader3.getController();
                 confirm.eliminarSeleccionado(selectedIndex);
                 nuevo.showAndWait();
+                //Refresca la lista
                 listaProd.getItems().clear();
                 ControladorBaseDatosFx db = new ControladorBaseDatosFx();
                 db.llenarProd(db.getConexion(), listaProducto);

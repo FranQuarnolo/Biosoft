@@ -1,7 +1,6 @@
 package biosoft.BaseDatos;
 
 import biosoft.modelo.Cantidad;
-import biosoft.modelo.ControladorProducto;
 import biosoft.modelo.Destino;
 import biosoft.modelo.Origen;
 import biosoft.modelo.PlazoPago;
@@ -104,7 +103,6 @@ public class ControladorBaseDatosFx {
             JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
     }
-
     //Metodo para llenar combo box por Tipo
     public ArrayList<String> llenarComboboxTipo(Connection connection) {
         ArrayList<String> listaTipo = new ArrayList<String>();
@@ -122,7 +120,6 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
-
     //Metodo para llenar combo box por Nombre
     public ArrayList<String> llenarComboboxNombre(Connection connection, String tipo) {
         ArrayList<String> listaTipo = new ArrayList<String>();
@@ -140,7 +137,6 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
-
     //Metodo para llenar combo box por Origen
     public ArrayList<String> llenarComboboxOrigen(Connection connection) {
         ArrayList<String> listaTipo = new ArrayList<String>();
@@ -158,7 +154,6 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
-
     //Metodo para llenar combo box por Plazo pago
     public ArrayList<String> llenarComboboxPlazoDePago(Connection connection) {
         ArrayList<String> listaTipo = new ArrayList<String>();
@@ -177,7 +172,6 @@ public class ControladorBaseDatosFx {
         return listaTipo;
     }
     //Metodo para llenar combo box por Cantidad
-
     public ArrayList<String> llenarComboboxCantidad(Connection connection) {
         ArrayList<String> listaTipo = new ArrayList<String>();
 
@@ -194,7 +188,6 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
-
     //Metodo para llenar combo box por Tiempo de Entrega
     public ArrayList<String> llenarComboboxTiempoDeEntrega(Connection connection) {
         ArrayList<String> listaTipo = new ArrayList<String>();
@@ -213,7 +206,6 @@ public class ControladorBaseDatosFx {
         return listaTipo;
     }
     //Metodo para llenar combo box por Destino
-
     public ArrayList<String> llenarComboboxDestino(Connection connection) {
         ArrayList<String> listaTipo = new ArrayList<String>();
 
@@ -230,7 +222,6 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
-
     // Metodo para llenar precio
     public float llenarPrecio(Connection connection, String nombreprod) {
         ArrayList<String> listaPrecio = new ArrayList<String>();
@@ -249,7 +240,8 @@ public class ControladorBaseDatosFx {
 
         return precio;
     }
-
+    
+    //Descuentos
     public float descuentoFormaDePago(Connection connection, int formaDePago) {
         ArrayList<String> formaDePagos = new ArrayList<String>();
         System.out.println("aca");
@@ -393,8 +385,7 @@ public class ControladorBaseDatosFx {
             System.out.println("Error en llenar Tiempo de entrega");
             JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
-    }
-    
+    } 
     //Metodo para llenar  Table view Plazo de Pago
     public void llenarPlazoPago(Connection connection, ObservableList<PlazoPago> listaPlazoPago) {
         try {

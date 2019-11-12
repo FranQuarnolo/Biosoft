@@ -279,7 +279,17 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
 
             if (selectedtipoPago < 0 || selectedcantidad < 0 || selectedTiempoEntrega < 0 || selectedDestino < 0) {
                 //CREA LA ALERTA AMIWIN
+                
+                FXMLLoader FXMLLoader11 = new FXMLLoader(getClass().getResource("CamposIncompletos.fxml"));
+                Parent root2 = (Parent) FXMLLoader11.load();
+                Stage camposfaltantes = new Stage();
+                camposfaltantes.setScene(new Scene(root2));
+                camposfaltantes.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/noAlert.png")));
+                camposfaltantes.setTitle("Campos Incompletos");
+                camposfaltantes.initStyle(StageStyle.UNDECORATED);
+                camposfaltantes.initModality(Modality.APPLICATION_MODAL);
                 System.out.println("Complete los campos");
+                camposfaltantes.showAndWait();
             } else {
                 precio = baseDatos.descuentoFormaDePago(baseDatos.getConexion(), selectedtipoPago) + baseDatos.descuentoCantidad(baseDatos.getConexion(), selectedcantidad) + baseDatos.descuentoTiempoEntrega(baseDatos.getConexion(), selectedTiempoEntrega) + baseDatos.descuentolugarEntrega(baseDatos.getConexion(), selectedDestino);
 
