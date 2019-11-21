@@ -30,7 +30,7 @@
             </ImageView>
             <TextField fx:id="tMonto" layoutX="75.0" layoutY="115.0" prefHeight="33.0" prefWidth="251.0" style="-fx-background-radius: 20;" />
             <Button layoutX="151.0" layoutY="161.0" mnemonicParsing="false" onAction="#apretarGuardar" prefHeight="33.0" prefWidth="99.0" style="-fx-background-color: #008000; -fx-background-radius: 10;" />
-            <Label layoutX="165.0" layoutY="167.0" text="Guardar" textFill="WHITE">
+            <Label layoutX="165.0" layoutY="167.0" mouseTransparent="true" text="Guardar" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
