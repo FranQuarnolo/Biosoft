@@ -46,13 +46,17 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
     private TableColumn<Producto, String> nombre;
     @FXML
     private TableColumn<Producto, String> precio;
-
+    @FXML
+    private TableColumn<Producto, String> presentacion;
+    
     @FXML
     private TextField nuevoNombre;
     @FXML
     private TextField nuevoTipo;
     @FXML
     private TextField nuevoPrecio;
+    @FXML
+    private TextField nuevaPresentacion;
 
     private ObservableList<Producto> listaProducto;
 
