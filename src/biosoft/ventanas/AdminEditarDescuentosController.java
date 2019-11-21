@@ -145,26 +145,9 @@ public class AdminEditarDescuentosController  {
     //Boton volver
      @FXML
     private void apretarVolver(ActionEvent event) {
-        try {
+      
             ((Node) (event.getSource())).getScene().getWindow().hide();
-            //Cargo el fxml de la ventana de admin
-            FXMLLoader FXMLLoader2 = new FXMLLoader(getClass().getResource("AdminDescuentos.fxml"));
-            Parent root2 = (Parent) FXMLLoader2.load();
-            Stage stage8 = new Stage();
-
-            stage8.initModality(Modality.APPLICATION_MODAL);
-            stage8.initStyle(StageStyle.UNDECORATED);
-//            stage8.setMaximized(true);
-            stage8.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/logosinletras.png")));
-            stage8.setTitle("Administrador");
-            stage8.setScene(new Scene(root2));
-            AdminDescuentosController modif = FXMLLoader2.getController();
-          //  modif.apretarReload(event);
-            stage8.show();
-
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+           
     }
     
 }
