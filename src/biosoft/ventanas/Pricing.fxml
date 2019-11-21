@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.PricingController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.PricingController">
    <children>
       <AnchorPane prefHeight="35.0" prefWidth="750.0" style="-fx-background-color: #2F4F4F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -232,14 +232,14 @@
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="tipoProducto" onAction="#cargarComboBoxNombre" prefHeight="28.0" prefWidth="163.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="1">
+                  <ComboBox fx:id="tipoProducto" onAction="#cargarComboBoxNombre" prefHeight="28.0" prefWidth="165.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="1">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin></ComboBox>
-                  <ComboBox fx:id="nombre" onAction="#cargarPrecios" prefHeight="28.0" prefWidth="166.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <ComboBox fx:id="nombre" onAction="#cargarPrecios" prefHeight="28.0" prefWidth="165.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -253,28 +253,28 @@
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin></ComboBox>
-                  <ComboBox fx:id="plazoPago" prefHeight="28.0" prefWidth="132.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <ComboBox fx:id="plazoPago" prefHeight="28.0" prefWidth="165.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin></ComboBox>
-                  <ComboBox fx:id="cantidad" prefHeight="28.0" prefWidth="159.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="4">
+                  <ComboBox fx:id="cantidad" prefHeight="28.0" prefWidth="165.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="4">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin></ComboBox>
-                  <ComboBox fx:id="tiempoEntrega" prefHeight="28.0" prefWidth="184.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                  <ComboBox fx:id="tiempoEntrega" prefHeight="28.0" prefWidth="165.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="4" GridPane.rowIndex="2">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin></ComboBox>
-                  <ComboBox fx:id="lugarEntrega" prefHeight="28.0" prefWidth="188.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                  <ComboBox fx:id="lugarEntrega" prefHeight="28.0" prefWidth="165.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="4" GridPane.rowIndex="4">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -312,7 +312,7 @@
                         <Font name="Arial Bold" size="16.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="presentacion" prefHeight="30.0" prefWidth="179.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                  <ComboBox fx:id="presentacion" prefHeight="30.0" prefWidth="165.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="4" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -324,7 +324,7 @@
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="627.0" layoutY="371.0" mnemonicParsing="false" onAction="#apretarFinalizar" prefHeight="37.0" prefWidth="163.0" style="-fx-background-color: #006400; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-color: #000000;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="15.0">
+            <Button alignment="CENTER" contentDisplay="TOP" defaultButton="true" layoutX="627.0" layoutY="371.0" mnemonicParsing="false" onAction="#apretarFinalizar" prefHeight="37.0" prefWidth="163.0" style="-fx-background-color: #006400; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-color: #000000;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="15.0">
                <font>
                   <Font name="Arial Black" size="13.0" />
                </font>
