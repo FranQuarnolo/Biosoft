@@ -263,24 +263,25 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
 
     //Botones inferiores
 
-    //Boton finalizar
+    //Boton Consultar
     @FXML
     private void apretarFinalizar(ActionEvent event) {
         System.out.println("Se Apreto Finalizar");
         float anterior = 0, precio = 0;
 
-        int selectedtipoPago = -1, selectedcantidad = -1, selectedTiempoEntrega = -1, selectedDestino = -1;
+        int selectedNombre=-1, selectedTipo=-1, selectedtipoPago = -1, selectedcantidad = -1, selectedTiempoEntrega = -1, selectedDestino = -1;
         try {
             anterior = Float.parseFloat(precioAnterior.getText());
-
+            
+            selectedNombre = nombre.getSelectionModel().getSelectedIndex();
+            selectedTipo =tipoProducto.getSelectionModel().getSelectedIndex();
             selectedtipoPago = plazoPago.getSelectionModel().getSelectedIndex();
             selectedcantidad = cantidad.getSelectionModel().getSelectedIndex();
             selectedTiempoEntrega = tiempoEntrega.getSelectionModel().getSelectedIndex();
             selectedDestino = lugarEntrega.getSelectionModel().getSelectedIndex();
 
-            System.out.println(selectedtipoPago);
 
-            if (selectedtipoPago < 0 || selectedcantidad < 0 || selectedTiempoEntrega < 0 || selectedDestino < 0) {
+            if (selectedNombre<0 || selectedTipo<0 || selectedtipoPago < 0 || selectedcantidad < 0 || selectedTiempoEntrega < 0 || selectedDestino < 0) {
                 //CREA LA ALERTA AMIWIN
                 
                 FXMLLoader FXMLLoader11 = new FXMLLoader(getClass().getResource("CamposIncompletos.fxml"));
@@ -295,9 +296,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
                 camposfaltantes.showAndWait();
             } else {
                 precio = baseDatos.descuentoFormaDePago(baseDatos.getConexion(), selectedtipoPago) + baseDatos.descuentoCantidad(baseDatos.getConexion(), selectedcantidad) + baseDatos.descuentoTiempoEntrega(baseDatos.getConexion(), selectedTiempoEntrega) + baseDatos.descuentolugarEntrega(baseDatos.getConexion(), selectedDestino);
-
                 precio = anterior - precio;
-                System.out.println(precio);
                 monto.setText(Float.toString(precio));
 
             }
