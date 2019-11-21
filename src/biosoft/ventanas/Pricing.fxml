@@ -307,6 +307,16 @@
                         <Insets left="15.0" right="10.0" />
                      </GridPane.margin>
                   </Pane>
+                  <Label text="Presentación:" textFill="#171717" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="presentacion" prefHeight="30.0" prefWidth="179.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </ComboBox>
                </children>
             </GridPane>
             <Button alignment="CENTER" cancelButton="true" contentDisplay="TOP" layoutX="597.0" layoutY="507.0" mnemonicParsing="false" onAction="#apretarLimpiar" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: #6495ED; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #000000;" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="212.0">

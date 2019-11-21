@@ -66,6 +66,9 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
 
     @FXML
     private ComboBox<String> lugarEntrega;
+    
+    @FXML
+    private ComboBox<String> presentacion;
 
     @FXML
     private Label precioAnterior;
