@@ -187,14 +187,19 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
            int VerificadorDeDescuento=0;
             if(listaCant.getSelectionModel().getSelectedItem()!=null){
                 VerificadorDeDescuento=1;
+
             }else if(listaDest.getSelectionModel().getSelectedItem()!=null){
                 VerificadorDeDescuento=2;
+
             }else if(listaOrig.getSelectionModel().getSelectedItem()!=null){
                 VerificadorDeDescuento=3;
+
             }else if(listaTiempo.getSelectionModel().getSelectedItem()!=null){
                 VerificadorDeDescuento=4;
+  
             }else if(listaPlazo.getSelectionModel().getSelectedItem()!=null){
                 VerificadorDeDescuento=5;
+
             }
             System.out.println(VerificadorDeDescuento);
             
@@ -215,18 +220,38 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
                 case 1:
                     
                     editarDes.MetodoCantidad(listaCant.getSelectionModel().getSelectedItem());
+                                    listaCant.getItems().clear();
+                ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+                db.llenarCantidad(db.getConexion(), listaCantidad);
+                listaCant.setItems(listaCantidad);
                     break;
                 case 2: 
                     editarDes.MetodoDestino(listaDest.getSelectionModel().getSelectedItem());
+                                    listaDest.getItems().clear();
+                ControladorBaseDatosFx db1 = new ControladorBaseDatosFx();
+                db1.llenarDestino(db1.getConexion(), listaDestino);
+                listaDest.setItems(listaDestino);
                     break;
                 case 3:
                     editarDes.MetodoOrigen(listaOrig.getSelectionModel().getSelectedItem());
+                                    listaOrig.getItems().clear();
+                ControladorBaseDatosFx db2 = new ControladorBaseDatosFx();
+                db2.llenarOrigen(db2.getConexion(), listaOrigen);
+                listaOrig.setItems(listaOrigen);
                     break;
                 case 4:
                     editarDes.MetodoTiempoEntrega(listaTiempo.getSelectionModel().getSelectedItem());
+                                  listaTiempo.getItems().clear();
+                ControladorBaseDatosFx db3 = new ControladorBaseDatosFx();
+                db3.llenarTiempoEntrega(db3.getConexion(), listaTiempoEntrega);
+                listaTiempo.setItems(listaTiempoEntrega);
                     break;
                 case 5:
                     editarDes.MetodoPlazoPago(listaPlazo.getSelectionModel().getSelectedItem());
+                                    listaPlazo.getItems().clear();
+                ControladorBaseDatosFx db4 = new ControladorBaseDatosFx();
+                db4.llenarPlazoPago(db4.getConexion(), listaPlazoPago);
+                listaPlazo.setItems(listaPlazoPago);
                     break;
             }
             editar.showAndWait();
