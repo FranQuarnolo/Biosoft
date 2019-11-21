@@ -265,11 +265,11 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
 
     //Boton Consultar
     @FXML
-    private void apretarFinalizar(ActionEvent event) {
+    private void apretarFinalizar(ActionEvent event) throws IOException {
         System.out.println("Se Apreto Finalizar");
         float anterior = 0, precio = 0;
 
-        int selectedNombre=-1, selectedTipo=-1, selectedtipoPago = -1, selectedcantidad = -1, selectedTiempoEntrega = -1, selectedDestino = -1;
+        int selectedNombre, selectedTipo, selectedtipoPago , selectedcantidad , selectedTiempoEntrega , selectedDestino;
         try {
             anterior = Float.parseFloat(precioAnterior.getText());
             
@@ -301,6 +301,16 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
 
             }
         } catch (Exception e) {
+            FXMLLoader FXMLLoader11 = new FXMLLoader(getClass().getResource("CamposIncompletos.fxml"));
+                Parent root2 = (Parent) FXMLLoader11.load();
+                Stage camposfaltantes = new Stage();
+                camposfaltantes.setScene(new Scene(root2));
+                camposfaltantes.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/noAlert.png")));
+                camposfaltantes.setTitle("Campos Incompletos");
+                camposfaltantes.initStyle(StageStyle.UNDECORATED);
+                camposfaltantes.initModality(Modality.APPLICATION_MODAL);
+                System.out.println("Complete los campos");
+                camposfaltantes.showAndWait();
             System.out.println("Seleccione el nombre del producto");
 
         }
