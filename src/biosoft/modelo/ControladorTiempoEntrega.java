@@ -59,7 +59,7 @@ public class ControladorTiempoEntrega extends ControladorBaseDatosFx {
         try {
             System.out.println(te.getIdTiempodeEntrega());
             
-            String SQL = String.format(actualizarSQL,te.getNombre(),te.getDescuento());
+            String SQL = String.format(actualizarSQL,te.getNombre(),te.getDescuento(),te.getIdTiempodeEntrega());
             Statement sentencia = getConexion().createStatement();
             sentencia.execute(SQL);
             System.out.println(SQL);

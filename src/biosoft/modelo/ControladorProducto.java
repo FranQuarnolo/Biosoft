@@ -23,7 +23,7 @@ public class ControladorProducto extends ControladorBaseDatosFx {
     private String insertarSQL = "INSERT INTO `producto`(`nombre`, `tipo`,`precio`) VALUES('%s', '%s',%s)";
     private String buscarPorIdSQL = "SELECT * FROM producto WHERE idProd = %s";
     private String buscarTodosSQL = "SELECT * FROM producto";
-    private String actualizarSQL= "UPDATE producto SET nombre = '%s' , tipo='%s' , precio =%s WHERE idProd = %s "; //arreglar
+    private String actualizarSQL= "UPDATE producto SET nombre = '%s' , tipo='%s' , precio =%s WHERE idProd = %s "; 
     private String eliminarSQL= "DELETE FROM `producto` WHERE `idProd`=%s";
     private String truncateSQL= "TRUNCATE TABLE `producto`";
 

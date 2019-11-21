@@ -59,7 +59,7 @@ public class ControladorCantidad extends ControladorBaseDatosFx {
         try {
             System.out.println(c.getIdCantidad());
             
-            String SQL = String.format(actualizarSQL,c.getNombre(),c.getDescuento());
+            String SQL = String.format(actualizarSQL,c.getNombre(),c.getDescuento(),c.getIdCantidad());
             Statement sentencia = getConexion().createStatement();
             sentencia.execute(SQL);
             System.out.println(SQL);

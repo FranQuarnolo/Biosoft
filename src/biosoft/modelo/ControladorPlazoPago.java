@@ -59,7 +59,7 @@ public class ControladorPlazoPago extends ControladorBaseDatosFx {
         try {
             System.out.println(pp.getIdPlazoDePago());
             
-            String SQL = String.format(actualizarSQL,pp.getNombre(),pp.getDescuento());
+            String SQL = String.format(actualizarSQL,pp.getNombre(),pp.getDescuento(),pp.getIdPlazoDePago());
             Statement sentencia = getConexion().createStatement();
             sentencia.execute(SQL);
             System.out.println(SQL);

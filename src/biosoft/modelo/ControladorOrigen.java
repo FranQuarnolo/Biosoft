@@ -59,7 +59,7 @@ public class ControladorOrigen extends ControladorBaseDatosFx {
         try {
             System.out.println(o.getIdOrigen());
             
-            String SQL = String.format(actualizarSQL,o.getNombre(),o.getDescuento());
+            String SQL = String.format(actualizarSQL,o.getNombre(),o.getDescuento(),o.getIdOrigen());
             Statement sentencia = getConexion().createStatement();
             sentencia.execute(SQL);
             System.out.println(SQL);
