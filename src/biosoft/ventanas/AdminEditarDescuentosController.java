@@ -117,23 +117,29 @@ public class AdminEditarDescuentosController  {
         }else if(destino!=null){
             System.out.println("destino");
             ControladorDestino controlDestino = new ControladorDestino();
+            destino.setNombre(tNombre.getText());
+            destino.setDescuento(Float.parseFloat(tMonto.getText()));
             controlDestino.actualizarSQL(destino);
         }else if(origen!=null){
             System.out.println("origen");
             ControladorOrigen controlOrigen = new ControladorOrigen();
+            origen.setNombre(tNombre.getText());
+            origen.setDescuento(Float.parseFloat(tMonto.getText()));
             controlOrigen.actualizarSQL(origen);
         }else if(tiempoEntrega!=null){
             System.out.println("Tiempo Entrega");
             ControladorTiempoEntrega controlTiempoEntrega = new ControladorTiempoEntrega();
+            tiempoEntrega.setNombre(tNombre.getText());
+            tiempoEntrega.setDescuento(Float.parseFloat(tMonto.getText()));
             controlTiempoEntrega.actualizarSQL(tiempoEntrega);
         }else if(plazoPago!=null){
             System.out.println("Plazo Pago");
             ControladorPlazoPago controlPlazoPago = new ControladorPlazoPago();
+            plazoPago.setNombre(tNombre.getText());
+            plazoPago.setDescuento(Float.parseFloat(tMonto.getText()));
             controlPlazoPago.actualizarSQL(plazoPago);
         }
-        
-        
-        
+ 
     }
     
     //Boton volver

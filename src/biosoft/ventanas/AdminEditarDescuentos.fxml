@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="213.0" prefWidth="409.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.AdminEditarDescuentosController">
+<AnchorPane id="AnchorPane" prefHeight="213.0" prefWidth="409.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.AdminEditarDescuentosController">
    <children>
       <AnchorPane layoutX="5.0" layoutY="6.0" prefHeight="201.0" prefWidth="400.0" style="-fx-background-color: #2F4F4F;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <opaqueInsets>
@@ -29,7 +29,7 @@
                </image>
             </ImageView>
             <TextField fx:id="tMonto" layoutX="75.0" layoutY="115.0" prefHeight="33.0" prefWidth="251.0" style="-fx-background-radius: 20;" />
-            <Button layoutX="151.0" layoutY="161.0" mnemonicParsing="false" onAction="#apretarGuardar" prefHeight="33.0" prefWidth="99.0" style="-fx-background-color: #008000; -fx-background-radius: 10;" />
+            <Button defaultButton="true" layoutX="151.0" layoutY="161.0" mnemonicParsing="false" onAction="#apretarGuardar" prefHeight="33.0" prefWidth="99.0" style="-fx-background-color: #008000; -fx-background-radius: 10;" />
             <Label layoutX="165.0" layoutY="167.0" mouseTransparent="true" text="Guardar" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
