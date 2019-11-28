@@ -73,6 +73,7 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
         idProd.setCellValueFactory(new PropertyValueFactory<>("idProd"));
         tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        presentacion.setCellValueFactory(new PropertyValueFactory<>("presentacion"));
         precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         nuevoNombre.setText("");
         nuevoTipo.setText("");
@@ -88,10 +89,12 @@ public class AdminProductosController extends ControladorBaseDatosFx implements 
             Producto producto = new Producto();
             producto.setNombre(nuevoNombre.getText());
             producto.setTipo(nuevoTipo.getText());
+            producto.setPresentacion(nuevaPresentacion.getText());
             producto.setPrecio(Float.parseFloat(nuevoPrecio.getText()));
             ControladorProducto cp = new ControladorProducto();
             nuevoNombre.setText("");
             nuevoTipo.setText("");
+            nuevaPresentacion.setText("");
             nuevoPrecio.setText("");
             cp.insertarSQL(producto);
             //VENTANA 

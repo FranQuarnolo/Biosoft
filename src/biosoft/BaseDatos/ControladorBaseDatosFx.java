@@ -80,7 +80,7 @@ public class ControladorBaseDatosFx {
             Statement ps = connection.createStatement();
             ResultSet rs = ps.executeQuery("SELECT * FROM producto");
             while (rs.next()) {
-                listaProducto.add(new Producto(rs.getInt("idProd"), rs.getString("nombre"), rs.getString("tipo"), rs.getFloat("precio")));
+                listaProducto.add(new Producto(rs.getInt("idProd"), rs.getString("nombre"), rs.getString("tipo"), rs.getString("presentacion"), rs.getFloat("precio")));
             }
         } catch (SQLException e) {
             System.out.println("Error aca");
@@ -96,7 +96,7 @@ public class ControladorBaseDatosFx {
                     + " or `nombre` LIKE '%" + producto + "' "
                     + "or `nombre` LIKE '" + producto + "%'");
             while (rs.next()) {
-                listaProducto.add(new Producto(rs.getInt("idProd"), rs.getString("nombre"), rs.getString("tipo"), rs.getFloat("precio")));
+                listaProducto.add(new Producto(rs.getInt("idProd"), rs.getString("nombre"), rs.getString("tipo"),  rs.getString("presentacion"), rs.getFloat("precio")));
             }
         } catch (SQLException e) {
             System.out.println("Error aca");
@@ -126,7 +126,7 @@ public class ControladorBaseDatosFx {
         // String q="SELECT tipo FROM `producto`";
         try {
             Statement ps = connection.createStatement();
-            ResultSet rs = ps.executeQuery("SELECT nombre FROM producto WHERE `tipo` LIKE '%" + tipo + "%' ");
+            ResultSet rs = ps.executeQuery("SELECT DISTINCT nombre FROM producto WHERE `tipo` LIKE '%" + tipo + "%' ");
             while (rs.next()) {
                 listaTipo.add(rs.getString("nombre"));
             }
@@ -137,6 +137,25 @@ public class ControladorBaseDatosFx {
 
         return listaTipo;
     }
+    
+     //Metodo para llenar combo box por Presentacion
+    public ArrayList<String> llenarComboboxPresentacion(Connection connection, String tipo,String nombre) {
+        ArrayList<String> listaPresentacion = new ArrayList<String>();
+        // String q="SELECT tipo FROM `producto`";
+        try {
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT DISTINCT presentacion FROM producto WHERE `tipo` LIKE '%" + tipo + "%' AND `nombre` LIKE '%" + nombre + "%' ");
+            while (rs.next()) {
+                listaPresentacion.add(rs.getString("presentacion"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error aca");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+
+        return listaPresentacion;
+    }
+    
     //Metodo para llenar combo box por Origen
     public ArrayList<String> llenarComboboxOrigen(Connection connection) {
         ArrayList<String> listaTipo = new ArrayList<String>();
@@ -223,12 +242,12 @@ public class ControladorBaseDatosFx {
         return listaTipo;
     }
     // Metodo para llenar precio
-    public float llenarPrecio(Connection connection, String nombreprod) {
+    public float llenarPrecio(Connection connection,String tipo ,String nombreprod,String presentacion) {
         ArrayList<String> listaPrecio = new ArrayList<String>();
         float precio = 0;
         try {
             Statement ps = connection.createStatement();
-            ResultSet rs = ps.executeQuery("SELECT precio FROM producto WHERE nombre = '" + nombreprod + "'");
+            ResultSet rs = ps.executeQuery("SELECT precio FROM producto WHERE `tipo` LIKE '%" + tipo + "%' AND `nombre` LIKE '%" + nombreprod + "%' AND `presentacion` LIKE '%" + presentacion + "%' ");
             while (rs.next()) {
                 listaPrecio.add(rs.getString("precio"));
             }
@@ -287,7 +306,7 @@ public class ControladorBaseDatosFx {
 
         return descuento;
     }
-
+    
     public float descuentoTiempoEntrega(Connection connection, int tiempoEntrega) {
         ArrayList<String> tiempoEntregas = new ArrayList<String>();
         System.out.println("aca");
@@ -331,6 +350,61 @@ public class ControladorBaseDatosFx {
             JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
 
+        return descuento;
+    }
+    
+    //Descuento Cliente Importante
+    public float descuentoClienteImpor(Connection connection) {
+        ArrayList<String> lista = new ArrayList<String>();        
+        float descuento = 0;
+        try {            
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT clienteimportante FROM descuentoitems ");
+            while (rs.next()) {
+                lista.add(rs.getString("clienteimportante"));
+            }           
+            descuento = Float.parseFloat(lista.get(0));
+        } catch (SQLException e) {
+            System.out.println("Error metodo descuentoClienteImport");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+        return descuento;
+    }
+    
+    //Metodo Descuento Devolucion de bidones
+    public float descuentoDevolBidones(Connection connection) {
+        ArrayList<String> lista = new ArrayList<String>();        
+        float descuento = 0;
+        try {            
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT devolucionbidones FROM descuentoitems ");
+            while (rs.next()) {
+                lista.add(rs.getString("devolucionbidones"));
+            }           
+            descuento = Float.parseFloat(lista.get(0));
+        } catch (SQLException e) {
+            System.out.println("Error metodo descuentodevolucionbidones");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+        return descuento;
+    }
+    
+    //Metodo Descuento Contrato de Aprovicionamiento
+    
+    public float descuentoContratoAprov(Connection connection) {
+        ArrayList<String> lista = new ArrayList<String>();        
+        float descuento = 0;
+        try {            
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT contratoaprov FROM descuentoitems ");
+            while (rs.next()) {
+                lista.add(rs.getString("contratoaprov"));
+            }           
+            descuento = Float.parseFloat(lista.get(0));
+        } catch (SQLException e) {
+            System.out.println("Error metodo descuentodevolucionbidones");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
         return descuento;
     }
     

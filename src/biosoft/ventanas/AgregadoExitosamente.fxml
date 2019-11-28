@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="159.0" prefWidth="329.0" style="-fx-background-color: #696969;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="biosoft.ventanas.AgregadoExitosamenteController">
+<AnchorPane id="AnchorPane" prefHeight="159.0" prefWidth="329.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.AgregadoExitosamenteController">
    <children>
       <AnchorPane layoutX="4.0" layoutY="4.0" prefHeight="153.0" prefWidth="321.0" style="-fx-background-color: #2F4F4F;" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
          <opaqueInsets>
@@ -22,7 +21,7 @@
                </font>
             </Label>
             <Button cancelButton="true" defaultButton="true" layoutX="131.0" layoutY="104.0" mnemonicParsing="false" onAction="#apretarOK" prefHeight="33.0" prefWidth="60.0" style="-fx-background-color: #008000; -fx-background-radius: 60;" />
-            <Label layoutX="144.0" layoutY="110.0" text="OK!" textFill="WHITE">
+            <Label layoutX="144.0" layoutY="110.0" mouseTransparent="true" text="OK!" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>

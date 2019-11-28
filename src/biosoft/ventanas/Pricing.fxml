@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.PricingController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biosoft.ventanas.PricingController">
    <children>
       <AnchorPane prefHeight="35.0" prefWidth="750.0" style="-fx-background-color: #2F4F4F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -239,7 +239,7 @@
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin></ComboBox>
-                  <ComboBox fx:id="nombre" onAction="#cargarPrecios" prefHeight="28.0" prefWidth="165.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <ComboBox fx:id="nombre" onAction="#cargarComboBoxPresentacion" prefHeight="28.0" prefWidth="165.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -312,7 +312,7 @@
                         <Font name="Arial Bold" size="16.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="presentacion" disable="true" prefHeight="30.0" prefWidth="165.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                  <ComboBox fx:id="presentacion" onAction="#cargarPrecios" prefHeight="30.0" prefWidth="165.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" GridPane.columnIndex="4" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>

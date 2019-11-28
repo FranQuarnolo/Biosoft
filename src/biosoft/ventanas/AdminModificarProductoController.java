@@ -19,6 +19,8 @@ public class AdminModificarProductoController {
     @FXML
     private TextField tTipo;
     @FXML
+    private TextField tPresentacion;
+    @FXML
     private TextField tPrecio;
     
     private Producto producto;
@@ -34,9 +36,10 @@ public class AdminModificarProductoController {
             System.out.println(producto.getNombre());
             System.out.println(producto.getTipo());
             System.out.println(producto.getPrecio());
-            tTipo.setText(producto.getTipo());
-            System.out.println("1");
+            System.out.println(producto.getPresentacion());
+            tTipo.setText(producto.getTipo());            
             tNombre.setText(producto.getNombre());
+            tPresentacion.setText(producto.getPresentacion());
             tPrecio.setText(Float.toString(producto.getPrecio()));
 
         } catch (Exception e) {
@@ -58,6 +61,7 @@ public class AdminModificarProductoController {
          prod.setIdProd(producto.getIdProd());
          prod.setNombre(tNombre.getText());
          prod.setTipo(tTipo.getText());
+         prod.setPresentacion(tPresentacion.getText());        
          prod.setPrecio(Float.parseFloat(tPrecio.getText()));
          ControladorProducto controlP = new ControladorProducto();
          controlP.actualizarSQL(prod);

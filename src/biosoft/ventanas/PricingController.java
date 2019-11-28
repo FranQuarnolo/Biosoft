@@ -31,6 +31,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
 
     ObservableList listaTipoComboBox = FXCollections.observableArrayList();
     ObservableList listaNombreComboBox = FXCollections.observableArrayList();
+    ObservableList listaPresentacionComboBox = FXCollections.observableArrayList();
     ObservableList listaOrigenComboBox = FXCollections.observableArrayList();
     ObservableList listaPlazoPagoComboBox = FXCollections.observableArrayList();
     ObservableList listaCantidadComboBox = FXCollections.observableArrayList();
@@ -117,12 +118,31 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
         }
 
     }
+    
+    //Carga la presentacion
+    public void cargarComboBoxPresentacion(ActionEvent event) {
+        String selectedTipo = tipoProducto.getSelectionModel().getSelectedItem();
+        String selectedNombre = nombre.getSelectionModel().getSelectedItem();
+
+        listaPresentacionComboBox.removeAll(listaPresentacionComboBox);
+        presentacion.getItems().clear();
+        ArrayList<String> listaNombre = new ArrayList<String>();
+        listaNombre = baseDatos.llenarComboboxPresentacion(baseDatos.getConexion(), selectedTipo,selectedNombre);
+        System.out.println(listaNombre);
+        for (int i = 0; i < listaNombre.size(); i++) {
+            presentacion.getItems().addAll(listaNombre.get(i));
+        }
+
+    }
+    
     // Metodo para cargar precio mas caro
     public void cargarPrecios(ActionEvent event) {
+        String selectedTipo = tipoProducto.getSelectionModel().getSelectedItem();
         String selectedNombre = nombre.getSelectionModel().getSelectedItem();
+        String selectedPresentacion = presentacion.getSelectionModel().getSelectedItem();
         float precio;
 
-        precio = baseDatos.llenarPrecio(baseDatos.getConexion(), selectedNombre);
+        precio = baseDatos.llenarPrecio(baseDatos.getConexion(), selectedTipo,selectedNombre,selectedPresentacion);
 
         precioAnterior.setText(Float.toString(precio));
     }
@@ -268,7 +288,6 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
     private void apretarFinalizar(ActionEvent event) throws IOException {
         System.out.println("Se Apreto Finalizar");
         float anterior = 0, precio = 0;
-
         int selectedNombre, selectedTipo, selectedtipoPago , selectedcantidad , selectedTiempoEntrega , selectedDestino;
         try {
             anterior = Float.parseFloat(precioAnterior.getText());
@@ -296,6 +315,15 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
                 camposfaltantes.showAndWait();
             } else {
                 precio = baseDatos.descuentoFormaDePago(baseDatos.getConexion(), selectedtipoPago) + baseDatos.descuentoCantidad(baseDatos.getConexion(), selectedcantidad) + baseDatos.descuentoTiempoEntrega(baseDatos.getConexion(), selectedTiempoEntrega) + baseDatos.descuentolugarEntrega(baseDatos.getConexion(), selectedDestino);
+                if(DEV_Bidones.isSelected()){
+                    precio= precio + baseDatos.descuentoDevolBidones(getConexion());
+                }
+                if(contratoDeAprov.isSelected()){
+                    precio= precio + baseDatos.descuentoContratoAprov(getConexion());
+                }
+                if(clienteImportante.isSelected()){
+                    precio= precio + baseDatos.descuentoClienteImpor(getConexion());
+                }
                 precio = anterior - precio;
                 monto.setText(Float.toString(precio));
 

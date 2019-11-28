@@ -6,16 +6,18 @@ public class Producto {
     private int idProd;
     private String nombre;
     private String tipo;
+    private String presentacion;
     private float precio;
     
         public Producto() {
-        this(0,null, null,0);
+        this(0,null, null, null,0);
     }
     
-    public Producto(int idProd,String nombre, String tipo,  float precio) {
+    public Producto(int idProd,String nombre, String tipo, String presentacion,  float precio) {
         this.idProd = idProd;
         this.tipo = tipo;
         this.nombre = nombre;
+        this.presentacion = presentacion;
         this.precio = precio;
     }
  
@@ -49,5 +51,19 @@ public class Producto {
     
     public void setPrecio(float precio){
         this.precio = precio;
+    }
+
+    /**
+     * @return the presentacion
+     */
+    public String getPresentacion() {
+        return presentacion;
+    }
+
+    /**
+     * @param presentacion the presentacion to set
+     */
+    public void setPresentacion(String presentacion) {
+        this.presentacion = presentacion;
     }
 }
