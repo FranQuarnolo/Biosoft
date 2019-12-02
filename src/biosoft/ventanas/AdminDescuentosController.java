@@ -82,20 +82,19 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
     private TableColumn<PlazoPago, String> nombrePlazo;
     @FXML
     private TableColumn<PlazoPago, String> descuentoPlazo;
-    
+
     private ObservableList<Cantidad> listaCantidad;
     private ObservableList<Destino> listaDestino;
     private ObservableList<Origen> listaOrigen;
     private ObservableList<TiempoEntrega> listaTiempoEntrega;
     private ObservableList<PlazoPago> listaPlazoPago;
-    
+
     @FXML
     private TextField clienteImportante;
     @FXML
     private TextField devolucion;
     @FXML
     private TextField contrato;
-    
 
     public AdminDescuentosController() {
 
@@ -144,46 +143,42 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
         idPlazo.setCellValueFactory(new PropertyValueFactory<>("idPlazoDePago"));
         nombrePlazo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         descuentoPlazo.setCellValueFactory(new PropertyValueFactory<>("descuento"));
-        
-        
+
         //Aca carga los descuentos de los Check
         clienteImportante.setText(Float.toString(db.descuentoClienteImpor(db.getConexion())));
         devolucion.setText(Float.toString(db.descuentoDevolBidones(db.getConexion())));
         contrato.setText(Float.toString(db.descuentoContratoAprov(db.getConexion())));
     }
-    
-    public void actualizar(){
-            
-                    listaCant.getItems().clear();
-                    ControladorBaseDatosFx db = new ControladorBaseDatosFx();
-                    db.llenarCantidad(db.getConexion(), listaCantidad);
-                    listaCant.setItems(listaCantidad);
-                
-                    listaDest.getItems().clear();
-                    ControladorBaseDatosFx db1 = new ControladorBaseDatosFx();
-                    db1.llenarDestino(db1.getConexion(), listaDestino);
-                    listaDest.setItems(listaDestino);
-                
-                
-                    listaOrig.getItems().clear();
-                    ControladorBaseDatosFx db2 = new ControladorBaseDatosFx();
-                    db2.llenarOrigen(db2.getConexion(), listaOrigen);
-                    listaOrig.setItems(listaOrigen);
-                
-                
-                    listaTiempo.getItems().clear();
-                    ControladorBaseDatosFx db3 = new ControladorBaseDatosFx();
-                    db3.llenarTiempoEntrega(db3.getConexion(), listaTiempoEntrega);
-                    listaTiempo.setItems(listaTiempoEntrega);
-                
-                
-                    listaPlazo.getItems().clear();
-                    ControladorBaseDatosFx db4 = new ControladorBaseDatosFx();
-                    db4.llenarPlazoPago(db4.getConexion(), listaPlazoPago);
-                    listaPlazo.setItems(listaPlazoPago);
-            
+
+    public void actualizar() {
+
+        listaCant.getItems().clear();
+        ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+        db.llenarCantidad(db.getConexion(), listaCantidad);
+        listaCant.setItems(listaCantidad);
+
+        listaDest.getItems().clear();
+        ControladorBaseDatosFx db1 = new ControladorBaseDatosFx();
+        db1.llenarDestino(db1.getConexion(), listaDestino);
+        listaDest.setItems(listaDestino);
+
+        listaOrig.getItems().clear();
+        ControladorBaseDatosFx db2 = new ControladorBaseDatosFx();
+        db2.llenarOrigen(db2.getConexion(), listaOrigen);
+        listaOrig.setItems(listaOrigen);
+
+        listaTiempo.getItems().clear();
+        ControladorBaseDatosFx db3 = new ControladorBaseDatosFx();
+        db3.llenarTiempoEntrega(db3.getConexion(), listaTiempoEntrega);
+        listaTiempo.setItems(listaTiempoEntrega);
+
+        listaPlazo.getItems().clear();
+        ControladorBaseDatosFx db4 = new ControladorBaseDatosFx();
+        db4.llenarPlazoPago(db4.getConexion(), listaPlazoPago);
+        listaPlazo.setItems(listaPlazoPago);
+
     }
-    
+
     //Boton Editar
     @FXML
     private void apretarEditar(ActionEvent event) {
@@ -203,8 +198,8 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
 
             } else if (listaPlazo.getSelectionModel().getSelectedItem() != null) {
                 VerificadorDeDescuento = 5;
-            }else{
-                 try {
+            } else {
+                try {
                     //Cargo el archivo fxml
                     FXMLLoader FXMLLoader3 = new FXMLLoader(getClass().getResource("SeleccioneElemento.fxml"));
                     Parent root8 = (Parent) FXMLLoader3.load();
@@ -222,66 +217,82 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
                     e.printStackTrace();
                 }
             }
-            
+
             System.out.println(VerificadorDeDescuento);
-            if(VerificadorDeDescuento!=0){
-                
-            //Cargo el archivo fxml
-            FXMLLoader FXMLLoader7 = new FXMLLoader(getClass().getResource("AdminEditarDescuentos.fxml"));
-            Parent root8 = (Parent) FXMLLoader7.load();
-            Stage editar = new Stage();
-            editar.setScene(new Scene(root8));
-            editar.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/edit.png")));
-            editar.setTitle("Editar");
-            editar.initStyle(StageStyle.UNDECORATED);
-            editar.initModality(Modality.APPLICATION_MODAL);
-            System.out.println("Editando campo seleccionado");
-            //Inicio la ventana
-            AdminEditarDescuentosController editarDes = FXMLLoader7.getController();
-            switch (VerificadorDeDescuento) {
-                case 1:
-                    
-                    editarDes.MetodoCantidad(listaCant.getSelectionModel().getSelectedItem());
-                    listaCant.getItems().clear();
-                    ControladorBaseDatosFx db = new ControladorBaseDatosFx();
-                    db.llenarCantidad(db.getConexion(), listaCantidad);
-                    listaCant.setItems(listaCantidad);
-                    break;
-                case 2:
-                    editarDes.MetodoDestino(listaDest.getSelectionModel().getSelectedItem());
-                    listaDest.getItems().clear();
-                    ControladorBaseDatosFx db1 = new ControladorBaseDatosFx();
-                    db1.llenarDestino(db1.getConexion(), listaDestino);
-                    listaDest.setItems(listaDestino);
-                    break;
-                case 3:
-                    editarDes.MetodoOrigen(listaOrig.getSelectionModel().getSelectedItem());
-                    listaOrig.getItems().clear();
-                    ControladorBaseDatosFx db2 = new ControladorBaseDatosFx();
-                    db2.llenarOrigen(db2.getConexion(), listaOrigen);
-                    listaOrig.setItems(listaOrigen);
-                    break;
-                case 4:
-                    editarDes.MetodoTiempoEntrega(listaTiempo.getSelectionModel().getSelectedItem());
-                    listaTiempo.getItems().clear();
-                    ControladorBaseDatosFx db3 = new ControladorBaseDatosFx();
-                    db3.llenarTiempoEntrega(db3.getConexion(), listaTiempoEntrega);
-                    listaTiempo.setItems(listaTiempoEntrega);
-                    break;
-                case 5:
-                    editarDes.MetodoPlazoPago(listaPlazo.getSelectionModel().getSelectedItem());
-                    listaPlazo.getItems().clear();
-                    ControladorBaseDatosFx db4 = new ControladorBaseDatosFx();
-                    db4.llenarPlazoPago(db4.getConexion(), listaPlazoPago);
-                    listaPlazo.setItems(listaPlazoPago);
-                    break;
-            }
-            editar.showAndWait();
-            actualizar();
+            if (VerificadorDeDescuento != 0) {
+
+                //Cargo el archivo fxml
+                FXMLLoader FXMLLoader7 = new FXMLLoader(getClass().getResource("AdminEditarDescuentos.fxml"));
+                Parent root8 = (Parent) FXMLLoader7.load();
+                Stage editar = new Stage();
+                editar.setScene(new Scene(root8));
+                editar.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/edit.png")));
+                editar.setTitle("Editar");
+                editar.initStyle(StageStyle.UNDECORATED);
+                editar.initModality(Modality.APPLICATION_MODAL);
+                System.out.println("Editando campo seleccionado");
+                //Inicio la ventana
+                AdminEditarDescuentosController editarDes = FXMLLoader7.getController();
+                switch (VerificadorDeDescuento) {
+                    case 1:
+
+                        editarDes.MetodoCantidad(listaCant.getSelectionModel().getSelectedItem());
+                        listaCant.getItems().clear();
+                        ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+                        db.llenarCantidad(db.getConexion(), listaCantidad);
+                        listaCant.setItems(listaCantidad);
+                        break;
+                    case 2:
+                        editarDes.MetodoDestino(listaDest.getSelectionModel().getSelectedItem());
+                        listaDest.getItems().clear();
+                        ControladorBaseDatosFx db1 = new ControladorBaseDatosFx();
+                        db1.llenarDestino(db1.getConexion(), listaDestino);
+                        listaDest.setItems(listaDestino);
+                        break;
+                    case 3:
+                        editarDes.MetodoOrigen(listaOrig.getSelectionModel().getSelectedItem());
+                        listaOrig.getItems().clear();
+                        ControladorBaseDatosFx db2 = new ControladorBaseDatosFx();
+                        db2.llenarOrigen(db2.getConexion(), listaOrigen);
+                        listaOrig.setItems(listaOrigen);
+                        break;
+                    case 4:
+                        editarDes.MetodoTiempoEntrega(listaTiempo.getSelectionModel().getSelectedItem());
+                        listaTiempo.getItems().clear();
+                        ControladorBaseDatosFx db3 = new ControladorBaseDatosFx();
+                        db3.llenarTiempoEntrega(db3.getConexion(), listaTiempoEntrega);
+                        listaTiempo.setItems(listaTiempoEntrega);
+                        break;
+                    case 5:
+                        editarDes.MetodoPlazoPago(listaPlazo.getSelectionModel().getSelectedItem());
+                        listaPlazo.getItems().clear();
+                        ControladorBaseDatosFx db4 = new ControladorBaseDatosFx();
+                        db4.llenarPlazoPago(db4.getConexion(), listaPlazoPago);
+                        listaPlazo.setItems(listaPlazoPago);
+                        break;
+                }
+                editar.showAndWait();
+                actualizar();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    //Boton Agregar
+    @FXML
+    private void apretarAgregar(ActionEvent event) throws IOException {
+        System.out.println("Agregando Descuento....");
+        FXMLLoader FXMLLoader8 = new FXMLLoader(getClass().getResource("AdminAgregarDescuento.fxml"));
+        Parent root8 = (Parent) FXMLLoader8.load();
+        Stage agregar = new Stage();
+        agregar.setScene(new Scene(root8));
+        agregar.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/masSimbolo.png")));
+        agregar.setTitle("No Seleccion!");
+        agregar.initStyle(StageStyle.UNDECORATED);
+        agregar.initModality(Modality.APPLICATION_MODAL);
+        //Inicio la ventana
+        agregar.showAndWait();
     }
 
     //Boton Cerrar Sesion
@@ -296,25 +307,25 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
         appStage.toFront();
         appStage.show();
     }
-    
+
     @FXML
-    private void apretarEditarClienteImportante(ActionEvent event){
-         ControladorBaseDatosFx db = new ControladorBaseDatosFx();
-         String ClienteImportante = clienteImportante.getText();
-         db.editarClienteImpor(db.getConexion(),Float.parseFloat(ClienteImportante) );
+    private void apretarEditarClienteImportante(ActionEvent event) {
+        ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+        String ClienteImportante = clienteImportante.getText();
+        db.editarClienteImpor(db.getConexion(), Float.parseFloat(ClienteImportante));
     }
-    
+
     @FXML
-    private void apretarEditarDevolucionBidon(ActionEvent event){
-         ControladorBaseDatosFx db = new ControladorBaseDatosFx();
-         String ClienteImportante = devolucion.getText();
-         db.editarDevolucionBidones(db.getConexion(),Float.parseFloat(ClienteImportante) );
+    private void apretarEditarDevolucionBidon(ActionEvent event) {
+        ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+        String ClienteImportante = devolucion.getText();
+        db.editarDevolucionBidones(db.getConexion(), Float.parseFloat(ClienteImportante));
     }
-    
+
     @FXML
-    private void apretarEditarContratoAprov(ActionEvent event){
-         ControladorBaseDatosFx db = new ControladorBaseDatosFx();
-         String ClienteImportante = contrato.getText();
-         db.editarContratoAprov(db.getConexion(),Float.parseFloat(ClienteImportante) );
+    private void apretarEditarContratoAprov(ActionEvent event) {
+        ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+        String ClienteImportante = contrato.getText();
+        db.editarContratoAprov(db.getConexion(), Float.parseFloat(ClienteImportante));
     }
 }

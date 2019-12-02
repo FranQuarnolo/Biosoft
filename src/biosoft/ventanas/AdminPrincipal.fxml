@@ -25,13 +25,13 @@
             <Image url="@../images/logosinletras.png" />
          </image>
       </ImageView>
-      <Button layoutX="111.0" layoutY="77.0" mnemonicParsing="false" onAction="#apretarProductos" prefHeight="47.0" prefWidth="249.0" style="-fx-background-color: #6495ED; -fx-border-radius: 50; -fx-background-radius: 50; -fx-border-color: #000000;" />
+      <Button layoutX="111.0" layoutY="77.0" mnemonicParsing="false" onAction="#apretarProductos" prefHeight="47.0" prefWidth="249.0" style="-fx-background-color: #6495ED; -fx-border-radius: 50; -fx-background-radius: 50;" />
       <Label layoutX="147.0" layoutY="87.0" mouseTransparent="true" text="Listado de Productos" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="111.0" layoutY="156.0" mnemonicParsing="false" onAction="#apretarDescuentos" prefHeight="47.0" prefWidth="249.0" style="-fx-background-color: #6495ED; -fx-border-radius: 50; -fx-background-radius: 50; -fx-border-color: #000000;" />
+      <Button layoutX="111.0" layoutY="156.0" mnemonicParsing="false" onAction="#apretarDescuentos" prefHeight="47.0" prefWidth="249.0" style="-fx-background-color: #6495ED; -fx-border-radius: 50; -fx-background-radius: 50;" />
       <Label layoutX="141.0" layoutY="166.0" mouseTransparent="true" text="Listado de Descuentos" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
