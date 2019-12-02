@@ -273,7 +273,9 @@ public class ControladorBaseDatosFx {
             while (rs.next()) {
                 formaDePagos.add(rs.getString("descuento"));
             }
-            System.out.println("3");
+            System.out.println("33");
+            System.out.println(formaDePagos.get(0));
+            System.out.println("34");
             descuento = Float.parseFloat(formaDePagos.get(0));
 
         } catch (SQLException e) {
@@ -296,7 +298,8 @@ public class ControladorBaseDatosFx {
             while (rs.next()) {
                 cantidades.add(rs.getString("descuento"));
             }
-            System.out.println("3");
+            System.out.println("13");
+           
             descuento = Float.parseFloat(cantidades.get(0));
 
         } catch (SQLException e) {
@@ -329,7 +332,7 @@ public class ControladorBaseDatosFx {
 
         return descuento;
     }
-
+    
     public float descuentolugarEntrega(Connection connection, int lugarEntrega) {
         ArrayList<String> lugarEntregas = new ArrayList<String>();
         System.out.println("aca");
@@ -347,6 +350,29 @@ public class ControladorBaseDatosFx {
 
         } catch (SQLException e) {
             System.out.println("Error metodo descuentoCantidad");
+            JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
+
+        return descuento;
+    }
+
+    public float descuentoOrigen(Connection connection, int lugarOrigen) {
+        ArrayList<String> origenes = new ArrayList<String>();
+        System.out.println("aca");
+        float descuento = 0;
+        try {
+            System.out.println("1");
+            Statement ps = connection.createStatement();
+            ResultSet rs = ps.executeQuery("SELECT descuento FROM origen WHERE idOrigen = '" + lugarOrigen + "'");
+            System.out.println("2");
+            while (rs.next()) {
+                origenes.add(rs.getString("descuento"));
+            }
+            System.out.println("3");
+            descuento = Float.parseFloat(origenes.get(0));
+
+        } catch (SQLException e) {
+            System.out.println("Error metodo descuentoorigenes");
             JOptionPane.showMessageDialog(null, e, "Error: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
 

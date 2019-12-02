@@ -288,7 +288,7 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
     private void apretarFinalizar(ActionEvent event) throws IOException {
         System.out.println("Se Apreto Finalizar");
         float anterior = 0, precio = 0;
-        int selectedNombre, selectedTipo, selectedtipoPago , selectedcantidad , selectedTiempoEntrega , selectedDestino;
+        int selectedNombre, selectedTipo, selectedtipoPago , selectedcantidad , selectedTiempoEntrega , selectedDestino,selectedOrigen;
         try {
             anterior = Float.parseFloat(precioAnterior.getText());
             
@@ -298,11 +298,19 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
             selectedcantidad = cantidad.getSelectionModel().getSelectedIndex();
             selectedTiempoEntrega = tiempoEntrega.getSelectionModel().getSelectedIndex();
             selectedDestino = lugarEntrega.getSelectionModel().getSelectedIndex();
+            selectedOrigen = origenMercaderia.getSelectionModel().getSelectedIndex();
+            System.out.println(nombre.getSelectionModel().getSelectedIndex());
+            System.out.println(tipoProducto.getSelectionModel().getSelectedIndex());
+            System.out.println(plazoPago.getSelectionModel().getSelectedIndex());
+            System.out.println(lugarEntrega.getSelectionModel().getSelectedItem());
+            System.out.println(cantidad.getSelectionModel().getSelectedIndex());
+            System.out.println(tiempoEntrega.getSelectionModel().getSelectedIndex());
+            System.out.println(lugarEntrega.getSelectionModel().getSelectedIndex());
+            
 
-
-            if (selectedNombre<0 || selectedTipo<0 || selectedtipoPago < 0 || selectedcantidad < 0 || selectedTiempoEntrega < 0 || selectedDestino < 0) {
+            if (selectedNombre<0 || selectedTipo<0 || selectedtipoPago < 0 || selectedcantidad < 0 || selectedTiempoEntrega < 0 || selectedDestino < 0 || selectedOrigen < 0) {
                 //CREA LA ALERTA AMIWIN
-                
+                System.out.println("esta en el if");
                 FXMLLoader FXMLLoader11 = new FXMLLoader(getClass().getResource("CamposIncompletos.fxml"));
                 Parent root2 = (Parent) FXMLLoader11.load();
                 Stage camposfaltantes = new Stage();
@@ -314,7 +322,8 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
                 System.out.println("Complete los campos");
                 camposfaltantes.showAndWait();
             } else {
-                precio = baseDatos.descuentoFormaDePago(baseDatos.getConexion(), selectedtipoPago) + baseDatos.descuentoCantidad(baseDatos.getConexion(), selectedcantidad) + baseDatos.descuentoTiempoEntrega(baseDatos.getConexion(), selectedTiempoEntrega) + baseDatos.descuentolugarEntrega(baseDatos.getConexion(), selectedDestino);
+                precio = baseDatos.descuentoFormaDePago(baseDatos.getConexion(), selectedtipoPago) + baseDatos.descuentoCantidad(baseDatos.getConexion(), selectedcantidad) + baseDatos.descuentoTiempoEntrega(baseDatos.getConexion(), selectedTiempoEntrega) + baseDatos.descuentolugarEntrega(baseDatos.getConexion(), selectedDestino)+ baseDatos.descuentoOrigen(baseDatos.getConexion(),selectedOrigen);
+                System.out.println("linea 323");
                 if(DEV_Bidones.isSelected()){
                     precio= precio + baseDatos.descuentoDevolBidones(getConexion());
                 }
@@ -324,11 +333,13 @@ public class PricingController extends ControladorBaseDatosFx implements Initial
                 if(clienteImportante.isSelected()){
                     precio= precio + baseDatos.descuentoClienteImpor(getConexion());
                 }
+                System.out.println("linea 333");
                 precio = anterior - precio;
                 monto.setText(Float.toString(precio));
-
+                System.out.println("linea 336");
             }
         } catch (Exception e) {
+            System.out.println(e+" linea 339");
             FXMLLoader FXMLLoader11 = new FXMLLoader(getClass().getResource("CamposIncompletos.fxml"));
                 Parent root2 = (Parent) FXMLLoader11.load();
                 Stage camposfaltantes = new Stage();
