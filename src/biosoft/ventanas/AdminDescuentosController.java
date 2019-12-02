@@ -281,7 +281,7 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
 
     //Boton Agregar
     @FXML
-    private void apretarAgregar(ActionEvent event) throws IOException {
+    private void apretarAgregar1(ActionEvent event) throws IOException {
         System.out.println("Agregando Descuento....");
         FXMLLoader FXMLLoader8 = new FXMLLoader(getClass().getResource("AdminAgregarDescuento.fxml"));
         Parent root8 = (Parent) FXMLLoader8.load();
@@ -292,7 +292,87 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
         agregar.initStyle(StageStyle.UNDECORATED);
         agregar.initModality(Modality.APPLICATION_MODAL);
         //Inicio la ventana
+        AdminAgregarDescuentoController agregarDesc = FXMLLoader8.getController();
+        agregarDesc.recibirValor(1);
         agregar.showAndWait();
+        
+        actualizar();
+    }
+    
+    @FXML
+    private void apretarAgregar2(ActionEvent event) throws IOException {
+        System.out.println("Agregando Descuento....");
+        FXMLLoader FXMLLoader8 = new FXMLLoader(getClass().getResource("AdminAgregarDescuento.fxml"));
+        Parent root8 = (Parent) FXMLLoader8.load();
+        Stage agregar = new Stage();
+        agregar.setScene(new Scene(root8));
+        agregar.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/masSimbolo.png")));
+        agregar.setTitle("No Seleccion!");
+        agregar.initStyle(StageStyle.UNDECORATED);
+        agregar.initModality(Modality.APPLICATION_MODAL);
+        //Inicio la ventana
+        AdminAgregarDescuentoController agregarDesc = FXMLLoader8.getController();
+        agregarDesc.recibirValor(2);
+        agregar.showAndWait();
+        
+        actualizar();
+    }
+    
+    @FXML
+    private void apretarAgregar3(ActionEvent event) throws IOException {
+        System.out.println("Agregando Descuento....");
+        FXMLLoader FXMLLoader8 = new FXMLLoader(getClass().getResource("AdminAgregarDescuento.fxml"));
+        Parent root8 = (Parent) FXMLLoader8.load();
+        Stage agregar = new Stage();
+        agregar.setScene(new Scene(root8));
+        agregar.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/masSimbolo.png")));
+        agregar.setTitle("No Seleccion!");
+        agregar.initStyle(StageStyle.UNDECORATED);
+        agregar.initModality(Modality.APPLICATION_MODAL);
+        //Inicio la ventana
+        AdminAgregarDescuentoController agregarDesc = FXMLLoader8.getController();
+        agregarDesc.recibirValor(3);
+        agregar.showAndWait();
+        
+        actualizar();
+    }
+    
+    @FXML
+    private void apretarAgregar4(ActionEvent event) throws IOException {
+        System.out.println("Agregando Descuento....");
+        FXMLLoader FXMLLoader8 = new FXMLLoader(getClass().getResource("AdminAgregarDescuento.fxml"));
+        Parent root8 = (Parent) FXMLLoader8.load();
+        Stage agregar = new Stage();
+        agregar.setScene(new Scene(root8));
+        agregar.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/masSimbolo.png")));
+        agregar.setTitle("No Seleccion!");
+        agregar.initStyle(StageStyle.UNDECORATED);
+        agregar.initModality(Modality.APPLICATION_MODAL);
+        //Inicio la ventana
+        AdminAgregarDescuentoController agregarDesc = FXMLLoader8.getController();
+        agregarDesc.recibirValor(4);
+        agregar.showAndWait();
+        
+        actualizar();
+    }
+    
+    @FXML
+    private void apretarAgregar5(ActionEvent event) throws IOException {
+        System.out.println("Agregando Descuento....");
+        FXMLLoader FXMLLoader8 = new FXMLLoader(getClass().getResource("AdminAgregarDescuento.fxml"));
+        Parent root8 = (Parent) FXMLLoader8.load();
+        Stage agregar = new Stage();
+        agregar.setScene(new Scene(root8));
+        agregar.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("biosoft/images/masSimbolo.png")));
+        agregar.setTitle("No Seleccion!");
+        agregar.initStyle(StageStyle.UNDECORATED);
+        agregar.initModality(Modality.APPLICATION_MODAL);
+        //Inicio la ventana
+        AdminAgregarDescuentoController agregarDesc = FXMLLoader8.getController();
+        agregarDesc.recibirValor(5);
+        agregar.showAndWait();
+        
+        actualizar();
     }
 
     //Boton Cerrar Sesion
