@@ -296,5 +296,25 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
         appStage.toFront();
         appStage.show();
     }
-
+    
+    @FXML
+    private void apretarEditarClienteImportante(ActionEvent event){
+         ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+         String ClienteImportante = clienteImportante.getText();
+         db.editarClienteImpor(db.getConexion(),Float.parseFloat(ClienteImportante) );
+    }
+    
+    @FXML
+    private void apretarEditarDevolucionBidon(ActionEvent event){
+         ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+         String ClienteImportante = devolucion.getText();
+         db.editarDevolucionBidones(db.getConexion(),Float.parseFloat(ClienteImportante) );
+    }
+    
+    @FXML
+    private void apretarEditarContratoAprov(ActionEvent event){
+         ControladorBaseDatosFx db = new ControladorBaseDatosFx();
+         String ClienteImportante = contrato.getText();
+         db.editarContratoAprov(db.getConexion(),Float.parseFloat(ClienteImportante) );
+    }
 }

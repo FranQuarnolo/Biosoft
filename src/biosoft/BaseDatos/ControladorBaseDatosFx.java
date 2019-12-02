@@ -474,6 +474,43 @@ public class ControladorBaseDatosFx {
         }
     }
     
+    //Metodo Update Cliente Importante
+    public void editarClienteImpor(Connection connection,Float valor){
+        try {
+            String SQL = "UPDATE descuentoitems SET clienteimportante = "+valor;
+            Statement sentencia = getConexion().createStatement();
+            sentencia.execute(SQL);
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    
+    //Metodo Update Cliente Importante
+    public void editarDevolucionBidones(Connection connection,Float valor){
+        try {
+            String SQL = "UPDATE descuentoitems SET devolucionbidones = "+valor;
+            Statement sentencia = getConexion().createStatement();
+            sentencia.execute(SQL);
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    
+    //Metodo Update Cliente Importante
+    public void editarContratoAprov(Connection connection,Float valor){
+        try {
+            String SQL = "UPDATE descuentoitems SET contratoaprov = "+valor;
+            Statement sentencia = getConexion().createStatement();
+            sentencia.execute(SQL);
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    
+    
     public int contador1(Connection connection, ObservableList<Producto> listaproductos) {
         try {
             int n = 0;
