@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
+ *  contrato
  *
  * @author Wayne
  */

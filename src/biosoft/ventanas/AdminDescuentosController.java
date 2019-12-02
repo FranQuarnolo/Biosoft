@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
@@ -81,12 +82,20 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
     private TableColumn<PlazoPago, String> nombrePlazo;
     @FXML
     private TableColumn<PlazoPago, String> descuentoPlazo;
-
+    
     private ObservableList<Cantidad> listaCantidad;
     private ObservableList<Destino> listaDestino;
     private ObservableList<Origen> listaOrigen;
     private ObservableList<TiempoEntrega> listaTiempoEntrega;
     private ObservableList<PlazoPago> listaPlazoPago;
+    
+    @FXML
+    private TextField clienteImportante;
+    @FXML
+    private TextField devolucion;
+    @FXML
+    private TextField contrato;
+    
 
     public AdminDescuentosController() {
 
