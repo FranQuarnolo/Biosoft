@@ -144,6 +144,12 @@ public class AdminDescuentosController extends ControladorBaseDatosFx implements
         idPlazo.setCellValueFactory(new PropertyValueFactory<>("idPlazoDePago"));
         nombrePlazo.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         descuentoPlazo.setCellValueFactory(new PropertyValueFactory<>("descuento"));
+        
+        
+        //Aca carga los descuentos de los Check
+        clienteImportante.setText(Float.toString(db.descuentoClienteImpor(db.getConexion())));
+        devolucion.setText(Float.toString(db.descuentoDevolBidones(db.getConexion())));
+        contrato.setText(Float.toString(db.descuentoContratoAprov(db.getConexion())));
     }
     
     public void actualizar(){
